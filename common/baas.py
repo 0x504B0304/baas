@@ -166,6 +166,7 @@ class Baas:
                 if not no_task:
                     self.log_title("🎉🎉🎉 任务全部执行成功 🎉🎉🎉" + suffix)
                     print(self.get_latest_task_datetime())
+                    restart.stop(self)
                 no_task = True
                 time.sleep(3)
                 continue
