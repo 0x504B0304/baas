@@ -121,7 +121,3 @@ For Windows
 ```bash
 $ pyinstaller -F launcher.py --name Baas_Windows --icon='assets/images/ba.ico'
 ```
-
-### 赞助
-
-![](docs/sponsor.jpg)
