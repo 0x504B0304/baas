@@ -18,6 +18,16 @@
             "text": "重启设置"
         }
     },
+    "stop": {
+        "base": {
+            "enable": false,
+            "index": 999,
+            "next": "2023-11-17 00:00:00",
+            "end": "",
+            "interval": 3888,
+            "text": "重启设置"
+        }
+    },
     "env_check": {
         "base": {
             "enable": true,

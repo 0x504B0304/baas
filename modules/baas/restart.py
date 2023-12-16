@@ -9,6 +9,12 @@ x = {
 }
 
 
+def stop(self):
+    pkg = self.bc['baas']['base']['package']
+    self.log_title("关闭BA")
+    self.d.app_stop(pkg)
+
+
 def only_start(self):
     # 重启应用
     pkg = self.bc['baas']['base']['package']

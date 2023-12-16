@@ -34,6 +34,7 @@ func_dict = {
     'exp_hard_task': exp_hard_task.start,
     'hard_task': hard_task.start,
     'mailbox': mailbox.start,
+    'stop': restart.stop,
     'restart': restart.start,
     'env_check': env_check.start,
     'tutor_dept': tutor_dept.start,
@@ -163,6 +164,7 @@ class Baas:
             if fn is None:
                 if not no_task:
                     self.log_title("🎉🎉🎉 任务全部执行成功 🎉🎉🎉" + suffix)
+                    print(self.get_latest_task_datetime())
                 no_task = True
                 time.sleep(3)
                 continue
@@ -225,6 +227,32 @@ class Baas:
             return queue[0]['task'], queue[0]['con']
         return None, None
 
+    def get_latest_task_datetime(self):
+        self.load_config()
+        queue = []
+        if hasattr(self, 'next_task') and self.next_task != '':
+            nt = self.next_task
+            self.next_task = ''
+            self.log_title("执行关联任务【{0}】".format(self.bc[nt]['base']['text']))
+            return nt, self.bc[nt]
+        for ba_task, con in self.bc.items():
+            if ba_task == 'baas':
+                continue
+            if con['base']['next'] == '':
+                con['base']['next'] = datetime.now().strftime('%Y-%m-%d 00:00:00')
+            # 超出截止时间
+            if not con['base']['enable'] or (
+                    con['base']['end'] != '' and datetime.strptime(con['base']['end'],
+                                                                   "%Y-%m-%d %H:%M:%S") < datetime.now()):
+                continue
+            # 时间未到
+            if datetime.strptime(con['base']['next'], "%Y-%m-%d %H:%M:%S") >= datetime.now():
+                task = {'index': con['base']['index'], 'next': con['base']['next'], 'task': ba_task, 'con': con}
+                queue.append(task)
+        queue.sort(key=lambda x: (x['index'], datetime.strptime(x['next'], "%Y-%m-%d %H:%M:%S")))
+        if len(queue) > 0:
+            return queue[0]['task'], queue[0]['con']
+        return None, None
     def task_schedule(self, run_task):
         self.load_config()
         running = []

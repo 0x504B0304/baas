@@ -1,7 +1,7 @@
 {
     "baas": {
         "base": {
-            "package": "com.RoamingStar.BlueArchive",
+            "package": "com.RoamingStar.BlueArchive.bilibili",
             "serial": "127.0.0.1:16384",
             "ss_rate": 0.1,
             "compare_mode": "mse",
@@ -18,11 +18,21 @@
             "text": "重启设置"
         }
     },
+    "stop": {
+        "base": {
+            "enable": true,
+            "index": 79,
+            "next": "2023-12-16 05:16:31",
+            "end": "",
+            "interval": 3888,
+            "text": "关闭设置"
+        }
+    },
     "env_check": {
         "base": {
             "enable": true,
             "index": -99999999,
-            "next": "2023-11-17 00:00:00",
+            "next": "2027-02-15 13:43:43",
             "end": "",
             "interval": 99999999,
             "text": "环境检查"
@@ -32,7 +42,7 @@
         "base": {
             "enable": true,
             "index": -999,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-16 04:57:52",
             "end": "",
             "interval": 3600,
             "link_task": "",
@@ -47,7 +57,7 @@
         "base": {
             "enable": true,
             "index": 10,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -88,7 +98,7 @@
         "base": {
             "enable": true,
             "index": 20,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-16 04:59:08",
             "end": "",
             "interval": 3600,
             "link_task": "",
@@ -115,7 +125,7 @@
         "base": {
             "enable": true,
             "index": 30,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -141,7 +151,7 @@
         "base": {
             "enable": true,
             "index": 40,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -152,7 +162,7 @@
         "base": {
             "enable": true,
             "index": 50,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -180,7 +190,7 @@
         "base": {
             "enable": true,
             "index": 60,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -198,7 +208,7 @@
         "base": {
             "enable": true,
             "index": 65,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-16 05:10:57",
             "end": "",
             "interval": 3600,
             "link_task": "",
@@ -212,7 +222,7 @@
         "base": {
             "enable": true,
             "index": 70,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -230,7 +240,7 @@
         "base": {
             "enable": true,
             "index": 80,
-            "next": "2023-11-17 00:00:00",
+            "next": "2023-12-17 05:00:00",
             "end": "",
             "interval": 0,
             "link_task": "",
@@ -268,7 +278,7 @@
     },
     "buy_ap": {
         "base": {
-            "enable": true,
+            "enable": false,
             "index": 100,
             "next": "2023-11-17 00:00:00",
             "end": "",
@@ -313,7 +323,7 @@
     },
     "tutor_dept": {
         "base": {
-            "enable": true,
+            "enable": false,
             "index": 200,
             "next": "2023-11-17 00:00:00",
             "end": "",
@@ -335,9 +345,9 @@
     },
     "fhx": {
         "base": {
-            "enable": true,
+            "enable": false,
             "index": -99999,
-            "next": "2023-11-17 00:00:00",
+            "next": "2055-08-24 05:44:14",
             "end": "",
             "interval": 999999999,
             "link_task": "",

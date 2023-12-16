@@ -41,6 +41,8 @@ def menus_list():
             'child': [
                 {'name': 'baas', 'text': 'Baas设置'},
                 {'name': 'restart', 'text': '重启设置'},
+                {'name': 'stop', 'text': '关闭设置'},
+                {'name': 'start', 'text': '开启设置'},
                 {'name': 'env_check', 'text': '环境检查'},
                 {'name': 'fhx', 'text': '反和谐'},
             ]
