@@ -8,6 +8,10 @@ from skimage.metrics import structural_similarity
 from common import stage, position, config
 
 
+class DetectError(Exception):
+    pass
+
+
 def screenshot_cut_old(self, area, before_wait=0, need_loading=True, ss_path=None, ss_file=''):
     ss_img = screenshot_cut(self, area, before_wait, need_loading)
     # 创建目录
@@ -108,7 +112,8 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
         self.logger.info("compare_image %s SSIM:%.2f Result:%s", name, ssim, compare)
     if not compare and retry > 0:
         if 100 < retry < 989 and retry % 10 == 0:
-            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(self.bc['baas']['base']['compare_mode']))
+            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(
+                self.bc['baas']['base']['compare_mode']))
         if mis_fu is not None:
             mis_fu(*mis_argv)
             time.sleep(rate)
@@ -135,7 +140,8 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None):
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:
-            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(self.bc['baas']['base']['compare_mode']))
+            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(
+                self.bc['baas']['base']['compare_mode']))
         stage.wait_loading(self)
         self.latest_img_array = self.get_screenshot_array()  # 每次公用一张截图
         if pre_func is not None:
@@ -147,6 +153,8 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None):
             elif res[0] == 'click':
                 time.sleep(self.bc['baas']['base']['ss_rate'])
                 continue
+        if i > 100:
+            raise DetectError
 
         # region 结束图片可能会出现的位置
         if type(end) is str:

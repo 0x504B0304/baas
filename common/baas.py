@@ -10,6 +10,7 @@ from cnocr import CnOcr
 from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt, position, color
+from common.image import DetectError
 from modules.activity import tutor_dept, summer_vacation
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
@@ -176,9 +177,15 @@ class Baas:
                 self.tc['task'] = fn
                 self.finish_seconds = 0
                 self.log_title("开始执行【" + tc['base']['text'] + "】")
-                func_dict[fn](self)
-                self.finish_task(fn)
-                self.log_title("执行完成【" + tc['base']['text'] + "】")
+                try:
+                    func_dict[fn](self)
+                    self.finish_task(fn)
+                    self.log_title("执行完成【" + tc['base']['text'] + "】")
+                except DetectError:
+                    self.log_title("识别失败【" + tc['base']['text'] + "】")
+                    # 如果识别识别则重启ba
+                    restart.start(self)
+
                 del self.processes_task[encrypt.md5(self.con)]
             else:
                 self.exit(f"函数不存在:{fn}")
