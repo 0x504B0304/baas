@@ -104,8 +104,7 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
     compare = compare_image_data(self, ss_img, res_img, threshold, name, n)
     if not compare and retry > 0:
         if 100 < retry < 989 and retry % 10 == 0:
-            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(
-                self.bc['baas']['base']['compare_mode']))
+            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言')
         if mis_fu is not None:
             mis_fu(*mis_argv)
             time.sleep(rate)
@@ -176,8 +175,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:
-            self.logger.warning('当前图片识别模式:{0} 如果一直卡识别可以打开Baas设置更换识别模式'.format(
-                self.bc['baas']['base']['compare_mode']))
+            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言')
         stage.wait_loading(self)
         self.latest_img_array = self.get_screenshot_array()  # 每次公用一张截图
         if pre_func is not None:
