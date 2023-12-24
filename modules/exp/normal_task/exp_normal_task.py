@@ -319,10 +319,11 @@ def start_action(self, gk, stage_data):
             self.click(83, 557)
         elif act['t'] == 'move':
             self.logger.info("确认移动部队")
-            to_tart_task_page(self)
         elif act['t'] == 'end-turn':
             self.logger.info("结束回合")
             to_end_over(self)
+        # 回到任务界面
+        if i != len(actions) - 1:
             to_tart_task_page(self)
         if 'ec' in act:  # 判断是否存在exchange事件
             # 等待换队
@@ -330,19 +331,15 @@ def start_action(self, gk, stage_data):
             origin = force_index
             while force_index == origin:
                 force_index = get_force(self)
-        # 行动后置等待时间
-        if 'after' in act:
-            self.logger.info("后置等待{0}秒".format(act['after']))
-            time.sleep(act['after'])
-        # 回到任务界面
-        if i != len(actions) - 1:
-            to_tart_task_page(self)
-
+        # 等待能控制窗口
         if 'wait-over' in act:
             self.logger.info("等待战斗结束...")
             wait_over(self)
             to_tart_task_page(self)
-
+        # 行动后置等待时间
+        if 'after' in act:
+            self.logger.info("后置等待{0}秒".format(act['after']))
+            time.sleep(act['after'])
     self.logger.warning("行动结束,进入战斗中...")
 
 
