@@ -319,9 +319,11 @@ def start_action(self, gk, stage_data):
             self.click(83, 557)
         elif act['t'] == 'move':
             self.logger.info("确认移动部队")
+            to_tart_task_page(self)
         elif act['t'] == 'end-turn':
             self.logger.info("结束回合")
             to_end_over(self)
+            to_tart_task_page(self)
         if 'ec' in act:  # 判断是否存在exchange事件
             # 等待换队
             self.logger.info("等待队伍更换事件...")
