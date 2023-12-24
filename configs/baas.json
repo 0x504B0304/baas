@@ -339,7 +339,6 @@
                 10
             ],
             "mode" : 2,
-            "manual_boss" : false,
             "burst1" : -1,
             "burst2" : -1,
             "pierce1" : -1,
@@ -363,7 +362,6 @@
                 10
             ],
             "mode" : 2,
-            "manual_boss" : false,
             "burst1" : -1,
             "burst2" : -1,
             "pierce1" : -1,
