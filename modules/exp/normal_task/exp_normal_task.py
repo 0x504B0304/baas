@@ -381,7 +381,7 @@ def select_force_fight(self, index):
 
 def wait_over(self):
     # 打开任务信息
-    image.detect(self, 'fight_fighting-task-info', cl=(996, 666))
+    image.detect(self, 'fight_fighting-task-info', cl=(996, 666), ss_rate=1)
 
 
 def start_mission(self):
