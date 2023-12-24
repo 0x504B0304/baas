@@ -24,6 +24,11 @@ def homepage():
     return render_template('index.html')
 
 
+@baas.route("/ping")
+def ping():
+    return {}, 200
+
+
 @baas.route('/baas/start/<string:con>')
 def start_baas(con):
     process.m.start_process(con)

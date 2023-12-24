@@ -7,15 +7,17 @@ from PySide6.QtGui import QPixmap, QPalette, QBrush
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
 from PySide6.QtWidgets import QPushButton, QLabel, QSpacerItem, QSizePolicy
 
+from common import config
 from web import configs
 
-version = 'v2.0.4'
+version = 'v2.0.5'
 
 
 # 使用一个子线程打开浏览器
 def open_baas():
     configs.check_config()
-    webbrowser.open_new('http://localhost:1117/')
+    ac = config.get_app_config()
+    webbrowser.open_new('http://localhost:{0}/'.format(ac['port']))
 
 
 def open_github():

@@ -3,6 +3,20 @@ import os
 import sys
 
 
+def get_app_config():
+    app_file = resource_path("configs/app.txt")
+    default = {"port": 1117}
+    # Check if the file exists before trying to open it
+    if not os.path.exists(app_file):
+        return default
+    try:
+        with open(app_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        return default
+
+
 def load_ba_config(con):
     with open(config_filepath(con), 'r', encoding='utf-8') as f:
         data = json.load(f)
