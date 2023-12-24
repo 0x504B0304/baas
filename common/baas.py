@@ -103,6 +103,9 @@ class Baas:
         except Exception as e:
             self.logger.critical("模拟器连接失败，必须打开模拟器! 然后设置对应模拟器端口 Baas->Baas设置->模拟器Serial")
             self.logger.critical("如果模拟器多开，ADB端口会不一样。点击模拟器问题诊断->查看ADB调试端口")
+            self.logger.critical(
+                "如果报错HTTPSConnectionPool(host='github.com',port=443): Max retries exceeded with url..."
+                "到群文件下载 atx/atx-agent_0.10.0_linux_386 复制到 C:\\Users\你的用户名\.uiautomator2\cache\\atx-agent_0.10.0_linux_386.tar.gz-1f8cdf3239 目录里面")
             self.exit(e)
 
     def click(self, x, y, wait=True, count=1, rate=0):
