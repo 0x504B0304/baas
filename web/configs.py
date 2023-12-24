@@ -27,9 +27,11 @@ def check_config():
         os.makedirs(config_dir, exist_ok=True)
         source_file = config.get_froze_path('web/static/baas.json')
         # 目标文件的完整路径
-        destination_file = os.path.join(config_dir, 'baas.json')
+        destination_file1 = os.path.join(config_dir, 'baas1.json')
+        destination_file2 = os.path.join(config_dir, 'baas2.json')
         # 复制文件
-        shutil.copy(source_file, destination_file)
+        shutil.copy(source_file, destination_file1)
+        shutil.copy(source_file, destination_file2)
 
 
 @configs.route('/menus', methods=['GET'])
