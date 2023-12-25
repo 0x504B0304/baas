@@ -9,7 +9,7 @@ import uiautomator2 as u2
 from cnocr import CnOcr
 from uiautomator2 import Device
 
-from common import stage, process, config, log, encrypt, position, color
+from common import stage, process, config, log, encrypt, color
 from modules.activity import tutor_dept, summer_vacation
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
@@ -90,7 +90,9 @@ class Baas:
             self.logger.critical(
                 r"解决方法1: 删除 C:\Users\你的用户名\AppData\Roaming\cnocr\2.2 目录 重新运行脚本会重新下载(可能要用梯子上网)")
             self.logger.critical(
-                r"解决方法2: 到QQ群下载2.2.7z压缩包,解压到 C:\Users\你的用户名\AppData\Roaming\cnocr\2.2 目录里面")
+                r"解决方法2-1: 到QQ群下载《异常问题文件下载/2.2.7z》 压缩包,解压到 C:\Users\你的用户名\AppData\Roaming\cnocr\2.2 目录里面")
+            self.logger.critical(
+                r"解决方法2-2: 到QQ群下载《异常问题文件下载/1.2.zip》 压缩包,解压到 C:\Users\你的用户名\AppData\Roaming\cnstd\1.2 目录里面")
             self.exit("OCR初始化失败:{0}".format(e))
 
     def connect_serial(self):
@@ -105,7 +107,7 @@ class Baas:
             self.logger.critical("如果模拟器多开，ADB端口会不一样。点击模拟器问题诊断->查看ADB调试端口")
             self.logger.critical(
                 "如果报错HTTPSConnectionPool(host='github.com',port=443): Max retries exceeded with url..."
-                "到群文件下载 atx/atx-agent_0.10.0_linux_386 复制到 C:\\Users\你的用户名\.uiautomator2\cache\\atx-agent_0.10.0_linux_386.tar.gz-1f8cdf3239 目录里面")
+                "到QQ群下载《异常问题文件下载/atx-agent_0.10.0_linux_386》 复制到 C:\\Users\你的用户名\.uiautomator2\cache\\atx-agent_0.10.0_linux_386.tar.gz-1f8cdf3239 目录里面")
             self.exit(e)
 
     def click(self, x, y, wait=True, count=1, rate=0):
