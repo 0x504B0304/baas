@@ -9,6 +9,9 @@ from skimage.metrics import structural_similarity
 from common import stage, config
 from common.position import get_box
 
+class DetectError(Exception):
+    pass
+
 
 def screenshot_cut_old(self, name, ss_path=None, ss_file='', box=None):
     if box is None:
@@ -121,7 +124,7 @@ def compare_image_data(self, ss_img, res_img, threshold=0.7, name='', n=False):
     return compare
 
 
-def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=999, rate=None):
+def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=300, rate=None):
     """
     图片探索 执行对应事件
     @param self:
@@ -140,7 +143,8 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
     i = 1
     while True:
         if i >= retry:
-            return None
+            raise DetectError
+            # return None
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:

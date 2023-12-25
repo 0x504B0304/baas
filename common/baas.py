@@ -11,6 +11,8 @@ from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt
 from modules.activity import summer_vacation, spa_227, new_year, cherry_blossoms, nun_magician
+from common.image import DetectError
+
 from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, cafe, schedule, make
@@ -222,7 +224,12 @@ class Baas:
                 self.tc['task'] = fn
                 self.finish_seconds = 0
                 self.log_title("开始执行【" + tc['base']['text'] + "】")
-                func_dict[fn](self)
+                try:
+                    func_dict[fn](self)
+                except (DetectError, RecursionError) :
+                    self.log_title("识别失败【" + tc['base']['text'] + "】")
+                    # 如果识别识别则重启ba
+                    restart.start(self)
                 self.finish_task(fn)
                 self.log_title("执行完成【" + tc['base']['text'] + "】")
                 del self.processes_task[encrypt.md5(self.con)]
