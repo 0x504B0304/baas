@@ -19,6 +19,11 @@ def only_start(self):
     # 强制等待
     time.sleep(8)
 
+def stop(self):
+    pkg = self.bc['baas']['base']['package']
+    self.log_title("关闭BA")
+    self.d.app_stop(pkg)
+
 
 def start(self):
     only_start(self)

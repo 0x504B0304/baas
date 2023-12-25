@@ -10,6 +10,7 @@ from cnocr import CnOcr
 from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt, color
+from common.image import DetectError
 from modules.activity import tutor_dept, summer_vacation
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
@@ -34,6 +35,7 @@ func_dict = {
     'exp_hard_task': exp_hard_task.start,
     'hard_task': hard_task.start,
     'mailbox': mailbox.start,
+    'stop': restart.stop,
     'restart': restart.start,
     'env_check': env_check.start,
     'tutor_dept': tutor_dept.start,
@@ -174,6 +176,7 @@ class Baas:
             if fn is None:
                 if not no_task:
                     self.log_title("🎉🎉🎉 任务全部执行成功 🎉🎉🎉" + suffix)
+                    restart.stop(self)
                 no_task = True
                 time.sleep(3)
                 continue
@@ -185,7 +188,12 @@ class Baas:
                 self.tc['task'] = fn
                 self.finish_seconds = 0
                 self.log_title("开始执行【" + tc['base']['text'] + "】")
-                func_dict[fn](self)
+                try:
+                    func_dict[fn](self)
+                except (DetectError, RecursionError) :
+                    self.log_title("识别失败【" + tc['base']['text'] + "】")
+                    # 如果识别识别则重启ba
+                    restart.start(self)
                 self.finish_task(fn)
                 self.log_title("执行完成【" + tc['base']['text'] + "】")
                 del self.processes_task[encrypt.md5(self.con)]

@@ -73,6 +73,8 @@ def start():
 
     # 显示窗口
     window.show()
+    open_baas()
+    window.hide()
     # 运行程序
     sys.exit(app.exec())
 

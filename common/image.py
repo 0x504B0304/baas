@@ -21,6 +21,9 @@ from modules.daily import arena, cafe, wanted, special_entrust, shop, schedule, 
 from modules.reward import mailbox, momo_talk, work_task
 from modules.scan import hard_task, normal_task, main_story
 
+class DetectError(Exception):
+    pass
+
 
 def screenshot_cut_old(self, name, ss_path=None, ss_file='', box=None):
     if box is None:
@@ -152,7 +155,7 @@ def compare_image_data(self, ss_img, res_img, threshold=3, name='', n=False):
     return compare
 
 
-def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=999, ss_rate=None):
+def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=300, ss_rate=None):
     """
     图片探索 执行对应事件
     @param self:
@@ -171,7 +174,8 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
     i = 1
     while True:
         if i >= retry:
-            return None
+            raise DetectError
+            # return None
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:
