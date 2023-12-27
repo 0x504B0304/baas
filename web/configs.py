@@ -26,17 +26,15 @@ def check_config():
     if not os.path.exists(config_dir):
         os.makedirs(config_dir, exist_ok=True)
         # 目标文件的完整路径
-        destination_file1 = os.path.join(config_dir, 'baas1.json')
-        destination_file2 = os.path.join(config_dir, 'baas2.json')
-        destination_file3 = os.path.join(config_dir, 'app.txt')
+        destination_file1 = os.path.join(config_dir, 'baas.json')
+        destination_file2 = os.path.join(config_dir, 'app.txt')
 
         source_file = config.get_froze_path('web/static/baas.json')
         source_txt_file = config.get_froze_path('web/static/app.txt')
 
         # 判断文件是否存在，如果不存在则复制文件
         shutil.copy(source_file, destination_file1)
-        shutil.copy(source_file, destination_file2)
-        shutil.copy(source_txt_file, destination_file3)
+        shutil.copy(source_txt_file, destination_file2)
 
 
 @configs.route('/menus', methods=['GET'])
