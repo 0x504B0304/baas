@@ -1,11 +1,14 @@
 import logging
 import multiprocessing
 import os
+import sys
 import threading
 import time
 
 import requests
 from flask import Flask
+
+import launcher
 from common import process, app, config
 from web.baas import baas
 from web.configs import configs
@@ -26,13 +29,15 @@ def check_flask_startup():
         try:
             response = requests.get(url, timeout=2)
             if response.status_code == 200:
-                print("【Baas】启动成功\n请点击打开Baas进入配置页面...")
+                launcher.print_title("启动成功", "请点击打开Baas进入配置页面...")
                 break
-            print(f"Baas启动失败...当前运行端口为:{ac['port']}")
-            print("如果端口冲突可以打开configs/app.txt 修改port 为 7111 或 7112依次类推")
+            if i == 2:
+                launcher.print_title("启动失败",
+                                     f"Baas启动失败...当前运行端口为:{ac['port']}\n如果端口冲突可以打开configs/app.txt 修改port 为 7111 或 7112依次类推")
         except Exception as e:
-            print(f"Baas启动失败...当前运行端口为:{ac['port']}")
-            print("如果端口冲突可以打开configs/app.txt 修改port 为 7111 或 7112依次类推")
+            if i == 2:
+                launcher.print_title("启动失败",
+                                     f"Baas启动失败...当前运行端口为:{ac['port']}\n如果端口冲突可以打开configs/app.txt 修改port 为 7111 或 7112依次类推")
             print(e)
         time.sleep(1)
 
@@ -45,6 +50,12 @@ if __name__ == '__main__':
     process.processes_task = process.manager.dict()
 
     if os.getpid() == main_process_pid:
+        source_arg_value = next((arg.split('=')[1] for arg in sys.argv if arg.startswith('source=')), None)
+        if source_arg_value != "launcher":
+            print(
+                "必须从启动器Baas_Windows启动Baas脚本\n如果你是第一次遇到这个错误，请从QQ群重新下载最新启动器覆盖原来的启动器。\n不需要重新下载和安装")
+            sys.exit(1)
+
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)
 
