@@ -30,7 +30,7 @@ def check_config():
         destination_file2 = os.path.join(config_dir, 'app.txt')
 
         source_file = config.get_froze_path('web/static/baas.json')
-        source_txt_file = config.get_froze_path('web/static/app.txt')
+        source_txt_file = config.get_froze_path('web/static/default_app.txt')
 
         # 判断文件是否存在，如果不存在则复制文件
         shutil.copy(source_file, destination_file1)
