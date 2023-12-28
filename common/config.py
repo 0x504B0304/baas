@@ -76,6 +76,16 @@ def get_ss_path(self):
     return os.path.join(get_runtime_path(), 'ss_{0}.png'.format(self.con))
 
 
+def delete_keys_from_destination(src, dst):
+    if isinstance(dst, dict):
+        keys_to_delete = [key for key in dst if key not in src]
+        for key in keys_to_delete:
+            del dst[key]
+        for key, value in src.items():
+            if isinstance(value, dict) and isinstance(dst.get(key), dict):
+                delete_keys_from_destination(value, dst[key])
+
+
 def config_deep_update(source, destination):
     """
     递归地更新嵌套字典和列表结构。
@@ -87,6 +97,9 @@ def config_deep_update(source, destination):
     Returns:
     dict: 更新后的目标数据。
     """
+
+    delete_keys_from_destination(source, destination)
+
     for key, value in source.items():
         if isinstance(value, dict):
             # 如果当前值是一个字典，进行递归更新。如果目标字典中没有相应的key，
