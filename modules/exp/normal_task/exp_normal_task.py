@@ -49,6 +49,7 @@ def to_force_edit_page(self, x):
 
 
 def to_tart_task_page(self):
+    time.sleep(0.5)
     """
     回到任务开始或任务中
     :param self:
