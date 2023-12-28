@@ -336,15 +336,9 @@
         },
         "config" : {
             "region" : [
-                10
+                6
             ],
-            "mode" : 2,
-            "burst1" : -1,
-            "burst2" : -1,
-            "pierce1" : -1,
-            "pierce2" : -1,
-            "mystic1" : -1,
-            "mystic2" : -1
+            "mode" : 2
         }
     },
     "exp_hard_task" : {
@@ -359,15 +353,9 @@
         },
         "config" : {
             "region" : [
-                10
+                6
             ],
-            "mode" : 2,
-            "burst1" : -1,
-            "burst2" : -1,
-            "pierce1" : -1,
-            "pierce2" : -1,
-            "mystic1" : -1,
-            "mystic2" : -1
+            "mode" : 2
         }
     }
 }

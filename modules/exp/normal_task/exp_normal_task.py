@@ -105,18 +105,14 @@ def start_fight(self, region, gk=None):
     # 遍历start需要哪些队伍
     if gk == "side":
         # 选择支线部队开始战斗
-        start_choose_side_team(self, self.stage_data[str(region)]['side'])
+        start_choose_side_team(self)
         image.compare_image(self, 'fight_force-edit')
         image.compare_image(self, 'fight_force-edit', threshold=10, mis_fu=self.click, mis_argv=(1171, 670),
                             rate=1,
                             n=True)
     else:
-        prev_index = 0
         for n, p in self.stage_data[gk]['start'].items():
-            cu_index = start_choose_team(self, gk, n)
-            if cu_index < prev_index:
-                self.exit("队伍配置错误,请根据开图区域设置主队编号小于副队编号!比如主队为1号队,副队为2号队")
-            prev_index = cu_index
+            start_choose_team(self, gk, n)
         # 点击开始任务
         start_mission(self)
         # 检查跳过战斗
@@ -343,22 +339,18 @@ def start_action(self, gk, stage_data):
 
 
 def start_choose_team(self, gk, force):
-    force_index = self.tc['config'][self.stage_data[gk]['attr'][force]]
-    if force_index == -1:
-        self.exit("你没有未配置部队,请根据开图区域设置对应属性的部队编号")
     image.compare_image(self, 'fight_start-task')
     # 到部队编辑页面
     to_force_edit_page(self, self.stage_data[gk]['start'][force])
     # 选择对应属性的队伍
-    select_force_fight(self, force_index)
+    select_force_fight(self, force)
     # 回到任务开始界面
     to_tart_task_page(self)
-    return force_index
 
 
-def start_choose_side_team(self, team):
+def start_choose_side_team(self):
     # 选择对应属性的队伍
-    select_force_fight(self, self.tc['config'][team])
+    select_force_fight(self, 1)
 
 
 def select_force_fight(self, index):
@@ -367,9 +359,8 @@ def select_force_fight(self, index):
     @param self:
     @param index: 队伍索引
     """
-    self.logger.info("根据当前配置,选择部队{0}".format(index))
-    if index == -1:
-        self.exit("你没有未配置部队,请根据开图区域设置对应属性的部队编号")
+    index = int(index)
+    self.logger.info("选择部队{0}".format(index))
     fp = force_position[index]
     # 检查是否有选中,直到选中为止
     while not color.check_rgb(self, fp, (45, 70, 99)):
