@@ -70,13 +70,13 @@ def start(self):
     # 选择任务模式
     normal_task.change_task(self)
 
+    # 获取开图数据
+    region = self.tc['config']['region']
+    self.stage_data = get_stage_data(self, self.tc['config']['region'])
+    if self.stage_data is None:
+        return home.go_home(self)
     # 开始战斗
-    for region in self.tc['config']['region']:
-        self.stage_data = get_stage_data(self, region)
-        if self.stage_data is None:
-            continue
-        start_fight(self, region)
-
+    start_fight(self, region)
     # 回到首页
     home.go_home(self)
 
