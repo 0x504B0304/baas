@@ -42,6 +42,19 @@ def check_flask_startup():
         time.sleep(1)
 
 
+def check_source():
+    """
+    windows平台检查启动来源
+    """
+    if hasattr(sys, 'frozen') and sys.platform != 'darwin':
+        source_arg_value = next((arg.split('=')[1] for arg in sys.argv if arg.startswith('source=')), None)
+        if source_arg_value != "launcher2":
+            print("必须从启动器Baas_Windows启动Baas脚本")
+            print("如果你是第一次遇到这个错误，请从QQ群重新下载最新启动器覆盖原来的启动器。")
+            print("不需要重新下载和安装")
+            sys.exit(1)
+
+
 if __name__ == '__main__':
     main_process_pid = os.getpid()
     multiprocessing.freeze_support()
@@ -50,11 +63,7 @@ if __name__ == '__main__':
     process.processes_task = process.manager.dict()
 
     if os.getpid() == main_process_pid:
-        source_arg_value = next((arg.split('=')[1] for arg in sys.argv if arg.startswith('source=')), None)
-        if source_arg_value != "launcher":
-            print(
-                "必须从启动器Baas_Windows启动Baas脚本\n如果你是第一次遇到这个错误，请从QQ群重新下载最新启动器覆盖原来的启动器。\n不需要重新下载和安装")
-            sys.exit(1)
+        check_source()
 
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)

@@ -19,10 +19,12 @@ def git_clone_and_pull():
         subprocess.run(['git', 'clone', repository_url, 'baas'], cwd=directory, check=True)
         print("baas 下载完成...")
     else:
-        git_pull(directory)
-        print("baas 更新完成...")
-
-    git_logs(directory)
+        try:
+            git_pull(directory)
+            print("Baas 更新完成...")
+        except Exception as e:
+            print("更新失败", e)
+    git_logs(resource_path("baas"))
 
 
 def command_exists(command):
@@ -83,22 +85,22 @@ def install_git():
 
 def git_pull(directory):
     """Run git pull in a specific directory."""
-    print(f"在目录 {directory} 中执行 'git pull origin main' 命令...")
+    print_title("开始更新", f"在目录 {directory} 中执行 'git pull origin main' 命令...")
     subprocess.run(['git', 'pull', 'origin', 'main'], cwd=directory, check=True)
 
 
 def git_logs(directory):
     """Get the last 10 git logs in a specific directory."""
-    print(f"在目录 {directory} 中执行 'git log' 命令...")
     log_command = ['git', 'log', '--pretty=format:%ad %d %s', '--date=short', '-n', '10']
     result = subprocess.run(log_command, cwd=directory, check=True, text=True, capture_output=True, encoding='utf-8')
-    print_title("更新日志", result.stdout)
+    print_title("更新日志", f"在目录 {directory} 中执行 'git log' 命令...\n" + result.stdout)
 
 
 def print_title(title, message=None):
     print(f"========================================== {title} ==========================================")
     if message is not None:
         print(message)
+
 
 def start_baas():
     if os.name == 'nt':  # Windows

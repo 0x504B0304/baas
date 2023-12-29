@@ -146,13 +146,13 @@ $ pyinstaller --name=baas --add-data assets:assets --add-data web/static:web/sta
 For Mac
 
 ```bash
-$ pyinstaller -F launcher.py --name Baas_Macos --icon='assets/images/ba.icns'
+$ pyinstaller -F launcher.py --name Baas_Macos --icon='assets/images/common/ba.icns'
 ```
 
 For Windows
 
 ```bash
-$ pyinstaller -F launcher.py --name Baas_Windows --icon='assets/images/ba.ico'
+$ pyinstaller -F launcher.py --name Baas_Windows --icon='assets/images/common/ba.ico'
 ```
 
 ### 赞助
