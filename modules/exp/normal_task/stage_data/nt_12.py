@@ -4,10 +4,6 @@ stage_data = {
             '1': (370, 428),
             '2': (566, 328)
         },
-        'attr': {
-            '1': 'mystic1',
-            '2': 'burst1'
-        },
         'action': [
             {'t': 'click', 'p': (640, 560), "desc": "1 lower right"},
             {'t': 'move', 'ec': True, "desc": "teleport"},
@@ -29,10 +25,6 @@ stage_data = {
             '1': (733, 387),
             '2': (574, 474)
         },
-        'attr': {
-            '1': 'mystic1',
-            '2': 'burst1'
-        },
         'action': [
             {'t': 'click', 'p': (581, 309), 'ec': True, "desc": "1 left"},
             {'t': 'click', 'p': (581, 309), "desc": "choose 1"},
@@ -51,10 +43,6 @@ stage_data = {
         'start': {
             '1': (763, 558),
             '2': (586, 147)
-        },
-        'attr': {
-            '1': 'mystic1',
-            '2': 'burst1'
         },
         'action': [
             {'t': 'click', 'p': (615, 413), 'ec': True},  # 主队↖️
@@ -76,10 +64,6 @@ stage_data = {
         'start': {
             '1': (342, 386),
             '2': (619, 223)
-        },
-        'attr': {
-            '1': 'mystic1',
-            '2': 'burst1'
         },
         'action': [
             {'t': 'click', 'p': (622, 424), 'ec': True, "desc": "1 right"},
@@ -107,10 +91,6 @@ stage_data = {
         'start': {
             '1': (549, 556),
             '2': (835, 478)
-        },
-        'attr': {
-            '1': 'mystic1',
-            '2': 'burst1'
         },
         'action': [
             {'t': 'click', 'p': (582, 359), "desc": "1 upper right"},

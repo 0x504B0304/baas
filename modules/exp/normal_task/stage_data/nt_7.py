@@ -4,10 +4,6 @@ stage_data = {
             '1': (306, 470),
             '2': (511, 258)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'burst2',
-        },
         'action': [
             {'t': 'click', 'p': (663, 461), "desc": "1 right"},
             {'t': 'move', 'ec': True, "desc": "teleport"},
@@ -27,10 +23,6 @@ stage_data = {
             '1': (373, 386),
             '2': (563, 306)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'burst2',
-        },
         'action': [
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
             {'t': 'click', 'p': (700, 475), 'ec': True, "desc": "2 lower left"},
@@ -49,10 +41,6 @@ stage_data = {
             '1': (579, 385),
             '2': (938, 476)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'burst2',
-        },
         'action': [
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
             {'t': 'click', 'p': (718, 345), "desc": "2 upper left"},
@@ -70,10 +58,6 @@ stage_data = {
         'start': {
             '1': (395, 559),
             '2': (486, 370)
-        },
-        'attr': {
-            '1': 'burst1',
-            '2': 'burst2',
         },
         'action': [
             {'t': 'click', 'p': (679, 463),'ec': True,  "desc": "1 right"},
@@ -98,10 +82,6 @@ stage_data = {
         'start': {
             '1': (523, 385),
             '2': (813, 309)
-        },
-        'attr': {
-            '1': 'burst1',
-            '2': 'burst2',
         },
         'action': [
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},

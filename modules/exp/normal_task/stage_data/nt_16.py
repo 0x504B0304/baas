@@ -4,10 +4,6 @@ stage_data = {
             '1': (728, 303),
             '2': (882, 562)
         },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'mystic1'
-        },
         'action': [
             # 第一回合
             {'t': 'click', 'p': (468, 397), 'ec': True, "desc": "1 lower left"},
@@ -29,10 +25,6 @@ stage_data = {
         'start': {
             '1': (428, 472),
             '2': (409, 269)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'mystic1'
         },
         'action': [
             # 第一回合
@@ -57,10 +49,6 @@ stage_data = {
         'start': {
             '1': (370, 388),
             '2': (1102, 562)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'mystic1'
         },
         'action': [
             # 第一回合
@@ -94,10 +82,6 @@ stage_data = {
             '1': (343, 473),
             '2': (812, 510)
         },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'mystic1'
-        },
         'action': [
             # 第一回合
             {'t': 'click', 'p': (553, 300), 'ec': True, "desc": "1 upper right"},
@@ -120,10 +104,6 @@ stage_data = {
         'start': {
             '1': (307, 403),
             '2': (854, 238)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'mystic1'
         },
         'action': [
             # 第一回合

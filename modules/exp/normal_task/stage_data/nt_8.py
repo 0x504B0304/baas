@@ -4,10 +4,6 @@ stage_data = {
             '1': (640, 303),
             '2': (518, 390)
         },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2',
-        },
         'action': [
             {'t': 'click', 'p': (877, 392), 'ec': True, "desc": "1 right"},
             {'t': 'click', 'p': (431, 390), "wait-over": True, "desc": "2 left"},
@@ -31,10 +27,6 @@ stage_data = {
             '1': (730, 558),
             '2': (567, 482)
         },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2',
-        },
         'action': [
             {'t': 'click', 'p': (634, 390), 'ec': True, "desc": "1 upper left"},
             {'t': 'click', 'p': (513, 390), "desc": "2 upper left"},
@@ -57,10 +49,6 @@ stage_data = {
             '1': (404, 343),
             '2': (618, 364)
         },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2',
-        },
         'action': [
             {'t': 'click', 'p': (582, 474), 'ec': True, "desc": "1 lower right"},
             {'t': 'click', 'p': (582, 474), "desc": "choose 1"},
@@ -79,10 +67,6 @@ stage_data = {
         'start': {
             '1': (335, 561),
             '2': (650, 451)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2',
         },
         'action': [
             {'t': 'click', 'p': (580, 308), "desc": "1 upper right"},
@@ -107,10 +91,6 @@ stage_data = {
         'start': {
             '1': (396, 469),
             '2': (577, 351)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2',
         },
         'action': [
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},

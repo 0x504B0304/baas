@@ -4,10 +4,6 @@ stage_data = {
             '1': (640, 261),
             '2': (403, 560)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'mystic1'
-        },
         'action': [
             {'t': 'click', 'p': (811, 398), 'ec': True, "desc": "1 lower right"},
             {'t': 'click', 'p': (586, 546), "wait-over": True, 'ec': True, "desc": "2 lower right"},
@@ -24,10 +20,6 @@ stage_data = {
         'start': {
             '1': (704, 558),
             '2': (554, 480)
-        },
-        'attr': {
-            '1': 'burst1',
-            '2': 'mystic1'
         },
         'action': [
             {'t': 'click', 'p': (620, 381), 'ec': True, "desc": "1 upper left"},
@@ -47,10 +39,6 @@ stage_data = {
             '1': (821, 344),
             '2': (656, 351)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'mystic1'
-        },
         'action': [
             {'t': 'click', 'p': (701, 477), 'ec': True, "desc": "1 lower left"},
             {'t': 'click', 'p': (701, 477), "desc": "choose 1"},
@@ -69,12 +57,7 @@ stage_data = {
             '1': (374, 263),
             '2': (560, 582)
         },
-        'attr': {
-            '1': 'burst1',
-            '2': 'mystic1'
-        },
         'action': [
-
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
             {'t': 'click', 'p': (688, 418), 'ec': True, "desc": "2 upper left"},
             {'t': 'click', 'p': (701, 278), "wait-over": True, "desc": "1 right"},
@@ -95,10 +78,6 @@ stage_data = {
         'start': {
             '1': (374, 387),
             '2': (562, 473)
-        },
-        'attr': {
-            '1': 'burst1',
-            '2': 'mystic1'
         },
         'action': [
             {'t': 'click', 'p': (617, 381), "ec": True, "desc": "1 right"},
