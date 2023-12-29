@@ -113,7 +113,8 @@ def start_fight(self, region, gk=None):
                             rate=1,
                             n=True)
     else:
-        for n, p in self.stage_data[gk]['start'].items():
+        starts = get_gk_data(gk, self.stage_data, 'start')
+        for n, p in starts.items():
             start_choose_team(self, gk, n)
         # 点击开始任务
         start_mission(self)
@@ -297,7 +298,7 @@ def get_force(self):
 
 
 def start_action(self, gk, stage_data):
-    actions = stage_data[gk]['action']
+    actions = get_gk_data(gk, stage_data, 'action')
     for i, act in enumerate(actions):
         # 行动前置等待时间
         if 'before' in act:
@@ -343,10 +344,18 @@ def start_action(self, gk, stage_data):
     self.logger.warning("行动结束,进入战斗中...")
 
 
+def get_gk_data(gk, stage_data, attr):
+    gk_data = stage_data[gk]
+    if type(gk_data) is str:
+        return stage_data[gk_data][attr]
+    return gk_data[attr]
+
+
 def start_choose_team(self, gk, force):
     image.compare_image(self, 'fight_start-task')
     # 到部队编辑页面
-    to_force_edit_page(self, self.stage_data[gk]['start'][force])
+    starts = get_gk_data(gk, self.stage_data, 'start')
+    to_force_edit_page(self, starts[force])
     # 选择对应属性的队伍
     select_force_fight(self, force)
     # 回到任务开始界面
