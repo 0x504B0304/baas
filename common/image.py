@@ -1,9 +1,5 @@
-import importlib
-import os
 import time
 
-import cv2
-import numpy as np
 from skimage.metrics import structural_similarity
 
 from common import stage, position, config
@@ -13,13 +9,6 @@ import sys
 
 import cv2
 import numpy as np
-
-from modules.activity import tutor_dept, summer_vacation
-from modules.baas import home, restart, cm
-# 图片资源数据 image assets data
-from modules.daily import arena, cafe, wanted, special_entrust, shop, schedule, make, group, buy_ap
-from modules.reward import mailbox, momo_talk, work_task
-from modules.scan import hard_task, normal_task, main_story
 
 
 def screenshot_cut_old(self, name, ss_path=None, ss_file='', box=None):

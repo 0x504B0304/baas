@@ -57,8 +57,9 @@ def to_tart_task_page(self):
     """
     pos = {
         'fight_confirm': (770, 500),  # 确认信息
-        'fight_fighting-task-info': (520, 20),  # 任务信息
+        'fight_fighting-task-info': (520, 20),  # 任务信息->关闭
         'fight_force-edit': (1162, 658),  # 部队编辑界面
+        'normal_task_get-box': (520, 20),  # 领取宝箱->关闭
     }
     image.detect(self, ('fight_start-task', 'fight_tasking'), pos)
 
@@ -320,6 +321,9 @@ def start_action(self, gk, stage_data):
         elif act['t'] == 'end-turn':
             self.logger.info("结束回合")
             to_end_over(self)
+            to_tart_task_page(self)
+        elif act['t'] == 'get-box':
+            self.logger.info("领取宝箱")
             to_tart_task_page(self)
         if 'ec' in act:  # 判断是否存在exchange事件
             # 等待换队

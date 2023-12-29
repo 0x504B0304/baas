@@ -45,6 +45,7 @@ stage_data = {
             {'t': 'click', 'p': (764, 398), 'wait-over': True, "desc": "1 lower right"},
 
             {'t': 'click', 'p': (825, 476), "desc": "1 lower right"},
+            {'t': 'get-box'},
             {'t': 'end-turn', 'wait-over': True},
 
             {'t': 'click', 'p': (832, 342), "desc": "1 upper right"},
@@ -105,6 +106,7 @@ stage_data = {
             {'t': 'end-turn', 'wait-over': True},
 
             {'t': 'click', 'p': (897, 399), "desc": "1 right"},
+            {'t': 'get-box'},
             {'t': 'end-turn', 'wait-over': True},
 
             {'t': 'click', 'p': (721, 490), "desc": "1 lower left"},
@@ -163,7 +165,8 @@ stage_data = {
 
             {'t': 'exchange', 'ec': True},
             {'t': 'click', 'p': (750, 416), 'ec': True, "desc": "2 upper right"},
-            {'t': 'click', 'p': (567, 214), 'wait-over': True, "desc": "1 upper left"},
+            {'t': 'click', 'p': (567, 214), "desc": "1 upper left"},
+            {'t': 'get-box', 'wait-over': True},
             {'t': 'click', 'p': (468, 393), "desc": "1 lower left"},
             {'t': 'end-turn', 'wait-over': True},
 
