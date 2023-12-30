@@ -28,6 +28,7 @@ stage_data = {
 
         ]
     },
+    '8-1-box': '8-1',
     '8-1-task': {
         'start': {
             '1': (612, 178),
@@ -57,7 +58,6 @@ stage_data = {
             {'t': 'click', 'p': (743, 345), "desc": "1 right"},
         ]
     },
-    '8-1-box': '8-1',
     '8-2': {
         'start': {
             '1': (1000, 345),
@@ -94,6 +94,7 @@ stage_data = {
             {'t': 'click', 'p': (615, 480), "desc": "1 lower left"},
         ]
     },
+    '8-2-box': '8-2',
     '8-2-task': {
         'start': {
             '1': (1000, 345),
@@ -122,7 +123,6 @@ stage_data = {
             {'t': 'click', 'p': (630, 465), "desc": "1 lower left"},
         ]
     },
-    '8-2-box': '8-2',
     '8-3': {
         'start': {
             '1': (790, 470),
@@ -135,11 +135,11 @@ stage_data = {
             {'t': 'move', "wait-over": True, "desc": "teleport"},
             {'t': 'click', 'p': (720, 340), "desc": "choose 2"},
             {'t': 'click', 'p': (615, 335), "desc": "change"},
-            {'t': 'click', 'p': (775, 260), 'ec': True, "wait-over": True, "desc": "1 upper right"},
+            {'t': 'click', 'p': (775, 260), "wait-over": True, "desc": "1 upper right"},
 
             # 第二回合
             {'t': 'click', 'p': (720, 445), "wait-over": True, "desc": "2 lower right"},
-            {'t': 'end-turn'},
+            {'t': 'end-turn', "wait-over": True},
 
             # 第三回合
             {'t': 'click', 'p': (560, 400), 'ec': True, "desc": "1 left"},
@@ -151,13 +151,14 @@ stage_data = {
 
             # 第五回合
             {'t': 'click', 'p': (460, 250), "wait-over": True, "desc": "2 lower right"},
-            {'t': 'end-turn'},
+            {'t': 'end-turn', "wait-over": True},
 
             # 第六回合
             {'t': 'click', 'p': (400, 300), "wait-over": True, "desc": "2 lower right"},
             {'t': 'end-turn'},
         ]
     },
+    '8-3-box': '8-3',
     '8-3-task': {
         'start': {
             '1': (790, 470),
@@ -186,5 +187,4 @@ stage_data = {
             {'t': 'end-turn'},
         ]
     },
-    '8-3-box': '8-3',
 }
