@@ -20,8 +20,7 @@ stage_data = {
             {'t': 'click', 'p': (667, 356), "desc": "click teleport"},
             {'t': 'move', "wait-over": True, "desc": "teleport"},
             {'t': 'click', 'p': (529, 369), 'ec': True, "desc": "1 lower left"},
-            {'t': 'click', 'p': (529, 271), "wait-over": True, "desc": "2 left"},
-            {'t': 'get-box', "wait-over": True},
+            {'t': 'click', 'p': (529, 271), "wait-over": True, "desc": "2 left & get box"},
 
             # 第四回合
             {'t': 'click', 'p': (488, 382), "desc": "1 upper left"},
@@ -58,8 +57,7 @@ stage_data = {
             # 第二回合
             {'t': 'click', 'p': (521, 560), "desc": "1 lower left"},
             {'t': 'move', "wait-over": True, "desc": "teleport"},
-            {'t': 'click', 'p': (762, 366), "desc": "2 lower right"},
-            {'t': 'get-box', "wait-over": True},
+            {'t': 'click', 'p': (762, 366), "wait-over": True, "desc": "2 lower right & get box"},
 
             # 第三回合
             {'t': 'click', 'p': (736, 407), "desc": "1 upper right", "wait-over": True},
@@ -105,8 +103,7 @@ stage_data = {
 
             # 第三回合
             {'t': 'exchange', 'ec': True, "desc": "change to 2"},
-            {'t': 'click', 'p': (450, 497), "desc": "2 left"},
-            {'t': 'get-box', "wait-over": True},
+            {'t': 'click', 'p': (450, 497), "wait-over": True, "desc": "2 left & get box"},
 
             {'t': 'click', 'p': (842, 290), "desc": "1 left"},
         ]
