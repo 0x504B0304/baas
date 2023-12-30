@@ -249,7 +249,7 @@ class TestBaas(unittest.TestCase):
             # 'cafe_invite-status',
             # 'cafe_inc-fav',
             # 'cafe_give-gift',
-            'cafe_inv-fav-level',
+            # 'cafe_inv-fav-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
 
@@ -380,8 +380,7 @@ class TestBaas(unittest.TestCase):
         stage.wait_loading(self)
         for i in range(2):
             for asset in assets:
-                assert image.compare_image(self, asset, 0, compare_mode='mse')
-                assert image.compare_image(self, asset, 0, compare_mode='ssim')
+                assert image.compare_image(self, asset, 0)
         assert True
 
     def test_all_ss(self):

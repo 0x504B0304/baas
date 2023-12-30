@@ -56,7 +56,7 @@ def save_img_to_disk(image_array, name):
 
 
 def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis_argv=None, rate=None, n=False,
-                  box=None, ss=None, compare_mode=None, cl=None):
+                  box=None, ss=None, cl=None):
     """
     对图片坐标内的图片和资源图片是否匹配
     @param self:
@@ -70,7 +70,6 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
     @param n: not识别结果取反
     @param box: 强制指定box坐标
     @param ss: screenshot截图数据
-    @param compare_mode: 强制制定匹配模式
     @param cl: click事件坐标
     @return: 是否匹配
     """
@@ -99,7 +98,7 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
             time.sleep(rate)
         if cl is not None:
             self.click(*cl, False)
-        return compare_image(self, name, retry - 1, threshold, nl, mis_fu, mis_argv, rate, n, box, ss, compare_mode, cl)
+        return compare_image(self, name, retry - 1, threshold, nl, mis_fu, mis_argv, rate, n, box, ss, cl)
     return compare
 
 
@@ -107,37 +106,24 @@ def compare_image_data(self, ss_img, res_img, threshold=3, name='', n=False):
     """
     对比两个图片数据是否相同
     """
-    compare_mode = self.bc['baas']['base']['compare_mode']
-    if res_img.shape[0] < 7 or res_img.shape[1] < 7:
-        compare_mode = 'mse'
-    if 'mse' == compare_mode:
-        # 计算差异值
-        diff = cv2.absdiff(ss_img, res_img)
-        # 计算MSE（Mean Squared Error）
-        mse = np.mean(diff ** 2)
-        compare = mse <= threshold
-        if n:
-            compare = not compare
-        self.logger.info("compare_image %s MSE:%.2f Result:%s", name, mse, compare)
-    else:
-        # ssim 对比
-        # 转换图片到灰度
-        ss_gray = cv2.cvtColor(ss_img, cv2.COLOR_BGR2GRAY)
-        res_gray = cv2.cvtColor(res_img, cv2.COLOR_BGR2GRAY)
-        # 计算SSIM（Structural Similarity Index）
-        ssim = structural_similarity(ss_gray, res_gray)
-        if threshold == 3:
-            threshold = 0.7
-        elif threshold <= 1:
-            threshold = 0.9
-        elif threshold < 3:
-            threshold = 0.8
-        elif threshold > 3:
-            threshold = 0.6
-        compare = ssim >= threshold
-        if n:
-            compare = not compare
-        self.logger.info("compare_image %s SSIM:%.2f Result:%s", name, ssim, compare)
+    # ssim 对比
+    # 转换图片到灰度
+    ss_gray = cv2.cvtColor(ss_img, cv2.COLOR_BGR2GRAY)
+    res_gray = cv2.cvtColor(res_img, cv2.COLOR_BGR2GRAY)
+    # 计算SSIM（Structural Similarity Index）
+    ssim = structural_similarity(ss_gray, res_gray)
+    if threshold == 3:
+        threshold = 0.7
+    elif threshold <= 1:
+        threshold = 0.9
+    elif threshold < 3:
+        threshold = 0.8
+    elif threshold > 3:
+        threshold = 0.6
+    compare = ssim >= threshold
+    if n:
+        compare = not compare
+    self.logger.info("compare_image %s SSIM:%.2f Result:%s", name, ssim, compare)
     return compare
 
 

@@ -41,21 +41,6 @@
             },
             "type" : "num"
         },
-        "base.compare_mode" : {
-            "desc" : "默认用SSIM(Structural Similarity Index),如果识别异常可以尝试更换成MSE(Mean Squared Error)",
-            "name" : "图片识别模式",
-            "items" : [
-                {
-                    "name" : "MSE",
-                    "value" : "mse"
-                },
-                {
-                    "name" : "SSIM",
-                    "value" : "ssim"
-                }
-            ],
-            "type" : "sel"
-        },
         "base.debug" : {
             "desc" : "当识别出问题的时候,开启此模式可以保存截图到磁盘",
             "name" : "调试模式",
