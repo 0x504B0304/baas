@@ -19,7 +19,7 @@ def check_ss(self):
     app = self.d.app_current()
     if app['package'] != self.bc['baas']['base']['package']:
         restart.only_start(self)
-    if image.compare_image(self, 'home_cafe-black', 2):
+    if image.compare_image(self, 'home_black', 2, 0.99):
         self.exit(
             "模拟器设置有误! 如果是mumu模拟器，打开模拟器设置 -> 其他 -> 其他设置 -> 取消勾选(应用运行 -> 后台挂机时保持活跃运行) ")
 
