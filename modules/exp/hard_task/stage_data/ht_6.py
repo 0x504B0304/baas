@@ -16,7 +16,7 @@ stage_data = {
 
             # 第三回合
             {'t': 'click', 'p': (800, 227), "desc": "1 upper right"},
-            {'t': 'get-box'},
+            {'t': 'get-box', "wait-over": True},
             {'t': 'end-turn', 'wait-over': True},
 
             # 第四回合
@@ -47,7 +47,7 @@ stage_data = {
 
             # 第四回合
             {'t': 'click', 'p': (842, 301), "desc": "1 upper right"},
-            {'t': 'get-box'},
+            {'t': 'get-box', "wait-over": True},
             {'t': 'end-turn'},
         ]
     },
@@ -76,7 +76,7 @@ stage_data = {
             # 第四回合
             {'t': 'exchange', 'ec': True, "desc": "change to 2"},
             {'t': 'click', 'p': (553, 485), 'ec': True, "desc": "2 left"},
-            {'t': 'get-box'},
+            {'t': 'get-box', "wait-over": True},
             {'t': 'click', 'p': (560, 321), "desc": "1 upper left"},
         ]
     },
