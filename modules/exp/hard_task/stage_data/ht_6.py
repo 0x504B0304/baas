@@ -23,6 +23,25 @@ stage_data = {
             {'t': 'click', 'p': (774, 371), "desc": "1 lower right"},
         ]
     },
+    '6-1-task': {
+        'start': {
+            '1': (555, 220),
+            '2': (454, 432)
+        },
+        'action': [
+            # 第一回合
+            {'t': 'click', 'p': (693, 333), 'ec': True, "desc": "1 lower right"},
+            {'t': 'click', 'p': (569, 508), 'ec': True, "wait-over": True, "desc": "2 lower right"},
+
+            # 第二回合
+            {'t': 'exchange', 'ec': True, "desc": "change to 2"},
+            {'t': 'click', 'p': (711, 455), 'ec': True, "desc": "2 right"},
+            {'t': 'click', 'p': (777, 308), "wait-over": True, "desc": "1 right"},
+
+            # 第三回合
+            {'t': 'click', 'p': (860, 305), "desc": "1 right"},
+        ]
+    },
     '6-1-box': '6-1',
     '6-2': {
         'start': {
@@ -49,6 +68,22 @@ stage_data = {
             {'t': 'click', 'p': (842, 301), "desc": "1 upper right"},
             {'t': 'get-box', "wait-over": True},
             {'t': 'end-turn'},
+        ]
+    },
+    '6-2-task': {
+        'start': {
+            '1': (556, 265),
+            '2': (436, 441)
+        },
+        'action': [
+            # 第一回合
+            {'t': 'click', 'p': (694, 343), 'ec': True, "desc": "1 lower right"},
+            {'t': 'click', 'p': (571, 508), 'ec': True, "wait-over": True, "desc": "2 lower right"},
+
+            # 第二回合
+            {'t': 'exchange', 'ec': True, "desc": "change to 2"},
+            {'t': 'click', 'p': (711, 485), 'ec': True, "desc": "2 right"},
+            {'t': 'click', 'p': (787, 316), "desc": "1 right"},
         ]
     },
     '6-2-box': '6-2',
@@ -80,5 +115,6 @@ stage_data = {
             {'t': 'click', 'p': (560, 321), "desc": "1 upper left"},
         ]
     },
+    '6-3-task': '6-3',
     '6-3-box': '6-3',
 }

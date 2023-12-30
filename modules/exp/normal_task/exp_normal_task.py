@@ -341,7 +341,9 @@ def start_action(self, gk, stage_data):
         if 'after' in act:
             self.logger.info("后置等待{0}秒".format(act['after']))
             time.sleep(act['after'])
-    self.logger.warning("行动结束,进入战斗中...")
+
+    self.logger.warning("行动结束,等待进入战斗...")
+    image.compare_image(self, 'fight_tasking', n=True, rate=1)
 
 
 def get_gk_data(gk, stage_data, attr):
@@ -391,6 +393,9 @@ def start_mission(self):
     """
     开始任务
     """
-    image.compare_image(self, 'fight_start-task', threshold=0.6, mis_fu=self.click, mis_argv=(1171, 670),
-                        rate=1,
-                        n=True)
+    time.sleep(0.5)
+    pos = {
+        'fight_start-task': (1171, 670),  # 开始任务
+        'fight_confirm': (770, 500),  # 确认信息
+    }
+    image.detect(self, 'fight_tasking', pos)

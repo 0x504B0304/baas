@@ -137,7 +137,7 @@ class TestBaas(unittest.TestCase):
         task = 'exp_hard_task'
         levels = [
             # '6-1', '6-1-box', '6-2', '6-2-box', '6-3', '6-3-box',
-            '7-3',
+            '7-2-task',
             # '7-1-box',
             # '6-2', '6-2-box', '6-3', '6-3-box',
 
