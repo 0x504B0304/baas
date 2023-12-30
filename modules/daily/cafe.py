@@ -39,7 +39,7 @@ def start(self):
     # 初始化窗口
     init_window(self)
     # 和妹子互动
-    if self.tc['config']['interact_type'] == 'clear_furniture':
+    if self.tc['interact']['interact_type'] == 'clear_furniture':
         empty_furniture_click_girl(self)
     else:
         drag_gift_click_girl(self)
@@ -207,6 +207,9 @@ def do_invite_girl(self):
 
 
 def invite_girl(self):
+    if not self.tc['invite']['enable']:
+        self.logger.warning("当前设置为: 不邀请学生")
+        return
     if not image.compare_image(self, 'cafe_invite-status', 0):
         self.logger.warning("当前不可邀请学生")
         return
@@ -226,12 +229,13 @@ def set_fav_sort(self):
             self.click(*p, False)
             time.sleep(0.5)
     # 检查好感度升序排序
-    image.compare_image(self, 'cafe_inv-fav-sort', mis_fu=self.click, mis_argv=(814, 151, False), rate=0.5)
+    n = self.tc['invite']['type'] == 'desc'
+    image.compare_image(self, 'cafe_inv-fav-sort', mis_fu=self.click, mis_argv=(814, 151, False), rate=0.5, n=n)
 
 
 def get_cafe_money(self):
     # 查看是否需要领取体力
-    if not self.tc['config']['receive_ap']:
+    if not self.tc['ap']['enable']:
         self.logger.warning("当前设置为: 不领取体力")
         return
     pos = {

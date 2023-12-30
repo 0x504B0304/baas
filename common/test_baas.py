@@ -249,7 +249,7 @@ class TestBaas(unittest.TestCase):
             # 'cafe_invite-status',
             # 'cafe_inc-fav',
             # 'cafe_give-gift',
-            # 'cafe_inv-fav-level',
+            'cafe_inv-fav-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
 
@@ -392,7 +392,7 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(main_story.start, (self,))
 
     def to_server_all(self, fu, argv):
-        servers = ['cn']
+        servers = ['jp']
         # servers = ['jp', 'cn', 'intl']
         for server in servers:
             self.con = server

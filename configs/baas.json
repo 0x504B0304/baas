@@ -94,10 +94,16 @@
             "link_task" : "",
             "text" : "咖啡厅"
         },
-        "config" : {
+        "ap" : {
+            "enable" : true
+        },
+        "invite" : {
+            "enable" : true,
+            "type" : "asc"
+        },
+        "interact" : {
             "interact_type" : "drag_gift",
-            "blank_preset" : 5,
-            "receive_ap" : true
+            "blank_preset" : 5
         }
     },
     "schedule" : {
