@@ -68,6 +68,8 @@ class Baas:
         self.game_server = self.calc_game_server()
         self.connect_serial()
         self.init_ocr()
+        env_check.check_resolution(self)
+        env_check.check_ss(self)
         color.init_rgb(self)
         self.processes_task = processes_task
         self.next_task = ''

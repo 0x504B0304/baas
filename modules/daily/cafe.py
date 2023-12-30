@@ -62,7 +62,7 @@ def match(self, img):
 def to_gift(self):
     pos = {
         'cafe_menu': (164, 640),
-        'cafe_inc-fav': (641, 537, 50)  # 好感提升
+        'cafe_inc-fav': (641, 537, 0.6)  # 好感提升
     }
     image.detect(self, 'cafe_give-gift', pos)
 

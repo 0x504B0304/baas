@@ -39,7 +39,7 @@ def start(self):
     to_schedule(self)
 
     # 检查余票
-    if image.compare_image(self, 'schedule_surplus', 0, 1):
+    if image.compare_image(self, 'schedule_surplus', 0, 0.9):
         self.logger.warning("当前持有日程券为0")
         return home.go_home(self)
     # 选择课程

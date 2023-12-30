@@ -202,6 +202,7 @@ class TestBaas(unittest.TestCase):
             # 'home_bus',
             # 'home_bus1',
             # 'home_student',
+            'home_black',
 
             # 'wanted_menu',
             # 'wanted_stage-list'
@@ -391,7 +392,7 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(main_story.start, (self,))
 
     def to_server_all(self, fu, argv):
-        servers = ['jp']
+        servers = ['cn']
         # servers = ['jp', 'cn', 'intl']
         for server in servers:
             self.con = server

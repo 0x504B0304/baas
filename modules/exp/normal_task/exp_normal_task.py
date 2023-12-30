@@ -109,7 +109,7 @@ def start_fight(self, region, gk=None):
         # 选择支线部队开始战斗
         start_choose_side_team(self)
         image.compare_image(self, 'fight_force-edit')
-        image.compare_image(self, 'fight_force-edit', threshold=10, mis_fu=self.click, mis_argv=(1171, 670),
+        image.compare_image(self, 'fight_force-edit', threshold=0.6, mis_fu=self.click, mis_argv=(1171, 670),
                             rate=1,
                             n=True)
     else:
@@ -136,10 +136,10 @@ def start_fight(self, region, gk=None):
 
 def check_skip_auto_over(self):
     # 检查跳过战斗
-    image.compare_image(self, 'fight_skip-fight', threshold=10, mis_fu=self.click, mis_argv=(1123, 545),
+    image.compare_image(self, 'fight_skip-fight', threshold=0.6, mis_fu=self.click, mis_argv=(1123, 545),
                         rate=2)
     # 检查回合自动结束
-    image.compare_image(self, 'fight_auto-over', threshold=10, mis_fu=self.click, mis_argv=(1082, 599),
+    image.compare_image(self, 'fight_auto-over', threshold=0.6, mis_fu=self.click, mis_argv=(1082, 599),
                         rate=2)
 
 
@@ -391,6 +391,6 @@ def start_mission(self):
     """
     开始任务
     """
-    image.compare_image(self, 'fight_start-task', threshold=10, mis_fu=self.click, mis_argv=(1171, 670),
+    image.compare_image(self, 'fight_start-task', threshold=0.6, mis_fu=self.click, mis_argv=(1171, 670),
                         rate=1,
                         n=True)

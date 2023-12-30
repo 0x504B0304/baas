@@ -55,14 +55,14 @@ def save_img_to_disk(image_array, name):
     cv2.imwrite(config.get_debug_file(name), image_array)
 
 
-def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis_argv=None, rate=None, n=False,
+def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, mis_argv=None, rate=None, n=False,
                   box=None, ss=None, cl=None):
     """
     对图片坐标内的图片和资源图片是否匹配
     @param self:
     @param name: 资源名称
     @param retry: 重试次数
-    @param threshold: 匹配程度0为完全匹配
+    @param threshold: 匹配程度1为完全匹配
     @param nl: need_loading 等待加载
     @param mis_fu: 不匹配时执行函数
     @param mis_argv: 不匹配时执行函数参数
@@ -102,7 +102,7 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
     return compare
 
 
-def compare_image_data(self, ss_img, res_img, threshold=3, name='', n=False):
+def compare_image_data(self, ss_img, res_img, threshold=0.7, name='', n=False):
     """
     对比两个图片数据是否相同
     """
@@ -112,14 +112,6 @@ def compare_image_data(self, ss_img, res_img, threshold=3, name='', n=False):
     res_gray = cv2.cvtColor(res_img, cv2.COLOR_BGR2GRAY)
     # 计算SSIM（Structural Similarity Index）
     ssim = structural_similarity(ss_gray, res_gray)
-    if threshold == 3:
-        threshold = 0.7
-    elif threshold <= 1:
-        threshold = 0.9
-    elif threshold < 3:
-        threshold = 0.8
-    elif threshold > 3:
-        threshold = 0.6
     compare = ssim >= threshold
     if n:
         compare = not compare
@@ -165,12 +157,12 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
 
         # region 结束图片可能会出现的位置
         if type(end) is str:
-            if compare_image(self, end, 0, 3, nl=False, ss=self.latest_img_array):
+            if compare_image(self, end, 0, 0.7, nl=False, ss=self.latest_img_array):
                 return end
         else:
             for asset in end:
                 if type(asset) is str:
-                    asset = (asset, 3)
+                    asset = (asset, 0.7)
                 threshold = asset[1]
                 if compare_image(self, asset[0], 0, threshold, nl=False, ss=self.latest_img_array):
                     return asset[0]
@@ -178,7 +170,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         # region 资源图片可能会出现的位置
         if possibles is not None:
             for asset, obj in possibles.items():
-                threshold = 3
+                threshold = 0.7
                 if len(obj) >= 3:
                     threshold = obj[2]
                 if compare_image(self, asset, 0, threshold, nl=False, ss=self.latest_img_array):

@@ -65,7 +65,7 @@ def to_activity_page(self):
     @param self:
     """
     pos = {
-        'summer_vacation_title': (1191, 198, 20),  # 首页活动入口
+        'summer_vacation_title': (1191, 198, 0.6),  # 首页活动入口
         'momo_talk_menu': (1205, 42),
         'summer_vacation_skip': (1212, 116),
         'momo_talk_confirm-skip': (770, 516),
@@ -115,7 +115,7 @@ def do_exp(self, tab):
     # 开始战斗
     time.sleep(1)
     # 出击
-    image.compare_image(self, 'normal_task_edit-force', threshold=10, mis_fu=self.click, mis_argv=(1163, 658), rate=1,
+    image.compare_image(self, 'normal_task_edit-force', threshold=0.6, mis_fu=self.click, mis_argv=(1163, 658), rate=1,
                         n=True)
     main_story.auto_fight(self)
     # 等待战斗结束
