@@ -140,7 +140,7 @@ class TestBaas(unittest.TestCase):
             # '10-1',
             # '10-2-task',
             # '10-3-task',
-            '10-3-box',
+            '14-3',
             # '7-1-box',
             # '6-2', '6-2-box', '6-3', '6-3-box',
 

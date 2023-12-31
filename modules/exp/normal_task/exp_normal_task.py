@@ -332,6 +332,7 @@ def start_action(self, gk, stage_data):
             origin = force_index
             while force_index == origin:
                 force_index = get_force(self)
+                time.sleep(0.5)
         # 等待能控制窗口
         if 'wait-over' in act:
             self.logger.info("等待战斗结束...")
