@@ -13,19 +13,38 @@ from common import process, app, config
 from web.baas import baas
 from web.configs import configs
 
+is_exit = False
+
 
 def run_flask():
+    global is_exit
     f = Flask(__name__, static_folder='web/static', static_url_path='/static')
     f.register_blueprint(baas)
     f.register_blueprint(configs)
     ac = config.get_app_config()
-    f.run(debug=False, port=ac['port'], host='0.0.0.0')
+    try:
+        f.run(debug=False, port=ac['port'], host='0.0.0.0')
+    except UnicodeDecodeError as e:
+        # Handle decoding errors specifically
+        is_exit = True
+        print("服务启动失败", e)
+        for i in range(3):
+            print("电脑设备名称不能有中文或特殊符号，点击Win开始->设置->系统->关于->重命名这台电脑！使用纯英文命名然后重启电脑！")
+        sys.exit(-1)
+    except Exception as e:
+        is_exit = True
+        # Handle other exceptions
+        print("服务启动失败: ", str(e))
+        sys.exit(-1)
 
 
 def check_flask_startup():
+    global is_exit
     ac = config.get_app_config()
     url = f"http://127.0.0.1:{ac['port']}/ping"
     for i in range(3):
+        if is_exit:
+            return
         try:
             response = requests.get(url, timeout=2)
             if response.status_code == 200:
@@ -71,7 +90,7 @@ if __name__ == '__main__':
         flask_thread = threading.Thread(target=run_flask)
         flask_thread.daemon = True
         flask_thread.start()
-
+        time.sleep(2)
         check_thread = threading.Thread(target=check_flask_startup)
         check_thread.daemon = True
         check_thread.start()
