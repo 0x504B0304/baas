@@ -8,7 +8,7 @@ stage_data = {
             # 第一回合
             {'t': 'click', 'p': (629, 329), 'ec': True},  # 主➡️
             {'t': 'click', 'p': (824, 365)},  # 副↗️
-            {'t': 'move', 'ec': True, "wait-over": True},  # 传送
+            {'t': 'move', 'ec': True, 'wo': True},  # 传送
             # 第二回合
             {'t': 'exchange', 'ec': True},  # 切到副队
             {'t': 'click', 'p': (678, 357), 'ec': True},  # 副队↘️

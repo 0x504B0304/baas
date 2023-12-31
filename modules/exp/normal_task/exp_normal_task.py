@@ -326,15 +326,16 @@ def start_action(self, gk, stage_data):
         elif act['t'] == 'get-box':
             self.logger.info("领取宝箱")
             to_tart_task_page(self)
-        if 'ec' in act:  # 判断是否存在exchange事件
+        # 判断是否存在exchange事件
+        if 'ec' in act:
             # 等待换队
             self.logger.info("等待队伍更换事件...")
             origin = force_index
             while force_index == origin:
                 force_index = get_force(self)
                 time.sleep(0.5)
-        # 等待能控制窗口
-        if 'wait-over' in act:
+        # 判断是否存在wait over事件
+        if 'wo' in act:
             self.logger.info("等待战斗结束...")
             wait_over(self)
             to_tart_task_page(self)
