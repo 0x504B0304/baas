@@ -69,6 +69,7 @@ class Baas:
         self.connect_serial()
         self.init_ocr()
         env_check.check_resolution(self)
+        env_check.check_fhx(self)
         color.init_rgb(self)
         self.processes_task = processes_task
         self.next_task = ''

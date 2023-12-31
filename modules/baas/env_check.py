@@ -73,6 +73,8 @@ def check_clarity(self):
 
 
 def check_fhx(self):
+    if self.game_server != 'cn':
+        return
     self.log_title("开始检查反和谐")
     home.go_home(self)
     if ocr.screenshot_check_text(self, '等级', (31, 28, 71, 48), 1):

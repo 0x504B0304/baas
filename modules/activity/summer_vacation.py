@@ -11,8 +11,7 @@ position = {
 
 
 def start(self):
-    if self.game_server != 'cn':
-        return self.logger.critical('外服此功能待开发...')
+    return
     # 回到首页
     home.go_home(self)
     to_activity_page(self)
