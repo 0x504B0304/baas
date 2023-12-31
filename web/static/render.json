@@ -1898,28 +1898,14 @@
             "type" : "sel"
         },
         "base.text" : "skip",
-        "config" : {
-            "name" : "购买设置"
+        "general" : {
+            "name" : "常规商店"
         },
-        "config.enable" : {
+        "general.enable" : {
             "name" : "启用该功能",
             "type" : "bool"
         },
-        "config.shop" : {
-            "items" : [
-                {
-                    "name" : "常规道具",
-                    "value" : "general"
-                },
-                {
-                    "name" : "战术对抗赛",
-                    "value" : "arena"
-                }
-            ],
-            "name" : "商店",
-            "type" : "sel"
-        },
-        "config.count" : {
+        "general.count" : {
             "desc" : "默认可购买一次+刷新次数=购买次数，比如购买2次=默认买1次+刷新购买1次",
             "name" : "购买次数",
             "opts" : {
@@ -1929,10 +1915,40 @@
             },
             "type" : "num"
         },
-        "config.goods" : {
+        "general.goods" : {
             "desc" : "从左往右，从上往下的顺序数",
             "items" : {
-                "max" : 16,
+                "max" : 20,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "道具序号",
+            "opts" : {
+                "multiple" : "true"
+            },
+            "type" : "sel"
+        },
+        "arena" : {
+            "name" : "竞技场商店"
+        },
+        "arena.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "arena.count" : {
+            "desc" : "默认可购买一次+刷新次数=购买次数，比如购买2次=默认买1次+刷新购买1次",
+            "name" : "购买次数",
+            "opts" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "type" : "num"
+        },
+        "arena.goods" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 15,
                 "min" : 1,
                 "step" : 1
             },

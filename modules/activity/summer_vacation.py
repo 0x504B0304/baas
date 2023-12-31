@@ -55,7 +55,7 @@ def to_tab(self, t):
         'challenge': ((1190, 103, 1191, 104), (77, 55, 40))
     }
     tab = tabs[t]
-    color.wait_rgb_similar(self, tab[0], tab[1], mis_fu=self.click, mis_argv=(tab[0][0] - 100, tab[0][1]))
+    # color.wait_rgb_similar(self, tab[0], tab[1], mis_fu=self.click, mis_argv=(tab[0][0] - 100, tab[0][1]))
 
 
 def to_activity_page(self):

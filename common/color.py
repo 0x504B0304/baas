@@ -18,17 +18,16 @@ def color_distance(rgb1, rgb2):
     return math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2)
 
 
-def wait_rgb_similar(self, area, rgb, retry=999, threshold=20, rate=0.1, mis_fu=None, mis_argv=None):
+def wait_rgb_similar(self, area, rgb, retry=999, threshold=100, rate=0.1, cl=None):
     """
     等待相似颜色出现
     """
-    compare = check_rgb_similar(self, area, rgb)
+    compare = check_rgb(self, area, rgb, threshold)
     if not compare and retry > 0:
-        if mis_fu is not None:
-            mis_fu(*mis_argv)
-            time.sleep(rate)
+        if cl is not None:
+            self.click(*cl, False)
         time.sleep(rate)
-        return wait_rgb_similar(self, area, rgb, retry - 1, threshold)
+        return wait_rgb_similar(self, area, rgb, retry - 1, threshold, rate, cl)
     return compare
 
 

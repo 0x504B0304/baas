@@ -205,7 +205,7 @@ class TestBaas(unittest.TestCase):
             # 'home_bus',
             # 'home_bus1',
             # 'home_student',
-            'home_black',
+            # 'home_black',
 
             # 'wanted_menu',
             # 'wanted_stage-list'
@@ -285,10 +285,13 @@ class TestBaas(unittest.TestCase):
             # 'work_task_receive',
 
             # 'shop_menu',
+            # 'shop_choose-buy',
+            # 'shop_buy-confirm1',
+            # 'shop_buy-confirm2',
+            # 'shop_refresh-confirm',
             # 'shop_buy3',
             # 'shop_buy2',
-            # 'shop_buy1',
-            # 'shop_confirm',
+            'shop_buy1',
 
             # 'schedule_menu',
             # 'schedule_surplus',
@@ -391,12 +394,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'main_story'
-        self.to_server_all(main_story.start, (self,))
+        self.ttt = 'shop'
+        self.to_server_all(shop.start, (self,))
 
     def to_server_all(self, fu, argv):
-        servers = ['cn']
-        # servers = ['jp', 'cn', 'intl']
+        # servers = ['cn']
+        servers = ['jp', 'intl', 'cn']
         for server in servers:
             self.con = server
             self.load_config()

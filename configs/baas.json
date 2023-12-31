@@ -52,36 +52,32 @@
             "link_task" : "",
             "text" : "商店购买"
         },
-        "config" : [
-            {
-                "enable" : true,
-                "shop" : "general",
-                "count" : 1,
-                "goods" : [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16
-                ]
-            },
-            {
-                "enable" : false,
-                "shop" : "arena",
-                "count" : 1,
-                "goods" : [
-                    4,
-                    5
-                ]
-            }
-        ]
+        "general" : {
+            "enable" : true,
+            "count" : 1,
+            "goods" : [
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+            ]
+        },
+        "arena" : {
+            "enable" : true,
+            "count" : 1,
+            "goods" : [
+                4,
+                5
+            ]
+        }
     },
     "cafe" : {
         "base" : {

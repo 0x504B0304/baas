@@ -144,7 +144,7 @@ def stage_convert(stage_list):
     return [convert_string(s) for s in stage_list]
 
 
-def screen_swipe(self, stage, threshold1, threshold2=999, reset=True, f=(911, 650, 911, 40, 0.55)):
+def screen_swipe(self, stage=1, threshold1=0, threshold2=999, reset=True, f=(911, 650, 911, 40, 0.55)):
     if reset:
         # 先保证回到最开始
         self.swipe(911, 199, 911, 600, 0.1)

@@ -39,7 +39,7 @@ def to_menu(self, end, pos, cl=None):
 
 
 def click_house_under(self):
-    self.double_click(1166, 66, False)
+    self.double_click(1268, 58, False)
 
 
 def recursion_click_house(self):
