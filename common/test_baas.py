@@ -331,7 +331,7 @@ class TestBaas(unittest.TestCase):
             # 'normal_task_attack',
             # 'normal_task_prize-confirm',
             # 'normal_task_no-pass',
-            # 'normal_task_move-force-confirm',
+            # 'nor2mal_task_move-force-confirm',
             # 'normal_task_end-turn',
             # 'normal_task_task-finish',
             # 'normal_task_box',
@@ -339,8 +339,8 @@ class TestBaas(unittest.TestCase):
             # 'normal_task_fight-task-info',
 
             # 'buy_ap_notice',
-            # 'buy_ap_notice2',
-            # 'buy_ap_limited',
+            # 'buy_ap_confirm',
+            'buy_ap_limited',
             # 'buy_ap_buy20',
             # 'buy_ap_buy19',
             # 'buy_ap_buy18',
@@ -397,8 +397,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'exchange_meeting'
-        self.to_server_all(exchange_meeting.start, (self,))
+        self.ttt = 'buy_ap'
+        self.to_server_all(buy_ap.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn']

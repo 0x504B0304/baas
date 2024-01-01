@@ -1,3 +1,5 @@
+import time
+
 from common import image, stage
 from modules.baas import home
 
@@ -14,13 +16,10 @@ def to_buy_ap(self):
 
 
 def start(self):
-    if self.game_server != 'cn':
-        return self.logger.critical('外服此功能待开发...')
     # 回到首页
     home.go_home(self)
 
     res = to_buy_ap(self)
-
     # 购买上限检查
     if res == 'buy_ap_limited':
         return home.go_home(self)
@@ -28,6 +27,7 @@ def start(self):
     try:
         need_count = self.tc['config']['count']
         purchased_count = 20 - calc_surplus_count(self)
+        self.logger.warning("需要购买次数:{0}次 当前已购买次数{1}次".format(need_count, purchased_count))
         # 次数已满
         if need_count <= purchased_count:
             return home.go_home(self)
@@ -46,6 +46,7 @@ def start(self):
         # 确认超出持有上限弹窗
         if image.compare_image(self, 'buy_ap_limited', 5):
             # 延迟重新运行
+            self.logger.warning("体力超出持有上限,延迟运行本任务")
             self.finish_seconds = 30
             return home.go_home(self)
 
@@ -64,6 +65,6 @@ def calc_surplus_count(self):
     计算剩余购买次数,这里必须用图片匹配才能精准,用文字识别小数字必出bug
     """
     for i in range(20, 0, -1):
-        if image.compare_image(self, 'buy_ap_buy{0}'.format(i), 0):
+        if image.compare_image(self, 'buy_ap_buy{0}'.format(i), 0, 0.9):
             return i
     return 0
