@@ -63,12 +63,12 @@ def start_buy(self, shop):
     """
     choose_goods(self, self.tc[shop]['goods'], shop)
     if not image.compare_image(self, 'shop_choose-buy', 1):
-        self.logger.warning("没有选中道具")
+        self.logger.error("没有选中道具")
         return
 
     # 检查是否可以购买
-    if self.game_server == 'cn' and not color.check_rgb_similar(self, (1108, 657, 1109, 658), (68, 229, 249)):
-        self.logger.info("货币不足，无法购买")
+    if not color.check_rgb(self, (1200, 682), (251, 231, 68)):
+        self.logger.error("货币不足，无法购买")
         return
 
     pos = {
@@ -114,6 +114,7 @@ def refresh_shop(self, shop):
     """
     need_count = self.tc[shop]['count']
     purchased_count = 4 - calc_surplus_count(self)
+    self.logger.warning("{0}商店 需要购买次数:{1}次 当前已购买次数{2}次".format(shop, need_count, purchased_count))
     # 次数已满
     if need_count <= purchased_count:
         # 关闭购买弹窗
