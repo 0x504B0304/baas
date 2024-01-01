@@ -362,9 +362,7 @@
             "text" : "普通关卡-开图"
         },
         "config" : {
-            "region" : [
-                6
-            ],
+            "region" : 6,
             "mode" : 2
         }
     },
@@ -379,9 +377,7 @@
             "text" : "困难关卡-开图"
         },
         "config" : {
-            "region" : [
-                6
-            ],
+            "region" : 6,
             "mode" : 2
         }
     }
