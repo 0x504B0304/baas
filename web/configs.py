@@ -75,6 +75,7 @@ def menus_list():
                 {'name': 'special_entrust', 'text': '特殊委托'},
                 {'name': 'wanted', 'text': '通缉悬赏'},
                 {'name': 'arena', 'text': '战术对抗赛'},
+                {'name': 'exchange_meeting', 'text': '学园交流会'},
                 {'name': 'normal_task', 'text': '普通关卡-扫荡'},
                 {'name': 'hard_task', 'text': '困难关卡-扫荡'},
             ]

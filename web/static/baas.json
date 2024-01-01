@@ -186,6 +186,32 @@
             "count" : 1
         }
     },
+    "exchange_meeting" : {
+        "base" : {
+            "enable" : true,
+            "index" : 65,
+            "next" : "2023-11-17 00:00:00",
+            "end" : "",
+            "interval" : 0,
+            "link_task" : "",
+            "text" : "学园交流会"
+        },
+        "cnd" : {
+            "enable" : true,
+            "stage" : 1,
+            "count" : 1
+        },
+        "ghn" : {
+            "enable" : true,
+            "stage" : 1,
+            "count" : 1
+        },
+        "qxn" : {
+            "enable" : true,
+            "stage" : 1,
+            "count" : 1
+        }
+    },
     "main_story" : {
         "base" : {
             "enable" : true,

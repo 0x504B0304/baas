@@ -7,6 +7,7 @@ import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
 from common import image, config, position, stage, log, color
+from modules.attack import exchange_meeting
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import normal_task
@@ -212,6 +213,8 @@ class TestBaas(unittest.TestCase):
             # 'wanted_buy-ticket'
             # 'wanted_task-info-window'
             # 'special_entrust_menu'
+            # 'exchange_meeting_menu'
+            # 'exchange_meeting_stage-list'
 
             # 'restart_news',
             # 'restart_menu',
@@ -291,7 +294,7 @@ class TestBaas(unittest.TestCase):
             # 'shop_refresh-confirm',
             # 'shop_buy3',
             # 'shop_buy2',
-            'shop_buy1',
+            # 'shop_buy1',
 
             # 'schedule_menu',
             # 'schedule_surplus',
@@ -394,12 +397,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'shop'
-        self.to_server_all(shop.start, (self,))
+        self.ttt = 'exchange_meeting'
+        self.to_server_all(exchange_meeting.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn']
-        servers = ['jp', 'intl', 'cn']
+        servers = ['jp', 'intl']
         for server in servers:
             self.con = server
             self.load_config()

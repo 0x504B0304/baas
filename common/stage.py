@@ -8,13 +8,13 @@ from common.color import judge_rgb_range
 from modules.baas import home
 
 
-def confirm_scan(self, stage, ct, max_count):
+def confirm_scan(self, stage, ct, max_count, cl=None):
     self.logger.warning("开始扫荡第 {0} 关".format(stage))
     ends = (
         'wanted_task-info-window',
         'normal_task_task-info-window'
     )
-    image.detect(self, ends)
+    image.detect(self, ends, cl=cl, ss_rate=1)
     is_max = type(ct) == str and ct == 'max'
     # 等关卡加载
     if is_max or int(ct) >= max_count:

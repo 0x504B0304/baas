@@ -2123,6 +2123,197 @@
             "type" : "num"
         }
     },
+    "exchange_meeting" : {
+        "base" : {
+            "name" : "功能设置"
+        },
+        "base.enable" : {
+            "desc" : "将这个任务加入调度器",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "base.index" : {
+            "desc" : "数字越低，越先执行",
+            "name" : "任务优先级",
+            "type" : "num"
+        },
+        "base.next" : {
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
+            "name" : "下一次运行时间",
+            "type" : "txt"
+        },
+        "base.end" : {
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
+            "name" : "任务截止时间",
+            "type" : "txt"
+        },
+        "base.interval" : {
+            "desc" : "完成任务后，间隔多少秒后重复执行任务，填0：表示明天再执行 填3600：表示1小时候再执行",
+            "name" : "再次执行任务时间",
+            "type" : "num"
+        },
+        "base.link_task" : {
+            "desc" : "完成本任务后，立刻执行关联任务",
+            "items" : [
+                {
+                    "name" : "不关联",
+                    "value" : ""
+                },
+                {
+                    "name" : "重启",
+                    "value" : "restart"
+                },
+                {
+                    "name" : "购买体力",
+                    "value" : "buy_ap"
+                },
+                {
+                    "name" : "小组",
+                    "value" : "group"
+                },
+                {
+                    "name" : "补习部签到",
+                    "value" : "tutor_dept"
+                },
+                {
+                    "name" : "制造",
+                    "value" : "make"
+                },
+                {
+                    "name" : "日程",
+                    "value" : "schedule"
+                },
+                {
+                    "name" : "商店购买",
+                    "value" : "shop"
+                },
+                {
+                    "name" : "咖啡厅",
+                    "value" : "cafe"
+                },
+                {
+                    "name" : "战术对抗赛",
+                    "value" : "arena"
+                },
+                {
+                    "name" : "特殊委托",
+                    "value" : "special_entrust"
+                },
+                {
+                    "name" : "通缉悬赏",
+                    "value" : "wanted"
+                },
+                {
+                    "name" : "领取邮箱",
+                    "value" : "mailbox"
+                },
+                {
+                    "name" : "MomoTalk",
+                    "value" : "momo_talk"
+                },
+                {
+                    "name" : "工作任务",
+                    "value" : "work_task"
+                },
+                {
+                    "name" : "扫荡普通关卡",
+                    "value" : "normal_task"
+                },
+                {
+                    "name" : "扫荡困难关卡",
+                    "value" : "hard_task"
+                },
+                {
+                    "name" : "日奈会长",
+                    "value" : "summer_vacation"
+                }
+            ],
+            "name" : "关联任务",
+            "type" : "sel"
+        },
+        "base.text" : "skip",
+        "cnd" : {
+            "name" : "崔尼蒂/圣三一"
+        },
+        "cnd.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "cnd.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "cnd.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        },
+        "ghn" : {
+            "name" : "歌赫娜/格黑娜"
+        },
+        "ghn.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "ghn.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "ghn.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        },
+        "qxn" : {
+            "name" : "千禧年"
+        },
+        "qxn.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "qxn.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "qxn.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        }
+    },
     "tutor_dept" : {
         "base" : {
             "name" : "功能设置"
