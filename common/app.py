@@ -25,7 +25,7 @@ def open_github():
 
 
 def open_bilibili():
-    webbrowser.open_new('https://www.bilibili.com/video/BV1F94y1w78A')
+    webbrowser.open_new('https://www.bilibili.com/video/BV1464y1E7MH/')
 
 
 def start():
