@@ -253,7 +253,8 @@ def calc_need_fight_stage(self, region):
         self.click(1172, 358)
         # 检测是否还在本区域
         stage_index += 1
-        if stage_index >= 6:
+        mc = 4 if self.tc['task'] == 'exp_hard_task' else 6
+        if stage_index >= mc:
             time.sleep(1)
             if region != ocr.screenshot_get_text(self, (189, 197, 228, 225), self.ocrNum):
                 return None

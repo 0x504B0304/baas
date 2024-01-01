@@ -11,6 +11,7 @@ from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt, color
 from modules.activity import tutor_dept, summer_vacation
+from modules.attack import exchange_meeting
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
 from modules.exp.hard_task import exp_hard_task
@@ -41,6 +42,7 @@ func_dict = {
     'main_story': main_story.start,
     'fhx': fhx.start,
     'summer_vacation': summer_vacation.start,
+    'exchange_meeting': exchange_meeting.start,
 }
 
 
