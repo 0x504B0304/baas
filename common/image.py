@@ -91,13 +91,13 @@ def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, m
     # 对比图片
     compare = compare_image_data(self, ss_img, res_img, threshold, name, n)
     if not compare and retry > 0:
-        time.sleep(rate)
         if 100 < retry < 989 and retry % 10 == 0:
             self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言')
         if mis_fu is not None:
             mis_fu(*mis_argv)
         if cl is not None:
             self.click(*cl, False)
+        time.sleep(rate)
         return compare_image(self, name, retry - 1, threshold, nl, mis_fu, mis_argv, rate, n, box, ss, cl)
     return compare
 

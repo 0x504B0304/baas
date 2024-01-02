@@ -417,3 +417,11 @@ class TestBaas(unittest.TestCase):
             print('{0} 切换服务器成功...'.format(server))
             time.sleep(0.5)
             fu(*argv)
+
+    def test_image(self):
+        image_data1 = cv2.imdecode(
+            np.fromfile('../assets/images/cn/arena/skip.png', dtype=np.uint8), -1)
+        image_data2 = cv2.imdecode(
+            np.fromfile('../assets/images/cn/arena/skip2.png', dtype=np.uint8), -1)
+        image.compare_image_data(self, image_data1, image_data2)
+        pass

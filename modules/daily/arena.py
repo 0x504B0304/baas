@@ -69,11 +69,9 @@ def start_fight(self, wait=False):
     choose_enemy(self)
     do_fight(self)
     # 检查跳过是否勾选
-    image.compare_image(self, 'arena_skip', 999, 0.6, False, self.click, (1125, 599, False), 1)
-
+    image.compare_image(self, 'arena_skip', cl=(1239, 600), rate=1)
     # 出击 直到 编队页面消失
-    image.compare_image(self, 'fight_edit-attack-force', threshold=0.6, mis_fu=self.click, mis_argv=(1163, 658), rate=1,
-                        n=True)
+    image.compare_image(self, 'fight_edit-attack-force', cl=(1163, 658), rate=1, n=True)
     # 等到ID出现 一直点击页面关闭晋升弹窗
     image.detect(self, 'arena_id', cl=(1235, 82))
     start_fight(self, True)
