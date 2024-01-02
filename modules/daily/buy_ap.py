@@ -39,7 +39,7 @@ def start(self):
         self.click(770, 501, False)
 
         # 确认购买弹窗检测
-        if image.compare_image(self, 'buy_ap_notice2', 5):
+        if image.compare_image(self, 'buy_ap_confirm', 5):
             # 再次确认购买
             self.click(768, 485, False)
 

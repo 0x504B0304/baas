@@ -38,10 +38,12 @@ def confirm_scan(self, stage, ct, max_count, cl=None):
         'normal_task_task-info-notice'  # 确认扫荡通知
     )
     end = image.detect(self, ends)
-    # 通缉悬赏没票了
     if end == 'wanted_buy-ticket':
         self.click(56, 38, 0, 3)
         return 'continue'
+    elif end == 'normal_task_buy-hard-count':
+        home.click_house_under(self)
+        return
     elif end == 'normal_task_buy-ap-window':
         return 'return'
     if end != 'normal_task_task-info-notice':
