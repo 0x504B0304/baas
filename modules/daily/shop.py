@@ -48,7 +48,7 @@ def buy_goods(self):
     shops = ['general', 'arena']
     for shop in shops:
         if not self.tc[shop]['enable']:
-            self.looger.error(f"当前商店{shop}设置为: 不启用")
+            self.logger.error(f"当前商店{shop}设置为: 不启用")
             continue
         to_goods_tab(self, shop)
         # 选择商品

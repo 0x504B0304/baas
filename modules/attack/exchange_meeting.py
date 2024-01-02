@@ -22,6 +22,8 @@ def to_exchange_meeting(self):
 
 
 def start(self):
+    if self.game_server == 'cn':
+        return
     # 回到首页
     home.go_home(self)
     # 选择委托
