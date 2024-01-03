@@ -46,7 +46,7 @@ stage_data = {
         },
         'action': [
             {'t': 'click', 'p': (615, 413), 'ec': True},  # 主队↖️
-            {'t': 'click', 'p': (724, 273), 'wait-over': True},  # 副队➡️
+            {'t': 'click', 'p': (724, 273), 'wo': True},  # 副队➡️
 
             {'t': 'exchange', 'ec': True},  # 切换部队
             {'t': 'click', 'p': (642, 271)},  # 副队原地点击

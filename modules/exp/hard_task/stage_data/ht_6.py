@@ -16,7 +16,7 @@ stage_data = {
 
             # 第三回合
             {'t': 'click', 'p': (800, 227), 'wo': True, 'desc': "1 upper right & get box"},
-            {'t': 'end-turn', 'wait-over': True},
+            {'t': 'end-turn', 'wo': True},
 
             # 第四回合
             {'t': 'click', 'p': (774, 371), 'desc': "1 lower right"},

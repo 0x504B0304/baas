@@ -14,7 +14,7 @@ stage_data = {
             {'t': 'click', 'p': (535, 420), 'desc': "choose 1"},
             {'t': 'click', 'p': (430, 415), 'desc': "change"},
             {'t': 'click', 'p': (475, 340), 'ec': True, 'desc': "2 upper left"},
-            {'t': 'click', 'p': (560, 430), 'wait-over': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (560, 430), 'wo': True, 'desc': "1 left"},
 
             # 第三回合
             {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
@@ -93,7 +93,7 @@ stage_data = {
             # 第五回合
             {'t': 'click', 'p': (765, 415), 'desc': "choose 2"},
             {'t': 'click', 'p': (660, 405), 'desc': "change"},
-            {'t': 'click', 'p': (885, 415), 'ec': True, 'desc': "1 right"},
+            {'t': 'click', 'p': (885, 415), 'desc': "1 right"},
         ]
     },
     '11-3': {

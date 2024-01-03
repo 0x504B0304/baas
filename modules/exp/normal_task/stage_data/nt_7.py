@@ -7,13 +7,13 @@ stage_data = {
         'action': [
             {'t': 'click', 'p': (663, 461), 'desc': "1 right"},
             {'t': 'move', 'ec': True, 'desc': "teleport"},
-            {'t': 'click', 'p': (622, 342),'desc': "2 right"},
+            {'t': 'click', 'p': (622, 342), 'desc': "2 right"},
             {'t': 'move', 'wo': True, 'ec': True, 'desc': "teleport"},
 
             {'t': 'click', 'p': (657, 309), 'ec': True, 'desc': "1 right"},
             {'t': 'click', 'p': (596, 560), 'wo': True, 'ec': True, 'desc': "2 lower right"},
 
-            {'t': 'click', 'p': (789, 278),'ec': True, 'desc': "1 right"},
+            {'t': 'click', 'p': (789, 278), 'ec': True, 'desc': "1 right"},
             {'t': 'end-turn'},
 
         ]
@@ -28,8 +28,8 @@ stage_data = {
             {'t': 'click', 'p': (700, 475), 'ec': True, 'desc': "2 lower left"},
             {'t': 'click', 'p': (700, 475), 'desc': "choose 2"},
             {'t': 'click', 'p': (600, 475), 'desc': "change 1 2"},
-            {'t': 'click', 'p': (819, 476),  'desc': "1 right"},
-            {'t': 'move', 'wait-over': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (819, 476), 'desc': "1 right"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
 
             {'t': 'click', 'p': (607, 490), 'ec': True, 'desc': "1 lower left"},
             {'t': 'end-turn'},
@@ -47,9 +47,9 @@ stage_data = {
             {'t': 'move', 'ec': True, 'desc': "teleport"},
             {'t': 'click', 'p': (564, 438), 'desc': "choose 2"},
             {'t': 'click', 'p': (462, 431), 'desc': "change 1 2"},
-            {'t': 'click', 'p': (503, 522),'wait-over':True , 'desc': "1 lower left"},
+            {'t': 'click', 'p': (503, 522), 'wo': True, 'desc': "1 lower left"},
 
-            {'t': 'click', 'p': (425, 481),'ec': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (425, 481), 'ec': True, 'desc': "1 left"},
             {'t': 'click', 'p': (682, 354), 'desc': "2 lower right"},
             {'t': 'move', 'desc': "teleport"},
         ]
@@ -60,7 +60,7 @@ stage_data = {
             '2': (486, 370)
         },
         'action': [
-            {'t': 'click', 'p': (679, 463),'ec': True,  'desc': "1 right"},
+            {'t': 'click', 'p': (679, 463), 'ec': True, 'desc': "1 right"},
             {'t': 'click', 'p': (619, 379), 'desc': "2 right"},
             {'t': 'move', 'wo': True, 'ec': True, 'desc': "teleport"},
 
@@ -88,15 +88,15 @@ stage_data = {
             {'t': 'click', 'p': (706, 418), "ec": True, 'desc': "2 lower left"},
             {'t': 'click', 'p': (706, 418), 'desc': "choose 2"},
             {'t': 'click', 'p': (606, 418), 'desc': "change 1 2"},
-            {'t': 'click', 'p': (767, 500), 'wait-over':True,'desc': "1 lower right"},
+            {'t': 'click', 'p': (767, 500), 'wo': True, 'desc': "1 lower right"},
 
             {'t': 'click', 'p': (685, 565), 'desc': "1 lower left"},
             {'t': 'move', 'ec': True, 'desc': "teleport"},
-            {'t': 'click', 'p': (555, 472),'desc': "2 lower right"},
+            {'t': 'click', 'p': (555, 472), 'desc': "2 lower right"},
             {'t': 'move', 'wo': True, 'ec': True, 'desc': "teleport"},
 
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
-            {'t': 'click', 'p': (378, 423), 'ec': True,'desc': "2 left"},
+            {'t': 'click', 'p': (378, 423), 'ec': True, 'desc': "2 left"},
             {'t': 'click', 'p': (889, 351), 'desc': "1 right"},
         ]
     },

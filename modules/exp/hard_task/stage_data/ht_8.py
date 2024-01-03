@@ -24,8 +24,7 @@ stage_data = {
             {'t': 'end-turn'},
 
             # 第四回合
-            {'t': 'click', 'p': (615, 400), 'ec': True, 'desc': "1 right"},
-
+            {'t': 'click', 'p': (615, 400), 'desc': "1 right"},
         ]
     },
     '8-1-box': '8-1',

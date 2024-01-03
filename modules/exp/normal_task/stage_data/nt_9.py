@@ -25,7 +25,7 @@ stage_data = {
         },
         'action': [
             {'t': 'click', 'p': (618, 366), 'ec': True, 'desc': "1 right"},
-            {'t': 'click', 'p': (725, 500), 'wait-over': True, 'ec': True, 'desc': "2 lower left"},
+            {'t': 'click', 'p': (725, 500), 'wo': True, 'ec': True, 'desc': "2 lower left"},
 
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
             {'t': 'click', 'p': (608, 485), "ec": True, 'desc': "2 left"},
@@ -41,7 +41,7 @@ stage_data = {
         },
         'action': [
             {'t': 'click', 'p': (631, 326), 'ec': True, 'desc': "1 right"},
-            {'t': 'click', 'p': (688, 407), 'wait-over': True, 'ec': True, 'desc': "2 upper right"},
+            {'t': 'click', 'p': (688, 407), 'wo': True, 'ec': True, 'desc': "2 upper right"},
 
             {'t': 'exchange', 'ec': True, 'desc': 'change to 2'},
             {'t': 'click', 'p': (682, 421), "ec": True, 'desc': "2 upper right"},
@@ -85,7 +85,7 @@ stage_data = {
             {'t': 'click', 'p': (672, 354), "ec": True, 'desc': "2 lower right"},
             {'t': 'click', 'p': (672,354), 'desc': "choose 2"},
             {'t': 'click', 'p': (572, 354), 'desc': "change 1 2"},
-            {'t': 'click', 'p': (795, 355), 'wait-over': True, 'desc': "1 right"},
+            {'t': 'click', 'p': (795, 355), 'wo': True, 'desc': "1 right"},
 
             {'t': 'click', 'p': (902, 378), 'ec': True, 'desc': "1 right"},
             {'t': 'click', 'p': (440, 303), 'desc': "2 upper left"},

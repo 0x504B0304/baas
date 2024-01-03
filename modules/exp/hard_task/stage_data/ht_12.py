@@ -118,7 +118,7 @@ stage_data = {
             {'t': 'end-turn', 'wo': True},
 
             # 第五回合
-            {'t': 'click', 'p': (465, 400), 'ec': True, 'desc': "1 lower left"},
+            {'t': 'click', 'p': (465, 400), 'desc': "1 lower left"},
         ]
     },
 }

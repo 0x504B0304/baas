@@ -14,7 +14,7 @@ stage_data = {
             {'t': 'click', 'p': (678, 357), 'ec': True},  # 副队↘️
             {'t': 'click', 'p': (679, 347)},  # 点击副队
             {'t': 'click', 'p': (576, 347)},  # 确认交换
-            {'t': 'click', 'p': (794, 352), 'after': 10, 'wait-over': True},  # 主队➡️
+            {'t': 'click', 'p': (794, 352), 'after': 10, 'wo': True},  # 主队➡️
             # 第三回合
             {'t': 'click', 'p': (823, 413), 'ec': True},  # 主队↘️
             {'t': 'click', 'p': (444, 446)},  # 副队↙️️
@@ -34,7 +34,7 @@ stage_data = {
             {'t': 'click', 'p': (727, 349), 'ec': True},  # 副队先↗️
             {'t': 'click', 'p': (727, 342)},  # 点击副队
             {'t': 'click', 'p': (620, 344)},  # 确认交换
-            {'t': 'click', 'p': (838, 344), 'after': 5, 'wait-over': True},  # 主队➡️
+            {'t': 'click', 'p': (838, 344), 'after': 5, 'wo': True},  # 主队➡️
             # 第三回合
             {'t': 'exchange', 'ec': True, 'before': 2},  # 切到副队
             {'t': 'click', 'p': (432, 451)},  # 副队先↙️
@@ -56,7 +56,7 @@ stage_data = {
             {'t': 'click', 'p': (680, 452)},  # 点击副队
             {'t': 'click', 'p': (572, 448)},  # 点击交换
             {'t': 'click', 'p': (623, 541), 'ec': True},  # 主队↙️️
-            {'t': 'click', 'p': (797, 421), 'ec': True, 'wait-over': True},  # 副队↘️
+            {'t': 'click', 'p': (797, 421), 'ec': True, 'wo': True},  # 副队↘️
             # 第三回合
             {'t': 'exchange', 'ec': True},  # 切换部队
             {'t': 'click', 'p': (835, 425)},  # 副队↘️
@@ -75,20 +75,20 @@ stage_data = {
         'action': [
             # 第一回合
             {'t': 'click', 'p': (546, 498), 'ec': True},  # 主⬅️
-            {'t': 'click', 'p': (687, 343), 'ec': True, 'wait-over': True},  # 副↘️
+            {'t': 'click', 'p': (687, 343), 'ec': True, 'wo': True},  # 副↘️
             # 第二回合
             {'t': 'click', 'p': (547, 419), 'ec': True},  # 主队↖️
             {'t': 'click', 'p': (801, 275)},  # 副队➡️传送
-            {'t': 'move', 'ec': True, 'wait-over': True},  # 确认传送
+            {'t': 'move', 'ec': True, 'wo': True},  # 确认传送
             # 第三回合
             {'t': 'exchange', 'ec': True},  # 切换部队
             {'t': 'click', 'p': (460, 498), 'ec': True},  # 副队↙️
             {'t': 'click', 'p': (528, 457)},  # 点击副队
             {'t': 'click', 'p': (423, 455)},  # 点击交换
-            {'t': 'click', 'p': (408, 468), 'wait-over': True},  # 主队⬅️
+            {'t': 'click', 'p': (408, 468), 'wo': True},  # 主队⬅️
             # 第四回合
             {'t': 'exchange', 'ec': True},  # 切换部队
-            {'t': 'click', 'p': (897, 416), 'wait-over': True},  # 副队➡️
+            {'t': 'click', 'p': (897, 416), 'wo': True},  # 副队➡️
             {'t': 'click', 'p': (435, 446)},  # 主队↙️Boss
         ]
     },
@@ -104,18 +104,18 @@ stage_data = {
             # 第二回合
             {'t': 'click', 'p': (610, 388)},  # 点击副队
             {'t': 'click', 'p': (505, 382)},  # 点击交换
-            {'t': 'click', 'p': (730, 388), 'wait-over': True},  # 主队➡️
+            {'t': 'click', 'p': (730, 388), 'wo': True},  # 主队➡️
             # 第三回合
             {'t': 'click', 'p': (784, 218), 'ec': True},  # 主队↗️
             {'t': 'click', 'p': (579, 234)},  # 副队↗️
-            {'t': 'move', 'ec': True, 'wait-over': True},  # 副队传送
+            {'t': 'move', 'ec': True, 'wo': True},  # 副队传送
             # 第四回合
             {'t': 'click', 'p': (788, 216)},  # 主队↗️
-            {'t': 'move', 'ec': True, 'wait-over': True},  # 主队传送
-            {'t': 'click', 'p': (651, 373), 'wait-over': True},  # 副队↙️
+            {'t': 'move', 'ec': True, 'wo': True},  # 主队传送
+            {'t': 'click', 'p': (651, 373), 'wo': True},  # 副队↙️
             # 第五回合
             {'t': 'click', 'p': (803, 491), 'ec': True},  # 主队➡️
-            {'t': 'click', 'p': (734, 354), 'wait-over': True},  # 副队↘️
+            {'t': 'click', 'p': (734, 354), 'wo': True},  # 副队↘️
             {'t': 'click', 'p': (779, 511)},  # 主队➡️ Boss
         ]
     },

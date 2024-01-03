@@ -8,11 +8,11 @@ stage_data = {
             # 第一回合
             {'t': 'exchange', 'ec': True},
             {'t': 'click', 'p': (756, 388), 'ec': True, 'desc': "2 right"},
-            {'t': 'click', 'p': (636, 555), 'wait-over': True, 'desc': "1 lower right"},
+            {'t': 'click', 'p': (636, 555), 'wo': True, 'desc': "1 lower right"},
             # 第二回合
             {'t': 'exchange', 'ec': True},
             {'t': 'click', 'p': (867, 316), 'ec': True, 'desc': "2 right"},
-            {'t': 'click', 'p': (619, 461), 'wait-over': True, 'desc': "1 lower right"},
+            {'t': 'click', 'p': (619, 461), 'wo': True, 'desc': "1 lower right"},
             # 第三回合
             {'t': 'exchange', 'ec': True},
             {'t': 'click', 'p': (839, 298), 'ec': True, 'desc': "2 right"},
