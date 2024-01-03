@@ -6,18 +6,13 @@ import cv2
 import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
-from common import image, config, position, stage, log, color
-from modules.attack import exchange_meeting
+
+from common import image
+from common import stage, config, log, color
 from modules.baas import home
+from modules.daily import buy_ap
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import normal_task
-from common import stage, process, config, log, encrypt, position, color
-from modules.activity import tutor_dept, summer_vacation
-from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
-from modules.exp.hard_task import exp_hard_task
-from modules.exp.normal_task import exp_normal_task
-from modules.reward import momo_talk, work_task, mailbox
-from modules.scan import normal_task, hard_task, main_story
 
 
 class TestBaas(unittest.TestCase):
@@ -34,7 +29,6 @@ class TestBaas(unittest.TestCase):
 
     def setUp(self) -> None:
         self.flag_run = True
-        self.screenshot_interval = 0.3
         self.click_time = 0.0
         self.latest_img_array = None
         self.con = 'single'
@@ -47,8 +41,6 @@ class TestBaas(unittest.TestCase):
         self.ocrEN = CnOcr(det_model_name='en_PP-OCRv3_det', rec_model_name='en_PP-OCRv3')
         self.ocrNum = CnOcr(det_model_name='number-densenet_lite_136-fc', rec_model_name='number-densenet_lite_136-fc')
         self.file_path = "../assets/images"
-        data = json.load(open(config.get_froze_path('../assets/file/rgb_feature/rgb_feature.json')))
-        self.rgb_feature = data["rgb_feature"]
 
     def swipe(self, fx, fy, tx, ty, duration=None):
         self.logger.info("swipe %s %s %s %s duration:%s", fx, fy, tx, ty, duration)
@@ -425,3 +417,9 @@ class TestBaas(unittest.TestCase):
             np.fromfile('../assets/images/cn/arena/skip2.png', dtype=np.uint8), -1)
         image.compare_image_data(self, image_data1, image_data2)
         pass
+
+    def test_loading(self):
+        while True:
+            stage.wait_loading(self)
+            time.sleep(1)
+            print("\t\t\t\ntest_loading...\n")

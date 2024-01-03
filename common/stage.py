@@ -1,10 +1,6 @@
 import time
 
-import cv2
-import numpy as np
-
-from common import ocr, image
-from common.color import judge_rgb_range
+from common import ocr, image, color
 from modules.baas import home
 
 
@@ -98,30 +94,23 @@ def wait_loading(self):
     检查是否加载中，
     """
     t_start = time.time()
-    while 1:
-        self.latest_img_array = cv2.cvtColor(np.array(self.d.screenshot()), cv2.COLOR_RGB2BGR)
-        if not judge_rgb_range(self.latest_img_array, 937, 648, 200, 255, 200, 255, 200, 255) or not \
-                judge_rgb_range(self.latest_img_array, 919, 636, 200, 255, 200, 255, 200, 255):
-            loading_pos = [[929, 664], [941, 660], [979, 662], [1077, 665], [1199, 665]]
-            rgb_loading = [[200, 255, 200, 255, 200, 255], [200, 255, 200, 255, 200, 255],
-                           [200, 255, 200, 255, 200, 255], [200, 255, 200, 255, 200, 255],
-                           [255, 255, 255, 255, 255, 255]]
-            t = len(loading_pos)
-            for i in range(0, t):
-                if not judge_rgb_range(self.latest_img_array, loading_pos[i][0], loading_pos[i][1], rgb_loading[i][0],
-                                       rgb_loading[i][1], rgb_loading[i][2], rgb_loading[i][3],
-                                       rgb_loading[i][4], rgb_loading[i][5]):
-                    break
-            else:
-                t_load = time.time() - t_start
-                self.logger.info(f"Now Loading : {t_load:.0f} seconds")
-                if t_load > 20:
-                    self.logger.warning("LOADING TOO LONG add screenshot interval to 1")
-                    self.screenshot_interval = 1
-                time.sleep(self.screenshot_interval)
-                continue
-
-        return True
+    color_list = (
+        ((930, 666), (243, 243, 243)),  # n
+        ((961, 666), (243, 243, 243)),  # o
+        ((971, 664), (243, 243, 243)),  # w
+        ((1043, 668), (83, 113, 162)),  # a
+        ((1093, 666), (61, 101, 157)),  # n
+        ((1111, 666), (61, 101, 157)),  # g
+    )
+    while True:
+        ss = self.get_screenshot_array()
+        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 100, ss, True))
+        # 至少符合4个 才判断为加载中
+        if matches < 4:
+            return
+        t_load = time.time() - t_start
+        self.logger.info(f"Now Loading {t_load:.0f} seconds...")
+        time.sleep(1)
 
 
 # 定义内部转换函数处理单个字符串

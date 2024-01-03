@@ -58,7 +58,6 @@ class Baas:
 
     def __init__(self, con, processes_task):
         self.flag_run = True
-        self.screenshot_interval = 0.3
         self.click_time = 0.0
         self.latest_img_array = None
         self.con = con
@@ -72,7 +71,6 @@ class Baas:
         self.init_ocr()
         env_check.check_resolution(self)
         env_check.check_fhx(self)
-        color.init_rgb(self)
         self.processes_task = processes_task
         self.next_task = ''
         self.stage_data = {}

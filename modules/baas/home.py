@@ -1,7 +1,4 @@
-import time
-
-from common import image, stage
-from common.color import detect_rgb_one_time
+from common import image
 from modules.baas import restart
 
 
