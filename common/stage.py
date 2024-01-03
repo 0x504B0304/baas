@@ -102,15 +102,18 @@ def wait_loading(self):
         ((1093, 666), (61, 101, 157)),  # n
         ((1111, 666), (61, 101, 157)),  # g
     )
+    s = 0.1
     while True:
         ss = self.get_screenshot_array()
-        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 100, ss, True))
-        # 至少符合4个 才判断为加载中
-        if matches < 4:
+        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 50, ss, True))
+        # 至少符合5个 才判断为加载中
+        if matches < 5:
             return
         t_load = time.time() - t_start
         self.logger.info(f"Now Loading {t_load:.0f} seconds...")
-        time.sleep(1)
+        time.sleep(s)
+        if s < 1:
+            s += 0.1
 
 
 # 定义内部转换函数处理单个字符串
