@@ -29,7 +29,8 @@ def run_flask():
         is_exit = True
         print("服务启动失败", e)
         for i in range(3):
-            print("电脑设备名称不能有中文或特殊符号，点击Win开始->设置->系统->关于->重命名这台电脑！使用纯英文命名然后重启电脑！")
+            print(
+                "电脑设备名称不能有中文或特殊符号，点击Win开始->设置->系统->关于->重命名这台电脑！使用纯英文命名然后重启电脑！")
         sys.exit(-1)
     except Exception as e:
         is_exit = True
