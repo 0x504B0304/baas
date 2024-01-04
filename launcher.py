@@ -85,8 +85,8 @@ def install_git():
 
 def git_pull(directory):
     """Run git pull in a specific directory."""
-    print_title("开始更新", f"在目录 {directory} 中执行 'git pull origin main' 命令...")
-    subprocess.run(['git', 'pull', 'origin', 'main'], cwd=directory, check=True)
+    print_title("开始更新", f"在目录 {directory} 中执行 'git reset --hard origin/main' 命令...")
+    subprocess.run(['git', 'reset', '--hard', 'origin/main'], cwd=directory, check=True)
 
 
 def git_logs(directory):
