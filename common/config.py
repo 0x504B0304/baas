@@ -128,7 +128,7 @@ def config_deep_update(source, destination):
     return destination
 
 
-def config_migrate(self, file_path1):
+def config_migrate(con, file_path1):
     """
     比较两个 JSON 文件的键，如果文件1有而文件2没有的键，用文件1的内容更新文件2。
 
@@ -142,6 +142,6 @@ def config_migrate(self, file_path1):
 
     with open(file_path1, 'r', encoding='utf-8') as f:
         src_data = json.load(f)
-    dst_data = load_ba_config(self.con)
+    dst_data = load_ba_config(con)
     updated_dst_data = config_deep_update(src_data, dst_data)
-    save_ba_config(self.con, updated_dst_data)
+    save_ba_config(con, updated_dst_data)

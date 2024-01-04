@@ -9,8 +9,8 @@ import uiautomator2 as u2
 from cnocr import CnOcr
 from uiautomator2 import Device
 
-from common import stage, process, config, log, encrypt, color
-from modules.activity import tutor_dept, summer_vacation
+from common import stage, process, config, log, encrypt
+from modules.activity import tutor_dept, summer_vacation, spa_227
 from modules.attack import exchange_meeting
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
@@ -43,6 +43,7 @@ func_dict = {
     'fhx': fhx.start,
     'summer_vacation': summer_vacation.start,
     'exchange_meeting': exchange_meeting.start,
+    'spa_227': spa_227.start,
 }
 
 
@@ -64,7 +65,6 @@ class Baas:
         if processes_task is None:
             return
         self.logger = log.create_logger(con)
-        self.config_migrate()
         self.load_config()
         self.game_server = self.calc_game_server()
         self.connect_serial()
@@ -193,10 +193,6 @@ class Baas:
                 del self.processes_task[encrypt.md5(self.con)]
             else:
                 self.exit(f"函数不存在:{fn}")
-
-    def config_migrate(self):
-        self.log_title("开始检查配置文件迁移")
-        config.config_migrate(self, config.get_froze_path('web/static/baas.json'))
 
     def config_path(self):
         return config.config_filepath(self.con)

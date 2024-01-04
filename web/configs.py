@@ -35,6 +35,18 @@ def check_config():
         # 判断文件是否存在，如果不存在则复制文件
         shutil.copy(source_file, destination_file1)
         shutil.copy(source_txt_file, destination_file2)
+    # 配置文件迁移
+    config_migrate()
+
+
+def config_migrate():
+    print("开始迁移配置文件")
+    config_dir = config.config_dir()
+    con_list = sorted([os.path.splitext(f)[0] for f in os.listdir(config_dir) if f.endswith('.json')])
+    for con in con_list:
+        print(f"{con}正在迁移...")
+        config.config_migrate(con, config.get_froze_path('web/static/baas.json'))
+    print("迁移完成")
 
 
 @configs.route('/menus', methods=['GET'])
