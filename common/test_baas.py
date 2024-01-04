@@ -9,8 +9,8 @@ from cnocr import CnOcr
 
 from common import image
 from common import stage, config, log, color
+from modules.activity import spa_227
 from modules.baas import home
-from modules.daily import buy_ap
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import normal_task
 
@@ -332,7 +332,7 @@ class TestBaas(unittest.TestCase):
 
             # 'buy_ap_notice',
             # 'buy_ap_confirm',
-            'buy_ap_limited',
+            # 'buy_ap_limited',
             # 'buy_ap_buy20',
             # 'buy_ap_buy19',
             # 'buy_ap_buy18',
@@ -371,6 +371,9 @@ class TestBaas(unittest.TestCase):
             # 'main_story_three-times',
             # 'main_story_get-prize',
             # 'cm_confirm'
+
+            # 'spa_227_menu',
+            'spa_227_unlock',
         ]
         stage.wait_loading(self)
         for asset in assets:
@@ -389,12 +392,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'buy_ap'
-        self.to_server_all(buy_ap.start, (self,))
+        self.ttt = 'spa_227'
+        self.to_server_all(spa_227.start, (self,))
 
     def to_server_all(self, fu, argv):
-        # servers = ['cn']
-        servers = ['jp', 'intl']
+        servers = ['cn']
+        # servers = ['jp', 'intl']
         for server in servers:
             self.con = server
             self.load_config()
