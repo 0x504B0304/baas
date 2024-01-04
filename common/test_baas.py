@@ -236,6 +236,7 @@ class TestBaas(unittest.TestCase):
             # 'fight_auto-over',
             # 'fight_fighting-task-info',
             # 'fight_confirm',
+            'fight_prize-confirm2',
             # 'fight_force-attack',
             # 'fight_fail',
 
@@ -373,7 +374,8 @@ class TestBaas(unittest.TestCase):
             # 'cm_confirm'
 
             # 'spa_227_menu',
-            'spa_227_unlock',
+            # 'spa_227_unlock',
+            # 'spa_227_guide',
         ]
         stage.wait_loading(self)
         for asset in assets:

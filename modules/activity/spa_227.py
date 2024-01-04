@@ -1,13 +1,57 @@
 import time
 
 from common import image, stage, color
-from modules.activity import spa_stage_data
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import main_story
 
 position = {
-    1: (1126, 200), 2: (1126, 313), 3: (1126, 424), 4: (1128, 540), 5: (1127, 655)
+    9: (1130, 185), 10: (1130, 300), 11: (1130, 420), 12: (1130, 430)
+}
+
+stage_data = {
+    'task-4': {
+        'start': {
+            '1': (793, 427),
+        },
+        'action': [
+            {'t': 'click', 'p': (808, 338), 'wo': True},
+            {'t': 'click', 'p': (724, 311), 'wo': True},
+            {'t': 'click', 'p': (664, 378), 'wo': True},
+            {'t': 'click', 'p': (648, 490), 'wo': True},
+            {'t': 'click', 'p': (581, 576)},
+        ]
+    },
+    'task-8': {
+        'start': {
+            '1': (405, 390),
+            '2': (970, 230),
+        },
+        'action': [
+            {'t': 'click', 'p': (625, 430), 'ec': True},
+            {'t': 'click', 'p': (655, 340), 'wo': True},
+            {'t': 'click', 'p': (555, 315), 'ec': True},
+            {'t': 'click', 'p': (660, 235), 'wo': True},
+            {'t': 'click', 'p': (705, 335), 'ec': True},
+            {'t': 'click', 'p': (555, 275)},
+        ]
+    },
+    'task-12': {
+        'start': {
+            '1': (580, 430),
+            '2': (585, 150),
+        },
+        'action': [
+            {'t': 'click', 'p': (730, 430), 'ec': True},
+            {'t': 'click', 'p': (675, 360), 'wo': True},
+            {'t': 'click', 'p': (760, 440), 'ec': True},
+            {'t': 'click', 'p': (645, 440), 'wo': True},
+            {'t': 'click', 'p': (785, 270), 'ec': True},
+            {'t': 'click', 'p': (405, 460)},
+        ]
+    },
+    'challenge-2': {},
+    'challenge-4': {},
 }
 
 
@@ -20,9 +64,9 @@ def start(self):
     # 开图
     if self.tc['exp']['enable']:
         start_exp(self)
-    # # 扫荡
-    # if self.tc['scan']['enable']:
-    #     start_scan(self)
+    # 扫荡
+    if self.tc['scan']['enable']:
+        start_scan(self)
     # 回到首页
     home.go_home(self)
 
@@ -31,12 +75,10 @@ def start_scan(self):
     to_tab(self, 'task')
     stage_list = self.tc['scan']['stage']
     stage_list = sorted(stage_list, key=lambda x: int(x.split('-')[1]))
+    stage.screen_swipe(self, threshold2=0, reset=False, f=(926, 590, 926, 0, 0.1))
     for task in stage_list:
-        gq, count = task.split(',')
+        gq, count = task.split('-')
         gq = int(gq)
-        stage.screen_swipe(self, gq, 5, reset=False)
-        if gq >= 6:
-            gq -= 5
         self.click(*position[gq])
         # 确认扫荡
         rst = stage.confirm_scan(self, gq, count, 99)
@@ -67,16 +109,13 @@ def to_activity_page(self):
     """
     pos = {
         'home_student': (1192, 204),  # 首页活动入口
-        'momo_talk_menu': (1205, 42),
-        'momo_talk_confirm-skip': (770, 516),
-        'normal_task_task-info': (1084, 142),
-
-        'summer_vacation_skip': (1212, 116),
-        'summer_vacation_guide': (1184, 156),
-        'summer_vacation_game': (59, 40),
-        'summer_vacation_mhd-menu': (1233, 11),
+        'momo_talk_menu': (1205, 42),  # 桃信菜单
+        'momo_talk_skip': (1212, 116),  # 桃信跳过
+        'momo_talk_confirm-skip': (770, 516),  # 桃信确认跳过
+        'normal_task_task-info': (1084, 142),  # 任务信息
+        'spa_227_guide': (1184, 156),  # 活动玩法指引
     }
-    image.detect(self, 'spa_227_menu', pos)
+    image.detect(self, 'spa_227_menu', pos, ss_rate=2)
 
 
 def start_exp(self):
@@ -84,7 +123,8 @@ def start_exp(self):
     开始开图
     @param self:
     """
-    tabs = ['story', 'task', 'challenge']
+    tabs = ['story', 'task']
+    # tabs = ['story', 'task', 'challenge']
     for tab in tabs:
         to_activity_page(self)
         do_exp(self, tab)
@@ -96,7 +136,7 @@ def do_exp(self, tab):
     @param self:
     @return:
     """
-    to_tab(self, 'task')
+    to_tab(self, 'challenge')
     to_activity_page(self)
     to_tab(self, tab)
     state, stage_index = calc_need_fight_stage(self)
@@ -109,18 +149,18 @@ def do_exp(self, tab):
         'main_story_side-lv-start-task': (640, 511),
     }
     ends = (
-        'momo_talk_menu', 'normal_task_force-edit', 'summer_vacation_skip', 'momo_talk_confirm-skip',
+        'momo_talk_menu', 'normal_task_force-edit', 'momo_talk_skip', 'momo_talk_confirm-skip',
         'fight_start-task')
     end = image.detect(self, ends, pos)
     if end == 'fight_start-task':
         # 出击F
         gk = f'{tab}-{stage_index}'
-        if gk not in spa_stage_data.stage_data:
+        if gk not in stage_data:
             image.compare_image(self, 'fight_force-edit')
             image.compare_image(self, 'fight_force-edit', threshold=0.6, cl=(1171, 670), rate=1, n=True)
         else:
-            starts = spa_stage_data.stage_data[gk]
-            self.stage_data = spa_stage_data.stage_data
+            self.stage_data = stage_data
+            starts = exp_normal_task.get_gk_data(gk, self.stage_data, 'start')
             for n, p in starts.items():
                 exp_normal_task.start_choose_team(self, gk, n)
             # 点击开始任务
@@ -128,11 +168,14 @@ def do_exp(self, tab):
             # 检查跳过战斗
             exp_normal_task.check_skip_auto_over(self)
             # 开始走格子
-            exp_normal_task.start_action(self, gk, spa_stage_data.stage_data)
-    # 跳过剧情
-    skip_story(self)
-    # 选择部队
-    exp_normal_task.select_force_fight(self, 1)
+            exp_normal_task.start_action(self, gk, self.stage_data)
+    else:
+        # 跳过剧情
+        skip_story(self)
+        # 出击
+        image.compare_image(self, 'fight_force-edit')
+        image.compare_image(self, 'fight_force-edit', threshold=0.6, cl=(1171, 670), rate=1, n=True)
+    # 自动战斗
     main_story.auto_fight(self)
     self.logger.info("强制等待25秒...")
     time.sleep(25)
@@ -140,12 +183,18 @@ def do_exp(self, tab):
     possible = {
         'main_story_fight-confirm': (1168, 659),  # 战斗通过
         'main_story_fight-fail': (647, 655),  # 战斗失败
-        'summer_vacation_fight-confirm': (642, 665),  # 第一次确认
-        'normal_task_prize-confirm': (776, 655),  # 第二次奖励确认
+
+        'fight_pass-confirm': (1170, 666),  # 战斗成功第一次确认
+        'fight_task-finish-confirm': (1033, 666),  # 战斗成功第二次确认(任务完成)
+        'fight_prize-confirm': (776, 655),  # 获得奖励确认按钮(支线通关)
+        'fight_prize-confirm2': (645, 670),  # 获得奖励确认按钮2
+
+        'momo_talk_menu': (1205, 42),  # 剧情菜单
+        'momo_talk_skip': (1212, 116),  # 剧情跳过
+        'momo_talk_confirm-skip': (770, 516),  # 剧情确认跳过
+
         'spa_227_unlock': (1259, 62),  # 解锁道具
-        'momo_talk_menu': (1205, 42),
-        'summer_vacation_skip': (1212, 116),
-        'momo_talk_confirm-skip': (770, 516),
+
     }
     image.detect(self, 'spa_227_menu', possible)
     do_exp(self, tab)
@@ -157,7 +206,7 @@ def skip_story(self):
     """
     pos = {
         'momo_talk_menu': (1205, 42),
-        'summer_vacation_skip': (1212, 116),
+        'momo_talk_skip': (1212, 116),
         'momo_talk_confirm-skip': (770, 516),
     }
     image.detect(self, 'normal_task_force-edit', pos)
