@@ -262,6 +262,17 @@
             ]
         }
     },
+    "mailbox": {
+        "base": {
+            "enable": true,
+            "index": 85,
+            "next": "2023-11-17 00:00:00",
+            "end": "",
+            "interval": 3600,
+            "link_task": "",
+            "text": "领取邮箱"
+        }
+    },
     "work_task": {
         "base": {
             "enable": true,
@@ -269,19 +280,8 @@
             "next": "2023-11-17 00:00:00",
             "end": "",
             "interval": 3600,
-            "link_task": "mailbox",
+            "link_task": "",
             "text": "工作任务"
-        }
-    },
-    "mailbox": {
-        "base": {
-            "enable": true,
-            "index": 100,
-            "next": "2023-11-17 00:00:00",
-            "end": "",
-            "interval": 3600,
-            "link_task": "normal_task",
-            "text": "领取邮箱"
         }
     },
     "buy_ap": {
@@ -291,7 +291,7 @@
             "next": "2023-11-17 00:00:00",
             "end": "",
             "interval": 0,
-            "link_task": "normal_task",
+            "link_task": "work_task",
             "text": "购买体力"
         },
         "config": {
