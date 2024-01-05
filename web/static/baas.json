@@ -383,10 +383,10 @@
     },
     "spa_227" : {
         "base" : {
-            "enable" : true,
+            "enable" : false,
             "index" : -99,
             "next" : "2023-11-17 00:00:00",
-            "end" : "",
+            "end" : "2024-01-18 08:00:00",
             "interval" : 9999999,
             "link_task" : "",
             "text" : "活动-227号温泉乡"

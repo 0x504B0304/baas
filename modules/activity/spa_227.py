@@ -74,7 +74,6 @@ def start(self):
 def start_scan(self):
     to_tab(self, 'task')
     stage_list = self.tc['scan']['stage']
-    stage_list = sorted(stage_list, key=lambda x: int(x.split('-')[1]))
     stage.screen_swipe(self, threshold2=0, reset=False, f=(926, 590, 926, 0, 0.1))
     for task in stage_list:
         gq, count = task.split('-')

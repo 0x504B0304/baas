@@ -4,20 +4,20 @@ import webbrowser
 
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPixmap, QPalette, QBrush
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QMessageBox
 from PySide6.QtWidgets import QPushButton, QLabel, QSpacerItem, QSizePolicy
 
 from common import config
 from web import configs
 
-version = 'v2.1.1'
+version = 'v2.1.1.1'
 
 
 # 使用一个子线程打开浏览器
 def open_baas():
     configs.check_config()
     ac = config.get_app_config()
-    webbrowser.open_new('http://localhost:{0}/'.format(ac['port']))
+    webbrowser.open_new('http://localhost:{0}?v={1}'.format(ac['port'], version))
 
 
 def open_github():
@@ -25,12 +25,32 @@ def open_github():
 
 
 def open_bilibili():
-    webbrowser.open_new('https://www.bilibili.com/video/BV1464y1E7MH/')
+    webbrowser.open_new('https://www.bilibili.com/video/BV1NG41167dp/')
 
 
 def start():
     # 创建应用实例
     app = QApplication(sys.argv)
+
+    msg_box = QMessageBox()
+    msg_box.setIcon(QMessageBox.Question)
+    msg_box.setWindowTitle('三连确认')
+    # msg_box.setText('温泉活动v2.1.1已更新\n拒绝白嫖，一键三连。\n视频点赞+投币+收藏+分享\n累计超过1000\n助力up更新下个版本')
+    msg_box.setText(
+        f'{version}已更新\n拒绝白嫖，一键三连\nGithub项目Star超过300\n或者\n视频点赞+投币+收藏+分享\n累计超过1000\n助力up更新下个版本(精神层面)\nstar教程在群公告中\n')
+
+    # 设置自定义文本按钮
+    button_yes = QPushButton("现在就去")
+    button_no = QPushButton("继续白嫖")
+    msg_box.addButton(button_yes, QMessageBox.YesRole)
+    msg_box.addButton(button_no, QMessageBox.NoRole)
+
+    # 显示消息框并等待用户响应
+    result = msg_box.exec()
+    # 根据用户选择来执行动作
+    if msg_box.clickedButton() == button_yes:
+        open_github()
+        open_bilibili()
 
     # 创建一个窗口
     window = QWidget()
@@ -73,6 +93,7 @@ def start():
 
     # 显示窗口
     window.show()
+
     # 运行程序
     sys.exit(app.exec())
 
@@ -96,7 +117,7 @@ def add_btn(layout):
     # 添加间隔
     hbox.addSpacing(10)  # 调整这个值来设置按钮之间的间隔大小
     # 创建第三个按钮并添加至水平布局
-    btn = get_btn('Baas最新视频')
+    btn = get_btn('v2.1.1视频')
     btn.clicked.connect(open_bilibili)
     btn.setFixedSize(88, 28)
     hbox.addWidget(btn)

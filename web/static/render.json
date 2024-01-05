@@ -176,8 +176,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -320,8 +320,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -453,8 +453,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -575,8 +575,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -744,8 +744,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -854,8 +854,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -972,8 +972,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1090,8 +1090,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1200,8 +1200,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1332,8 +1332,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1442,8 +1442,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1580,8 +1580,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1718,8 +1718,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1890,8 +1890,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2060,8 +2060,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2224,8 +2224,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2415,8 +2415,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2424,7 +2424,7 @@
         },
         "base.text" : "skip"
     },
-    "summer_vacation" : {
+    "spa_227" : {
         "base" : {
             "name" : "功能设置"
         },
@@ -2525,8 +2525,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2683,8 +2683,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2874,8 +2874,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2984,8 +2984,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -3116,8 +3116,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
