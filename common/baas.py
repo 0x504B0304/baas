@@ -69,8 +69,6 @@ class Baas:
         self.game_server = self.calc_game_server()
         self.connect_serial()
         self.init_ocr()
-        env_check.check_resolution(self)
-        env_check.check_fhx(self)
         self.processes_task = processes_task
         self.next_task = ''
         self.stage_data = {}
@@ -165,20 +163,41 @@ class Baas:
             del self.processes_task[encrypt.md5(self.con)]
         sys.exit(1)
 
+    def check_close_game(self):
+        if not self.bc['baas']['close_game']['enable']:
+            return False
+        app = self.d.app_current()
+        if app['package'] != self.bc['baas']['base']['package']:
+            return True
+        wait = self.task_schedule(None)['waiting'][0]
+        next_time = datetime.strptime(wait['next'], "%Y-%m-%d %H:%M:%S")
+        if next_time >= datetime.now() + timedelta(seconds=600):
+            self.logger.warning("当前已开启 无任务时 关闭游戏开关，节约电脑资源")
+            restart.only_stop(self)
+            return True
+        return False
+
     def dashboard(self):
         # 使用字典将字符串映射到对应的函数
         suffix = "</br>【Baas】是一款完全免费开源的自动化脚本，如遇收费请立即退款！</br>项目开源地址: " \
                  "https://github.com/baas-pro/baas</br>QQ交流群:621628600 "
         self.log_title("⭐️ BA启动 ⭐️")
         no_task = False
+        first = True
         while True:
             fn, tc = self.get_task()
             if fn is None:
                 if not no_task:
                     self.log_title("🎉🎉🎉 任务全部执行成功 🎉🎉🎉" + suffix)
                 no_task = True
+                if self.check_close_game():
+                    time.sleep(57)
                 time.sleep(3)
                 continue
+            if first:
+                env_check.check_resolution(self)
+                env_check.check_fhx(self)
+                first = False
             no_task = False
             # 从字典中获取函数并执行
             if fn in func_dict:

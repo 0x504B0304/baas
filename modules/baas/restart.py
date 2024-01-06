@@ -3,12 +3,17 @@ import time
 from common import image
 
 
-def only_start(self):
-    # 重启应用
+def only_stop(self):
     pkg = self.bc['baas']['base']['package']
-    self.log_title("开始打开BA")
+    self.log_title("开始关闭BA")
     self.d.app_stop(pkg)
+
+
+def only_start(self):
+    pkg = self.bc['baas']['base']['package']
+    only_stop(self)
     try:
+        self.log_title("开始打开BA")
         if self.game_server == 'intl':
             self.d.app_start(pkg, 'com.nexon.bluearchive.MxUnityPlayerActivity')
         else:
