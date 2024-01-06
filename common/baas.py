@@ -273,7 +273,7 @@ class Baas:
             # 队列中
             queue.append(task)
 
-        waiting.sort(key=lambda x: (x['index'], datetime.strptime(x['next'], "%Y-%m-%d %H:%M:%S")))
+        waiting.sort(key=lambda x: (datetime.strptime(x['next'], "%Y-%m-%d %H:%M:%S"), x['index'],))
         queue.sort(key=lambda x: (x['index'], datetime.strptime(x['next'], "%Y-%m-%d %H:%M:%S")))
         return {'running': running, 'waiting': waiting, 'queue': queue, 'closed': closed,
                 'run_state': process.m.state_process(self.con)}

@@ -45,6 +45,14 @@
             "desc" : "当识别出问题的时候,开启此模式可以保存截图到磁盘",
             "name" : "调试模式",
             "type" : "bool"
+        },
+        "close_game" : {
+            "name" : "关闭游戏设置"
+        },
+        "close_game.enable" : {
+            "desc" : "当下一个任务的预计执行时间大于10分钟时，退出游戏节约内存。等待下次执行任务时会重新打开游戏~",
+            "name" : "启用该功能",
+            "type" : "bool"
         }
     },
     "restart" : {
@@ -2423,164 +2431,6 @@
             "type" : "sel"
         },
         "base.text" : "skip"
-    },
-    "spa_227" : {
-        "base" : {
-            "name" : "功能设置"
-        },
-        "base.enable" : {
-            "desc" : "将这个任务加入调度器",
-            "name" : "启用该功能",
-            "type" : "bool"
-        },
-        "base.index" : {
-            "desc" : "数字越低，越先执行",
-            "name" : "任务优先级",
-            "type" : "num"
-        },
-        "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
-            "name" : "下一次运行时间",
-            "type" : "txt"
-        },
-        "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
-            "name" : "任务截止时间",
-            "type" : "txt"
-        },
-        "base.interval" : {
-            "desc" : "完成任务后，间隔多少秒后重复执行任务，填0：表示明天再执行 填3600：表示1小时候再执行",
-            "name" : "再次执行任务时间",
-            "type" : "num"
-        },
-        "base.link_task" : {
-            "desc" : "完成本任务后，立刻执行关联任务",
-            "items" : [
-                {
-                    "name" : "不关联",
-                    "value" : ""
-                },
-                {
-                    "name" : "重启",
-                    "value" : "restart"
-                },
-                {
-                    "name" : "购买体力",
-                    "value" : "buy_ap"
-                },
-                {
-                    "name" : "小组",
-                    "value" : "group"
-                },
-                {
-                    "name" : "补习部签到",
-                    "value" : "tutor_dept"
-                },
-                {
-                    "name" : "制造",
-                    "value" : "make"
-                },
-                {
-                    "name" : "日程",
-                    "value" : "schedule"
-                },
-                {
-                    "name" : "商店购买",
-                    "value" : "shop"
-                },
-                {
-                    "name" : "咖啡厅",
-                    "value" : "cafe"
-                },
-                {
-                    "name" : "战术对抗赛",
-                    "value" : "arena"
-                },
-                {
-                    "name" : "特殊委托",
-                    "value" : "special_entrust"
-                },
-                {
-                    "name" : "通缉悬赏",
-                    "value" : "wanted"
-                },
-                {
-                    "name" : "领取邮箱",
-                    "value" : "mailbox"
-                },
-                {
-                    "name" : "MomoTalk",
-                    "value" : "momo_talk"
-                },
-                {
-                    "name" : "工作任务",
-                    "value" : "work_task"
-                },
-                {
-                    "name" : "扫荡普通关卡",
-                    "value" : "normal_task"
-                },
-                {
-                    "name" : "扫荡困难关卡",
-                    "value" : "hard_task"
-                },
-                {
-                    "name" : "227号温泉乡",
-                    "value" : "spa_227"
-                }
-            ],
-            "name" : "关联任务",
-            "type" : "sel"
-        },
-        "base.text" : "skip",
-        "exp" : {
-            "name" : "开图设置"
-        },
-        "exp.enable" : {
-            "desc" : "将这个任务加入调度器",
-            "name" : "启用该功能",
-            "type" : "bool"
-        },
-        "exp.force" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "部队编号",
-            "desc" : "主要是爆发和贯穿怪",
-            "type" : "sel"
-        },
-        "scan" : {
-            "name" : "扫荡设置"
-        },
-        "scan.enable" : {
-            "desc" : "将这个任务加入调度器",
-            "name" : "启用该功能",
-            "type" : "bool"
-        },
-        "scan.stage" : {
-            "desc" : "一行一个配置。格式是: 关卡,次数</br>例如:第8关打10次,第9关打10次,第10关最大次数,填写如下 <br/>8,10</br>9,10</br>10,99",
-            "name" : "扫荡关卡",
-            "type" : "arr"
-        }
     },
     "wanted" : {
         "base" : {
