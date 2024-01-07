@@ -49,7 +49,7 @@ def start_make(self):
         if not choose_tone(self):
             break
         # 第一阶段启动 -> 等待制造页面加载
-        image.detect(self, (('make_workshop', 30),), cl=(1114, 653))
+        image.detect(self, (('make_workshop', 0.6),), cl=(1114, 653))
 
         # 选择物品
         choose_item(self)

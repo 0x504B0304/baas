@@ -41,21 +41,6 @@
             },
             "type" : "num"
         },
-        "base.compare_mode" : {
-            "desc" : "默认用SSIM(Structural Similarity Index),如果识别异常可以尝试更换成MSE(Mean Squared Error)",
-            "name" : "图片识别模式",
-            "items" : [
-                {
-                    "name" : "MSE",
-                    "value" : "mse"
-                },
-                {
-                    "name" : "SSIM",
-                    "value" : "ssim"
-                }
-            ],
-            "type" : "sel"
-        },
         "base.debug" : {
             "desc" : "当识别出问题的时候,开启此模式可以保存截图到磁盘",
             "name" : "调试模式",
@@ -77,12 +62,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -105,12 +90,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -191,8 +176,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -249,12 +234,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -280,12 +265,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -366,8 +351,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -413,12 +398,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -499,8 +484,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -535,12 +520,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -621,18 +606,49 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
             "type" : "sel"
         },
         "base.text" : "skip",
-        "config" : {
-            "name" : "预设设置"
+        "ap" : {
+            "name" : "收益设置"
         },
-        "config.interact_type" : {
+        "ap.enable" : {
+            "desc" : "",
+            "name" : "领取体力",
+            "type" : "bool"
+        },
+        "invite" : {
+            "name" : "邀请设置"
+        },
+        "invite.enable" : {
+            "desc" : "",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "invite.type" : {
+            "desc" : "",
+            "name" : "邀请类型",
+            "items" : [
+                {
+                    "name" : "好感度最低",
+                    "value" : "asc"
+                },
+                {
+                    "name" : "好感度最高",
+                    "value" : "desc"
+                }
+            ],
+            "type" : "sel"
+        },
+        "interact" : {
+            "name" : "互动设置"
+        },
+        "interact.interact_type" : {
             "items" : [
                 {
                     "name" : "拖动礼物",
@@ -647,7 +663,7 @@
             "name" : "摸头方式",
             "type" : "sel"
         },
-        "config.blank_preset" : {
+        "interact.blank_preset" : {
             "desc" : "Baas会使用当前咖啡厅保存到该序号，请确保自己的咖啡厅信息有正确保存到其它配置上，防止丢失",
             "name" : "预设配置序号(清空家具)",
             "opts" : {
@@ -656,11 +672,6 @@
                 "step" : 1
             },
             "type" : "num"
-        },
-        "config.receive_ap" : {
-            "desc" : "",
-            "name" : "是否领取体力",
-            "type" : "bool"
         }
     },
     "group" : {
@@ -678,12 +689,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -764,8 +775,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -788,12 +799,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -874,8 +885,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -906,12 +917,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -992,8 +1003,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1024,12 +1035,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -1110,8 +1121,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1134,12 +1145,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -1220,8 +1231,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1266,12 +1277,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -1352,8 +1363,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1376,12 +1387,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -1462,8 +1473,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1476,15 +1487,12 @@
         "config.region" : {
             "items" : {
                 "max" : 20,
-                "min" : 4,
+                "min" : 6,
                 "step" : 1
             },
             "name" : "区域",
             "type" : "sel",
-            "desc" : "每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐\uFE0F</br><span style='margin-right: 50px;'>4图 主队:贯穿</span><span style='margin-right: 50px;'>5图 主队:爆发</span><span style='margin-right: 50px;'>6图 主队:贯穿 副队:贯穿</span></br><span style='margin-right: 50px;'>7图 主队:爆发 副队:爆发</span><span style='margin-right: 50px;'>8图 主队:贯穿 副队:贯穿</span><span style='margin-right: 50px;'>9图 主队:爆发 副队:贯穿</span></br><span style='margin-right: 50px;'>10图 主队:爆发 副队:神秘</span><span style='margin-right: 50px;'>11图 主队:贯穿 副队:神秘</span><span style='margin-right: 50px;'>12图 主队:神秘 副队:爆发</span></br><span style='margin-right: 50px;'>13图 主队:贯穿 副队:贯穿</span><span style='margin-right: 50px;'>14图 主队:爆发 副队:神秘</span><span style='margin-right: 50px;'>15图 主队:神秘 副队:神秘</span></br><span style='margin-right: 50px;'>16图 主队:贯穿 副队:神秘</span></br>",
-            "opts" : {
-                "multiple" : "true"
-            }
+            "desc" : "<style>table td{width:233px;}</style><table> <tr> <td colspan='3'>每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td> </tr> <tr> <td colspan='3' style='color:red;font-weight: bold;'>主力队必须1号队，副队队必须2号队，副副对必须3号队</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘</td> <td colspan='2'>16图 1队:贯穿 2队:神秘</td> </tr> </table> "
         },
         "config.mode" : {
             "items" : [
@@ -1499,168 +1507,6 @@
             ],
             "desc" : "根据自己账号练度选择开图模式",
             "name" : "开图模式",
-            "type" : "sel"
-        },
-        "config.burst1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "爆发主队编号",
-            "desc" : "爆发属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.burst2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "爆发副队编号",
-            "desc" : "爆发属性的副队队伍编号(部分地图关卡需要同属性上两队)",
-            "type" : "sel"
-        },
-        "config.pierce1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "穿透主队编号",
-            "desc" : "穿透属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.pierce2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "穿透副队编号",
-            "desc" : "穿透属性的副队队伍编号(部分地图关卡需要同属性上两队)",
-            "type" : "sel"
-        },
-        "config.mystic1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "神秘主队编号",
-            "desc" : "神秘属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.mystic2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "神秘副队编号",
-            "desc" : "神秘属性的副队队伍编号(部分地图关卡需要同属性上两队)",
             "type" : "sel"
         }
     },
@@ -1679,12 +1525,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -1765,8 +1611,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -1784,10 +1630,7 @@
             },
             "name" : "区域",
             "type" : "sel",
-            "desc" : "每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐️</br><span style='margin-right: 50px;'>6图 主队:贯穿 副队:贯穿</span> <span style='margin-right: 50px;'>7图 主队:爆发 副队:爆发</span> <span style='margin-right: 50px;'>8图 主队:贯穿 副队:贯穿</span></br> <span style='margin-right: 50px;'>9图 主队:爆发 副队:贯穿</span> <span style='margin-right: 50px;'>10图 主队:爆发 副队:神秘</span> <span style='margin-right: 50px;'>11图 主队:贯穿 副队:神秘</span></br> <span style='margin-right: 50px;'>12图 主队:神秘 副队:爆发</span> <span style='margin-right: 50px;'>13图 主队:贯穿 副队:贯穿</span> <span style='margin-right: 50px;'>14图 主队:爆发 副队:神秘</span></br> <span style='margin-right: 50px;'>15图 主队:神秘 副队1:神秘+贯穿 副队2:神秘</span>",
-            "opts" : {
-                "multiple" : "true"
-            }
+            "desc" : "<style>table td{width:233px;}</style><table> <tr><td colspan=\"3\">每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td></tr><tr> <td colspan=\"3\" style=\"color:red;font-weight: bold;\">主力队必须1号队，副队队必须2号队，副副对必须3号队️</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘 3队:贯穿</td><td  colspan=\"2\">16图 1队:贯穿 2队:神秘 3队:贯穿</td> </tr> </table>"
         },
         "config.mode" : {
             "items" : [
@@ -1802,168 +1645,6 @@
             ],
             "desc" : "根据自己账号练度选择开图模式",
             "name" : "开图模式",
-            "type" : "sel"
-        },
-        "config.burst1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "爆发主队编号",
-            "desc" : "爆发属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.burst2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "爆发副队编号",
-            "desc" : "爆发属性的副队队伍编号(部分地图关卡需要同属性上两队)",
-            "type" : "sel"
-        },
-        "config.pierce1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "穿透主队编号",
-            "desc" : "穿透属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.pierce2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "穿透副队编号",
-            "desc" : "穿透属性的副队队伍编号(部分地图关卡需要同属性上两队)",
-            "type" : "sel"
-        },
-        "config.mystic1" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "神秘主队编号",
-            "desc" : "神秘属性的主队队伍编号",
-            "type" : "sel"
-        },
-        "config.mystic2" : {
-            "items" : [
-                {
-                    "name" : "未选择",
-                    "value" : -1
-                },
-                {
-                    "name" : "部队1",
-                    "value" : 1
-                },
-                {
-                    "name" : "部队2",
-                    "value" : 2
-                },
-                {
-                    "name" : "部队3",
-                    "value" : 3
-                },
-                {
-                    "name" : "部队4",
-                    "value" : 4
-                }
-            ],
-            "name" : "神秘副队编号",
-            "desc" : "神秘属性的副队队伍编号(部分地图关卡需要同属性上两队)",
             "type" : "sel"
         }
     },
@@ -1982,12 +1663,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2068,8 +1749,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2154,12 +1835,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2240,36 +1921,22 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
             "type" : "sel"
         },
         "base.text" : "skip",
-        "config" : {
-            "name" : "购买设置"
+        "general" : {
+            "name" : "常规商店"
         },
-        "config.enable" : {
+        "general.enable" : {
             "name" : "启用该功能",
             "type" : "bool"
         },
-        "config.shop" : {
-            "items" : [
-                {
-                    "name" : "常规道具",
-                    "value" : "general"
-                },
-                {
-                    "name" : "战术对抗赛",
-                    "value" : "arena"
-                }
-            ],
-            "name" : "商店",
-            "type" : "sel"
-        },
-        "config.count" : {
+        "general.count" : {
             "desc" : "默认可购买一次+刷新次数=购买次数，比如购买2次=默认买1次+刷新购买1次",
             "name" : "购买次数",
             "opts" : {
@@ -2279,10 +1946,40 @@
             },
             "type" : "num"
         },
-        "config.goods" : {
+        "general.goods" : {
             "desc" : "从左往右，从上往下的顺序数",
             "items" : {
-                "max" : 16,
+                "max" : 20,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "道具序号",
+            "opts" : {
+                "multiple" : "true"
+            },
+            "type" : "sel"
+        },
+        "arena" : {
+            "name" : "竞技场商店"
+        },
+        "arena.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "arena.count" : {
+            "desc" : "默认可购买一次+刷新次数=购买次数，比如购买2次=默认买1次+刷新购买1次",
+            "name" : "购买次数",
+            "opts" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "type" : "num"
+        },
+        "arena.goods" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 15,
                 "min" : 1,
                 "step" : 1
             },
@@ -2308,12 +2005,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2394,8 +2091,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2457,6 +2154,197 @@
             "type" : "num"
         }
     },
+    "exchange_meeting" : {
+        "base" : {
+            "name" : "功能设置"
+        },
+        "base.enable" : {
+            "desc" : "将这个任务加入调度器",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "base.index" : {
+            "desc" : "数字越低，越先执行",
+            "name" : "任务优先级",
+            "type" : "num"
+        },
+        "base.next" : {
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
+            "name" : "下一次运行时间",
+            "type" : "txt"
+        },
+        "base.end" : {
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
+            "name" : "任务截止时间",
+            "type" : "txt"
+        },
+        "base.interval" : {
+            "desc" : "完成任务后，间隔多少秒后重复执行任务，填0：表示明天再执行 填3600：表示1小时候再执行",
+            "name" : "再次执行任务时间",
+            "type" : "num"
+        },
+        "base.link_task" : {
+            "desc" : "完成本任务后，立刻执行关联任务",
+            "items" : [
+                {
+                    "name" : "不关联",
+                    "value" : ""
+                },
+                {
+                    "name" : "重启",
+                    "value" : "restart"
+                },
+                {
+                    "name" : "购买体力",
+                    "value" : "buy_ap"
+                },
+                {
+                    "name" : "小组",
+                    "value" : "group"
+                },
+                {
+                    "name" : "补习部签到",
+                    "value" : "tutor_dept"
+                },
+                {
+                    "name" : "制造",
+                    "value" : "make"
+                },
+                {
+                    "name" : "日程",
+                    "value" : "schedule"
+                },
+                {
+                    "name" : "商店购买",
+                    "value" : "shop"
+                },
+                {
+                    "name" : "咖啡厅",
+                    "value" : "cafe"
+                },
+                {
+                    "name" : "战术对抗赛",
+                    "value" : "arena"
+                },
+                {
+                    "name" : "特殊委托",
+                    "value" : "special_entrust"
+                },
+                {
+                    "name" : "通缉悬赏",
+                    "value" : "wanted"
+                },
+                {
+                    "name" : "领取邮箱",
+                    "value" : "mailbox"
+                },
+                {
+                    "name" : "MomoTalk",
+                    "value" : "momo_talk"
+                },
+                {
+                    "name" : "工作任务",
+                    "value" : "work_task"
+                },
+                {
+                    "name" : "扫荡普通关卡",
+                    "value" : "normal_task"
+                },
+                {
+                    "name" : "扫荡困难关卡",
+                    "value" : "hard_task"
+                },
+                {
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
+                }
+            ],
+            "name" : "关联任务",
+            "type" : "sel"
+        },
+        "base.text" : "skip",
+        "cnd" : {
+            "name" : "崔尼蒂/圣三一"
+        },
+        "cnd.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "cnd.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "cnd.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        },
+        "ghn" : {
+            "name" : "歌赫娜/格黑娜"
+        },
+        "ghn.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "ghn.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "ghn.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        },
+        "qxn" : {
+            "name" : "千禧年"
+        },
+        "qxn.enable" : {
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "qxn.stage" : {
+            "desc" : "从左往右，从上往下的顺序数",
+            "items" : {
+                "max" : 4,
+                "min" : 1,
+                "step" : 1
+            },
+            "name" : "关卡",
+            "type" : "sel"
+        },
+        "qxn.count" : {
+            "desc" : "可指定1-99次，次数比较小的时候点击比较慢，99次为最大值",
+            "name" : "扫荡次数",
+            "opts" : {
+                "max" : 99,
+                "min" : 1,
+                "step" : 10
+            },
+            "type" : "num"
+        }
+    },
     "tutor_dept" : {
         "base" : {
             "name" : "功能设置"
@@ -2472,12 +2360,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2558,8 +2446,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2567,7 +2455,7 @@
         },
         "base.text" : "skip"
     },
-    "summer_vacation" : {
+    "spa_227" : {
         "base" : {
             "name" : "功能设置"
         },
@@ -2582,12 +2470,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2668,8 +2556,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2740,12 +2628,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -2826,8 +2714,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -2931,12 +2819,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -3017,8 +2905,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -3041,12 +2929,12 @@
             "type" : "num"
         },
         "base.next" : {
-            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行",
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
             "name" : "下一次运行时间",
             "type" : "txt"
         },
         "base.end" : {
-            "desc" : "超出该时间的任务不会执行。不填则永不停止",
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
             "name" : "任务截止时间",
             "type" : "txt"
         },
@@ -3127,8 +3015,8 @@
                     "value" : "hard_task"
                 },
                 {
-                    "name" : "日奈会长",
-                    "value" : "summer_vacation"
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
                 }
             ],
             "name" : "关联任务",
@@ -3156,6 +3044,137 @@
             ],
             "name" : "剧情",
             "type" : "sel"
+        }
+    },
+    "spa_227" : {
+        "base" : {
+            "name" : "功能设置"
+        },
+        "base.enable" : {
+            "desc" : "将这个任务加入调度器",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "base.index" : {
+            "desc" : "数字越低，越先执行",
+            "name" : "任务优先级",
+            "type" : "num"
+        },
+        "base.next" : {
+            "desc" : "自动计算的数值，不需要手动修改。清空后将立即运行。格式：2023-11-17 00:00:00",
+            "name" : "下一次运行时间",
+            "type" : "txt"
+        },
+        "base.end" : {
+            "desc" : "超出该时间的任务不会执行。不填则永不停止。格式：2023-11-17 00:00:00",
+            "name" : "任务截止时间",
+            "type" : "txt"
+        },
+        "base.interval" : {
+            "desc" : "完成任务后，间隔多少秒后重复执行任务，填0：表示明天再执行 填3600：表示1小时候再执行",
+            "name" : "再次执行任务时间",
+            "type" : "num"
+        },
+        "base.link_task" : {
+            "desc" : "完成本任务后，立刻执行关联任务",
+            "items" : [
+                {
+                    "name" : "不关联",
+                    "value" : ""
+                },
+                {
+                    "name" : "重启",
+                    "value" : "restart"
+                },
+                {
+                    "name" : "购买体力",
+                    "value" : "buy_ap"
+                },
+                {
+                    "name" : "小组",
+                    "value" : "group"
+                },
+                {
+                    "name" : "补习部签到",
+                    "value" : "tutor_dept"
+                },
+                {
+                    "name" : "制造",
+                    "value" : "make"
+                },
+                {
+                    "name" : "日程",
+                    "value" : "schedule"
+                },
+                {
+                    "name" : "商店购买",
+                    "value" : "shop"
+                },
+                {
+                    "name" : "咖啡厅",
+                    "value" : "cafe"
+                },
+                {
+                    "name" : "战术对抗赛",
+                    "value" : "arena"
+                },
+                {
+                    "name" : "特殊委托",
+                    "value" : "special_entrust"
+                },
+                {
+                    "name" : "通缉悬赏",
+                    "value" : "wanted"
+                },
+                {
+                    "name" : "领取邮箱",
+                    "value" : "mailbox"
+                },
+                {
+                    "name" : "MomoTalk",
+                    "value" : "momo_talk"
+                },
+                {
+                    "name" : "工作任务",
+                    "value" : "work_task"
+                },
+                {
+                    "name" : "扫荡普通关卡",
+                    "value" : "normal_task"
+                },
+                {
+                    "name" : "扫荡困难关卡",
+                    "value" : "hard_task"
+                },
+                {
+                    "name" : "227号温泉乡",
+                    "value" : "spa_227"
+                }
+            ],
+            "name" : "关联任务",
+            "type" : "sel"
+        },
+        "base.text" : "skip",
+        "exp" : {
+            "name" : "开图设置"
+        },
+        "exp.enable" : {
+            "desc" : "强制选择1,2,3队 爆发贯穿各配两个学生即可 用脚打",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "scan" : {
+            "name" : "扫荡设置"
+        },
+        "scan.enable" : {
+            "desc" : "将这个任务加入调度器",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "scan.stage" : {
+            "desc" : "一行一个配置。格式是: 关卡-次数</br><span style='color:red'>仅支持9-12关扫荡</span></br>例如:第10关打1次,第11关打2次,第12关最大次数填写如下 <br/>10-1</br>11-2</br>12-max",
+            "name" : "扫荡关卡",
+            "type" : "arr"
         }
     }
 }

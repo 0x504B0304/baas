@@ -11,8 +11,7 @@ position = {
 
 
 def start(self):
-    if self.game_server != 'cn':
-        return self.logger.critical('外服此功能待开发...')
+    return
     # 回到首页
     home.go_home(self)
     to_activity_page(self)
@@ -56,7 +55,7 @@ def to_tab(self, t):
         'challenge': ((1190, 103, 1191, 104), (77, 55, 40))
     }
     tab = tabs[t]
-    color.wait_rgb_similar(self, tab[0], tab[1], mis_fu=self.click, mis_argv=(tab[0][0] - 100, tab[0][1]))
+    # color.wait_rgb_similar(self, tab[0], tab[1], mis_fu=self.click, mis_argv=(tab[0][0] - 100, tab[0][1]))
 
 
 def to_activity_page(self):
@@ -65,7 +64,7 @@ def to_activity_page(self):
     @param self:
     """
     pos = {
-        'summer_vacation_title': (1191, 198, 20),  # 首页活动入口
+        'summer_vacation_title': (1191, 198, 0.6),  # 首页活动入口
         'momo_talk_menu': (1205, 42),
         'summer_vacation_skip': (1212, 116),
         'momo_talk_confirm-skip': (770, 516),
@@ -115,7 +114,7 @@ def do_exp(self, tab):
     # 开始战斗
     time.sleep(1)
     # 出击
-    image.compare_image(self, 'normal_task_edit-force', threshold=10, mis_fu=self.click, mis_argv=(1163, 658), rate=1,
+    image.compare_image(self, 'normal_task_edit-force', threshold=0.6, mis_fu=self.click, mis_argv=(1163, 658), rate=1,
                         n=True)
     main_story.auto_fight(self)
     # 等待战斗结束

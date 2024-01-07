@@ -62,13 +62,13 @@ def start_admission(self):
 
     # 查看第一个是否锁住了
     cl = (1114, 237)
-    if image.compare_image(self, 'main_story_first-lock', 10, 20):
+    if image.compare_image(self, 'main_story_first-lock', 10, 0.6):
         # 锁住了点第二个任务
         cl = (1114, 339)
     # 等待剧情信息加载
     image.detect(self, 'main_story_plot-info', cl=cl, ss_rate=2)
 
-    is_fight = image.compare_image(self, 'main_story_plot-fight', 0, 10)
+    is_fight = image.compare_image(self, 'main_story_plot-fight', 0, 0.6)
 
     # 进入剧情
     self.click(641, 516, False)

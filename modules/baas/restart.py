@@ -14,7 +14,8 @@ def only_start(self):
         else:
             self.d.app_start(pkg)
     except Exception as e:
-        self.logger.critical("启动游戏失败,默认为国服官包。如果你是其他服务器，请点击菜单Baas->Baas设置 选择对应游戏服务器！")
+        self.logger.critical(
+            "启动游戏失败,默认为国服官包。如果你是其他服务器，请点击菜单Baas->Baas设置 选择对应游戏服务器！")
         self.exit(e)
     # 强制等待
     time.sleep(8)

@@ -19,7 +19,7 @@ def check_ss(self):
     app = self.d.app_current()
     if app['package'] != self.bc['baas']['base']['package']:
         restart.only_start(self)
-    if image.compare_image(self, 'home_cafe-black', 2):
+    if image.compare_image(self, 'home_black', 2, 0.99):
         self.exit(
             "模拟器设置有误! 如果是mumu模拟器，打开模拟器设置 -> 其他 -> 其他设置 -> 取消勾选(应用运行 -> 后台挂机时保持活跃运行) ")
 
@@ -73,6 +73,8 @@ def check_clarity(self):
 
 
 def check_fhx(self):
+    if self.game_server != 'cn':
+        return
     self.log_title("开始检查反和谐")
     home.go_home(self)
     if ocr.screenshot_check_text(self, '等级', (31, 28, 71, 48), 1):

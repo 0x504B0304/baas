@@ -26,17 +26,27 @@ def check_config():
     if not os.path.exists(config_dir):
         os.makedirs(config_dir, exist_ok=True)
         # 目标文件的完整路径
-        destination_file1 = os.path.join(config_dir, 'baas1.json')
-        destination_file2 = os.path.join(config_dir, 'baas2.json')
-        destination_file3 = os.path.join(config_dir, 'app.txt')
+        destination_file1 = os.path.join(config_dir, 'baas.json')
+        destination_file2 = os.path.join(config_dir, 'app.txt')
 
         source_file = config.get_froze_path('web/static/baas.json')
-        source_txt_file = config.get_froze_path('web/static/app.txt')
+        source_txt_file = config.get_froze_path('web/static/default_app.txt')
 
         # 判断文件是否存在，如果不存在则复制文件
         shutil.copy(source_file, destination_file1)
-        shutil.copy(source_file, destination_file2)
-        shutil.copy(source_txt_file, destination_file3)
+        shutil.copy(source_txt_file, destination_file2)
+    # 配置文件迁移
+    config_migrate()
+
+
+def config_migrate():
+    print("开始迁移配置文件")
+    config_dir = config.config_dir()
+    con_list = sorted([os.path.splitext(f)[0] for f in os.listdir(config_dir) if f.endswith('.json')])
+    for con in con_list:
+        print(f"{con}正在迁移...")
+        config.config_migrate(con, config.get_froze_path('web/static/baas.json'))
+    print("迁移完成")
 
 
 @configs.route('/menus', methods=['GET'])
@@ -78,6 +88,7 @@ def menus_list():
                 {'name': 'special_entrust', 'text': '特殊委托'},
                 {'name': 'wanted', 'text': '通缉悬赏'},
                 {'name': 'arena', 'text': '战术对抗赛'},
+                {'name': 'exchange_meeting', 'text': '学园交流会'},
                 {'name': 'normal_task', 'text': '普通关卡-扫荡'},
                 {'name': 'hard_task', 'text': '困难关卡-扫荡'},
             ]
@@ -111,7 +122,8 @@ def menus_list():
             'text': '活动',
             'child': [
                 # {'name': 'tutor_dept', 'text': '补习部签到'},
-                {'name': 'summer_vacation', 'text': '日奈会长'},
+                # {'name': 'summer_vacation', 'text': '日奈会长'},
+                {'name': 'spa_227', 'text': '227号温泉乡'},
             ]
         }
     ]

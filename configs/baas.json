@@ -4,7 +4,6 @@
             "package": "com.RoamingStar.BlueArchive",
             "serial": "127.0.0.1:16384",
             "ss_rate": 0.1,
-            "compare_mode": "ssim",
             "debug": false
         }
     },
@@ -53,36 +52,32 @@
             "link_task": "",
             "text": "商店购买"
         },
-        "config": [
-            {
-                "enable": true,
-                "shop": "general",
-                "count": 1,
-                "goods": [
-                    5,
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16
-                ]
-            },
-            {
-                "enable": false,
-                "shop": "arena",
-                "count": 1,
-                "goods": [
-                    4,
-                    5
-                ]
-            }
-        ]
+        "general": {
+            "enable": true,
+            "count": 1,
+            "goods": [
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+            ]
+        },
+        "arena": {
+            "enable": true,
+            "count": 1,
+            "goods": [
+                4,
+                5
+            ]
+        }
     },
     "cafe": {
         "base": {
@@ -94,10 +89,16 @@
             "link_task": "",
             "text": "咖啡厅"
         },
-        "config": {
+        "ap": {
+            "enable": true
+        },
+        "invite": {
+            "enable": true,
+            "type": "asc"
+        },
+        "interact": {
             "interact_type": "drag_gift",
-            "blank_preset": 5,
-            "receive_ap": true
+            "blank_preset": 5
         }
     },
     "schedule": {
@@ -338,14 +339,7 @@
             "region": [
                 10
             ],
-            "mode": 2,
-            "burst1": -1,
-            "burst2": -1,
-            "pierce1": -1,
-            "pierce2": -1,
-            "mystic1": -1,
-            "mystic2": -1,
-            "manual_boss": false
+            "mode": 2
         }
     },
     "exp_hard_task": {
@@ -362,24 +356,56 @@
             "region": [
                 10
             ],
-            "mode": 2,
-            "burst1": -1,
-            "burst2": -1,
-            "pierce1": -1,
-            "pierce2": -1,
-            "mystic1": -1,
-            "mystic2": -1,
-            "manual_boss": false
+            "mode": 2
         }
     },
-    "stop": {
+    "exchange_meeting": {
         "base": {
-            "enable": false,
-            "index": 999,
+            "enable": true,
+            "index": 65,
             "next": "2023-11-17 00:00:00",
             "end": "",
-            "interval": 3888,
-            "text": "关闭设置"
+            "interval": 0,
+            "link_task": "",
+            "text": "学园交流会"
+        },
+        "cnd": {
+            "enable": true,
+            "stage": 1,
+            "count": 1
+        },
+        "ghn": {
+            "enable": true,
+            "stage": 1,
+            "count": 1
+        },
+        "qxn": {
+            "enable": true,
+            "stage": 1,
+            "count": 1
+        }
+    },
+    "spa_227": {
+        "base": {
+            "enable": false,
+            "index": -99,
+            "next": "2023-11-17 00:00:00",
+            "end": "2024-01-18 08:00:00",
+            "interval": 9999999,
+            "link_task": "",
+            "text": "活动-227号温泉乡"
+        },
+        "exp": {
+            "enable": true
+        },
+        "scan": {
+            "enable": true,
+            "stage": [
+                "9-1",
+                "10-2",
+                "11-3",
+                "12-4"
+            ]
         }
     }
 }

@@ -1,157 +1,189 @@
 stage_data = {
-    '8-1-sss-box': {
+    '8-1': {
         'start': {
-            '1': (613, 180),
-            '2': (563, 684)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (612, 178),
+            '2': (566, 693)
         },
         'action': [
-            {'t': 'click', 'p': (712, 351), "desc": "1 lower right"},
-            {'t': 'move', 'ec': True, "desc": "teleport"},
-            {'t': 'click', 'p': (649, 410), 'desc': "2 upper left"},
-            {'t': 'move', 'ec': True, 'wait-over': True, "desc": "teleport"},
-            {'t': 'click', 'p': (613, 389), "ec": True, "desc": "1 right"},
-            {'t': 'click', 'p': (850, 474), "ec": True, 'wait-over': True, "desc": "2 lower right"},
-            {'t': 'click', 'p': (556, 495), "ec": True, "desc": "1 lower right"},
-            {'t': 'click', 'p': (896, 423), "wait-over": True, "desc": "2 right"},
-            {'t': 'click', 'p': (614, 399), "desc": "1 right"},
-            {'t': 'end-turn', 'desc': 'round-over', "wait-over": True},
-            {'t': 'click', 'p': (614, 390), "desc": "1 right"},
+            # 第一回合
+            {'t': 'click', 'p': (710, 350), 'desc': "1 lower right"},
+            {'t': 'move', 'ec': True, 'wo': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (650, 410), 'desc': "2 upper left"},
+            {'t': 'move', 'ec': True, 'wo': True, 'desc': "teleport"},
+
+            # 第二回合
+            {'t': 'click', 'p': (617, 392), 'ec': True, 'desc': "1 right"},
+            {'t': 'click', 'p': (845, 475), 'ec': True, 'wo': True, 'desc': "1 lower right"},
+
+            # 第三回合
+            {'t': 'click', 'p': (555, 490), 'ec': True, 'desc': "1 lower right"},
+            {'t': 'click', 'p': (895, 425), 'wo': True, 'desc': "1 lower right"},
+
+            # 第四回合
+            {'t': 'click', 'p': (615, 395), 'ec': True, 'desc': "1 right & get box"},
+            {'t': 'end-turn'},
+
+            # 第四回合
+            {'t': 'click', 'p': (615, 400), 'desc': "1 right"},
         ]
     },
+    '8-1-box': '8-1',
     '8-1-task': {
         'start': {
-            '1': (613, 180),
-            '2': (563, 684)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (612, 178),
+            '2': (566, 693)
         },
         'action': [
-            {'t': 'click', 'p': (712, 351), "desc": "1 lower right"},
-            {'t': 'move', 'ec': True, "desc": "teleport"},
-            {'t': 'click', 'p': (649, 410), 'desc': "2 upper left"},
-            {'t': 'move', 'ec': True, 'wait-over': True, "desc": "teleport"},
-            {'t': 'click', 'p': (613, 389), "ec": True, "desc": "1 right"},
-            {'t': 'click', 'p': (850, 474), "ec": True, 'wait-over': True, "desc": "2 lower right"},
-            {'t': 'click', 'p': (556, 495), "ec": True, "desc": "1 lower right"},
-            {'t': 'click', 'p': (722, 339), "desc": "2 upper left"},
-            {'t': 'move', 'ec': True, 'wait-over': True, "desc": "teleport"},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (626, 345), "ec": True, "desc": "2 upper right"},
-            {'t': 'click', 'p': (626, 345), "desc": "choose 2"},
-            {'t': 'click', 'p': (520, 339), "desc": "change 1 2"},
-            {'t': 'click', 'p': (743, 347), "desc": "1 right"},
+            # 第一回合
+            {'t': 'click', 'p': (710, 350), 'desc': "1 lower right"},
+            {'t': 'move', 'ec': True, 'wo': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (650, 410), 'desc': "2 upper left"},
+            {'t': 'move', 'ec': True, 'wo': True, 'desc': "teleport"},
+
+            # 第二回合
+            {'t': 'click', 'p': (617, 392), 'ec': True, 'desc': "1 right"},
+            {'t': 'click', 'p': (845, 475), 'ec': True, 'wo': True, 'desc': "1 lower right"},
+
+            # 第三回合
+            {'t': 'click', 'p': (555, 490), 'ec': True, 'desc': "1 lower right"},
+            {'t': 'click', 'p': (720, 340), 'desc': "1 lower right"},
+            {'t': 'move', 'ec': True, 'wo': True, 'desc': "teleport"},
+
+            # 第四回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (630, 345), 'ec': True, 'desc': "2 upper right"},
+            {'t': 'click', 'p': (625, 345), 'desc': "choose 2"},
+            {'t': 'click', 'p': (523, 336), 'desc': "change"},
+            {'t': 'click', 'p': (743, 345), 'desc': "1 right"},
         ]
     },
-    '8-2-sss-box': {
+    '8-2': {
         'start': {
-            '1': (1000, 342),
-            '2': (71, 373)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (1000, 345),
+            '2': (72, 373)
         },
         'action': [
-            {'t': 'click', 'p': (728, 474), 'ec': True, "desc": "1 lower left"},
-            {'t': 'click', 'p': (553, 477), 'wait-over': True, 'ec': True, "desc": "2 lower right"},
-            {'t': 'click', 'p': (664, 414), 'ec': True, "desc": "1 left"},
-            {'t': 'click', 'p': (616, 395), 'ec': True, 'wait-over': True, "desc": "2 right"},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (560, 333), "ec": True, "desc": "2 upper right"},
-            {'t': 'click', 'p': (668, 410), 'wait-over': True, "desc": "1 left"},
-            {'t': 'click', 'p': (692, 553), "desc": "1 lower left"},
-            {'t': 'move', 'ec': True, "desc": "teleport"},
-            {'t': 'click', 'p': (592, 232), 'wait-over': True, 'ec': True, "desc": "2 upper right"},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (613, 236), "desc": "2 upper right"},
-            {'t': 'move', 'ec': True, "desc": "teleport"},
-            {'t': 'end-turn', 'desc': 'round-over', "wait-over": True},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (433, 297), 'wait-over': True, "desc": "2 left"},
-            {'t': 'click', 'p': (613, 490), "desc": "1 left"},
+            # 第一回合
+            {'t': 'click', 'p': (725, 475), 'ec': True, 'desc': "1 lower left"},
+            {'t': 'click', 'p': (550, 475), 'ec': True, 'wo': True, 'desc': "2 lower right"},
+
+            # 第二回合
+            {'t': 'click', 'p': (665, 415), 'ec': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (615, 440), 'ec': True, 'wo': True, 'desc': "2 right"},
+
+            # 第三回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (555, 335), 'ec': True, 'desc': "2 upper right"},
+            {'t': 'click', 'p': (665, 405), 'wo': True, 'desc': "1 left"},
+
+            # 第四回合
+            {'t': 'click', 'p': (690, 550), 'desc': "1 lower left"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (590, 235), 'ec': True, 'wo': True, 'desc': "2 upper right"},
+
+            # 第五回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (610, 210), 'desc': "2 upper right"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
+            {'t': 'end-turn'},
+
+            # 第六回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 1"},
+            {'t': 'click', 'p': (435, 295), 'wo': True, 'desc': "2 left & get box"},
+            {'t': 'click', 'p': (615, 480), 'desc': "1 lower left"},
         ]
     },
+    '8-2-box': '8-2',
     '8-2-task': {
         'start': {
-            '1': (1000, 342),
-            '2': (71, 373)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (1000, 345),
+            '2': (72, 373)
         },
         'action': [
-            {'t': 'click', 'p': (728, 474), 'ec': True, "desc": "1 lower left"},
-            {'t': 'click', 'p': (553, 477), 'wait-over': True, 'ec': True, "desc": "2 lower right"},
-            {'t': 'click', 'p': (664, 414), 'ec': True, "desc": "1 left"},
-            {'t': 'click', 'p': (616, 395), 'ec': True, 'wait-over': True, "desc": "2 right"},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (560, 333), "ec": True, "desc": "2 upper right"},
-            {'t': 'click', 'p': (668, 410), 'wait-over': True, "desc": "1 left"},
-            {'t': 'click', 'p': (692, 553), "desc": "1 lower left"},
-            {'t': 'move', 'ec': True, "desc": "teleport"},
-            {'t': 'end-turn', 'desc': 'round-over', "wait-over": True, 'ec': True},
-            {'t': 'click', 'p': (641, 459), "desc": "1 left"},
+            # 第一回合
+            {'t': 'click', 'p': (725, 475), 'ec': True, 'desc': "1 lower left"},
+            {'t': 'click', 'p': (550, 475), 'ec': True, 'wo': True, 'desc': "2 lower right"},
+
+            # 第二回合
+            {'t': 'click', 'p': (665, 415), 'ec': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (615, 440), 'ec': True, 'wo': True, 'desc': "2 right"},
+
+            # 第三回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (555, 335), 'ec': True, 'desc': "2 upper right"},
+            {'t': 'click', 'p': (665, 405), 'wo': True, 'desc': "1 left"},
+
+            # 第四回合
+            {'t': 'click', 'p': (690, 550), 'desc': "1 lower left"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
+            {'t': 'end-turn'},
+
+            # 第五回合
+            {'t': 'click', 'p': (630, 465), 'desc': "1 lower left"},
         ]
     },
-    '8-3-box': {
+    '8-3': {
         'start': {
-            '1': (793, 471),
-            '2': (325, 359)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (790, 470),
+            '2': (325, 320)
         },
         'action': [
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (557, 449), "desc": "2 lower right"},
-            {'t': 'move', 'ec': True, 'desc': 'teleport'},
-            {'t': 'click', 'p': (713, 336), "desc": "choose 2"},
-            {'t': 'click', 'p': (616, 335), "desc": "change 1 2"},
-            {'t': 'click', 'p': (779, 258), 'wait-over': True, "desc": "1 upper right"},
-            {'t': 'click', 'p': (722, 446), "desc": "1 lower left", 'after': 2},
-            {'t': 'end-turn', 'desc': 'round-over', "wait-over": True, 'ec': True},
-            {'t': 'click', 'p': (560, 398), 'ec': True, "desc": "1 left"},
-            {'t': 'click', 'p': (754, 422), 'ec': True, 'wait-over': True, "desc": "2 right"},
-            {'t': 'click', 'p': (445, 275), 'ec': True, "desc": "1 upper left"},
-            {'t': 'click', 'p': (889, 435), 'wait-over': True, "desc": "2 right"},
-            {'t': 'click', 'p': (460, 249), 'ec': True, "desc": "1 upper left"},
-            {'t': 'end-turn', 'desc': 'round-over', "wait-over": True, 'ec': True},
-            {'t': 'click', 'p': (394, 326), 'ec': True, "desc": "1 left"},
-            {'t': 'end-turn', 'desc': 'round-over'},
+            # 第一回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (555, 445), 'desc': "2 lower right"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (720, 340), 'desc': "choose 2"},
+            {'t': 'click', 'p': (615, 335), 'desc': "change"},
+            {'t': 'click', 'p': (775, 260), 'wo': True, 'desc': "1 upper right"},
+
+            # 第二回合
+            {'t': 'click', 'p': (720, 445), 'wo': True, 'desc': "2 lower right"},
+            {'t': 'end-turn', 'wo': True},
+
+            # 第三回合
+            {'t': 'click', 'p': (560, 400), 'ec': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (750, 415), 'wo': True, 'desc': "2 right"},
+
+            # 第四回合
+            {'t': 'click', 'p': (445, 265), 'ec': True, 'desc': "1 left"},
+            {'t': 'click', 'p': (890, 440), 'wo': True, 'desc': "2 right & get box"},
+
+            # 第五回合
+            {'t': 'click', 'p': (460, 250), 'wo': True, 'desc': "2 lower right"},
+            {'t': 'end-turn', 'wo': True},
+
+            # 第六回合
+            {'t': 'click', 'p': (400, 300), 'wo': True, 'desc': "2 lower right"},
+            {'t': 'end-turn'},
         ]
     },
-    '8-3-sss-task': {
+    '8-3-box': '8-3',
+    '8-3-task': {
         'start': {
-            '1': (793, 471),
-            '2': (325, 359)
-        },
-        'attr': {
-            '1': 'pierce1',
-            '2': 'pierce2'
+            '1': (790, 470),
+            '2': (325, 320)
         },
         'action': [
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (557, 449), "desc": "2 lower right"},
-            {'t': 'move', 'ec': True, 'desc': 'teleport'},
-            {'t': 'click', 'p': (713, 336), "desc": "choose 2"},
-            {'t': 'click', 'p': (616, 335), "desc": "change 1 2"},
-            {'t': 'click', 'p': (604, 341), 'wait-over': True, "desc": "1 left"},
-            {'t': 'click', 'p': (466, 249), 'ec': True, "desc": "1 upper left"},
-            {'t': 'click', 'p': (823, 377), 'ec': True, 'wait-over': True, "desc": "2 upper right"},
-            {'t': 'exchange', "ec": True, "desc": "change to 2"},
-            {'t': 'click', 'p': (727, 318), "ec": True, "desc": "2 upper left"},
-            {'t': 'click', 'p': (518, 283), 'wait-over': True, "desc": "1 upper left"},
-            {'t': 'click', 'p': (433, 300), 'ec': True, "desc": "1 left"},
-            {'t': 'click', 'p': (724, 474), "desc": "2 lower left"},
-            {'t': 'move', 'desc': 'teleport'},
+            # 第一回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (555, 445), 'desc': "2 lower right"},
+            {'t': 'move', 'wo': True, 'desc': "teleport"},
+            {'t': 'click', 'p': (720, 340), 'desc': "choose 2"},
+            {'t': 'click', 'p': (615, 335), 'desc': "change"},
+            {'t': 'click', 'p': (600, 340), 'wo': True, 'desc': "1 left"},
+
+            # 第二回合
+            {'t': 'click', 'p': (465, 245), 'ec': True, 'desc': "1 upper left"},
+            {'t': 'click', 'p': (820, 370), 'wo': True, 'desc': "2 upper right"},
+
+            # 第三回合
+            {'t': 'exchange', 'ec': True, 'desc': "change to 2"},
+            {'t': 'click', 'p': (725, 310), 'ec': True, 'desc': "2 upper right"},
+            {'t': 'click', 'p': (520, 280), 'wo': True, 'desc': "2 upper left"},
+
+            # 第四回合
+            {'t': 'click', 'p': (430, 300), 'ec': True, 'desc': "1 upper left"},
+            {'t': 'end-turn'},
         ]
     },
 }

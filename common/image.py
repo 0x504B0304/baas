@@ -1,25 +1,13 @@
-import importlib
 import os
+import sys
 import time
 
 import cv2
 import numpy as np
 from skimage.metrics import structural_similarity
 
-from common import stage, position, config
+from common import stage, config
 from common.position import get_box
-import os
-import sys
-
-import cv2
-import numpy as np
-
-from modules.activity import tutor_dept, summer_vacation
-from modules.baas import home, restart, cm
-# 图片资源数据 image assets data
-from modules.daily import arena, cafe, wanted, special_entrust, shop, schedule, make, group, buy_ap
-from modules.reward import mailbox, momo_talk, work_task
-from modules.scan import hard_task, normal_task, main_story
 
 class DetectError(Exception):
     pass
@@ -69,14 +57,14 @@ def save_img_to_disk(image_array, name):
     cv2.imwrite(config.get_debug_file(name), image_array)
 
 
-def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis_argv=None, rate=None, n=False,
-                  box=None, ss=None, compare_mode=None, cl=None):
+def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, mis_argv=None, rate=None, n=False,
+                  box=None, ss=None, cl=None):
     """
     对图片坐标内的图片和资源图片是否匹配
     @param self:
     @param name: 资源名称
     @param retry: 重试次数
-    @param threshold: 匹配程度0为完全匹配
+    @param threshold: 匹配程度1为完全匹配
     @param nl: need_loading 等待加载
     @param mis_fu: 不匹配时执行函数
     @param mis_argv: 不匹配时执行函数参数
@@ -84,7 +72,6 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
     @param n: not识别结果取反
     @param box: 强制指定box坐标
     @param ss: screenshot截图数据
-    @param compare_mode: 强制制定匹配模式
     @param cl: click事件坐标
     @return: 是否匹配
     """
@@ -107,51 +94,30 @@ def compare_image(self, name, retry=999, threshold=3, nl=False, mis_fu=None, mis
     compare = compare_image_data(self, ss_img, res_img, threshold, name, n)
     if not compare and retry > 0:
         if 100 < retry < 989 and retry % 10 == 0:
-            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言')
+            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
         if mis_fu is not None:
             mis_fu(*mis_argv)
-            time.sleep(rate)
         if cl is not None:
             self.click(*cl, False)
-        return compare_image(self, name, retry - 1, threshold, nl, mis_fu, mis_argv, rate, n, box, ss, compare_mode, cl)
+        time.sleep(rate)
+        return compare_image(self, name, retry - 1, threshold, nl, mis_fu, mis_argv, rate, n, box, ss, cl)
     return compare
 
 
-def compare_image_data(self, ss_img, res_img, threshold=3, name='', n=False):
+def compare_image_data(self, ss_img, res_img, threshold=0.7, name='', n=False):
     """
     对比两个图片数据是否相同
     """
-    compare_mode = self.bc['baas']['base']['compare_mode']
-    if res_img.shape[0] < 7 or res_img.shape[1] < 7:
-        compare_mode = 'mse'
-    if 'mse' == compare_mode:
-        # 计算差异值
-        diff = cv2.absdiff(ss_img, res_img)
-        # 计算MSE（Mean Squared Error）
-        mse = np.mean(diff ** 2)
-        compare = mse <= threshold
-        if n:
-            compare = not compare
-        self.logger.info("compare_image %s MSE:%.2f Result:%s", name, mse, compare)
-    else:
-        # ssim 对比
-        # 转换图片到灰度
-        ss_gray = cv2.cvtColor(ss_img, cv2.COLOR_BGR2GRAY)
-        res_gray = cv2.cvtColor(res_img, cv2.COLOR_BGR2GRAY)
-        # 计算SSIM（Structural Similarity Index）
-        ssim = structural_similarity(ss_gray, res_gray)
-        if threshold == 3:
-            threshold = 0.7
-        elif threshold <= 1:
-            threshold = 0.9
-        elif threshold < 3:
-            threshold = 0.8
-        elif threshold > 3:
-            threshold = 0.6
-        compare = ssim >= threshold
-        if n:
-            compare = not compare
-        self.logger.info("compare_image %s SSIM:%.2f Result:%s", name, ssim, compare)
+    # ssim 对比
+    # 转换图片到灰度
+    ss_gray = cv2.cvtColor(ss_img, cv2.COLOR_BGR2GRAY)
+    res_gray = cv2.cvtColor(res_img, cv2.COLOR_BGR2GRAY)
+    # 计算SSIM（Structural Similarity Index）
+    ssim = structural_similarity(ss_gray, res_gray)
+    compare = ssim >= threshold
+    if n:
+        compare = not compare
+    self.logger.info("compare_image %s SSIM:%.2f Result:%s", name, ssim, compare)
     return compare
 
 
@@ -179,7 +145,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:
-            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言')
+            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
         stage.wait_loading(self)
         self.latest_img_array = self.get_screenshot_array()  # 每次公用一张截图
         if pre_func is not None:
@@ -194,12 +160,12 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
 
         # region 结束图片可能会出现的位置
         if type(end) is str:
-            if compare_image(self, end, 0, 3, nl=False, ss=self.latest_img_array):
+            if compare_image(self, end, 0, 0.7, nl=False, ss=self.latest_img_array):
                 return end
         else:
             for asset in end:
                 if type(asset) is str:
-                    asset = (asset, 3)
+                    asset = (asset, 0.7)
                 threshold = asset[1]
                 if compare_image(self, asset[0], 0, threshold, nl=False, ss=self.latest_img_array):
                     return asset[0]
@@ -207,7 +173,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         # region 资源图片可能会出现的位置
         if possibles is not None:
             for asset, obj in possibles.items():
-                threshold = 3
+                threshold = 0.7
                 if len(obj) >= 3:
                     threshold = obj[2]
                 if compare_image(self, asset, 0, threshold, nl=False, ss=self.latest_img_array):

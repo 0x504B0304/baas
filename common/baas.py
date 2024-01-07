@@ -8,10 +8,10 @@ import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
 from uiautomator2 import Device
-
-from common import stage, process, config, log, encrypt, color
+from common import stage, process, config, log, encrypt
 from common.image import DetectError
-from modules.activity import tutor_dept, summer_vacation
+from modules.activity import tutor_dept, summer_vacation, spa_227
+from modules.attack import exchange_meeting
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
 from modules.exp.hard_task import exp_hard_task
@@ -43,6 +43,8 @@ func_dict = {
     'main_story': main_story.start,
     'fhx': fhx.start,
     'summer_vacation': summer_vacation.start,
+    'exchange_meeting': exchange_meeting.start,
+    'spa_227': spa_227.start,
 }
 
 
@@ -58,19 +60,18 @@ class Baas:
 
     def __init__(self, con, processes_task):
         self.flag_run = True
-        self.screenshot_interval = 0.3
         self.click_time = 0.0
         self.latest_img_array = None
         self.con = con
         if processes_task is None:
             return
         self.logger = log.create_logger(con)
-        self.config_migrate()
         self.load_config()
         self.game_server = self.calc_game_server()
         self.connect_serial()
         self.init_ocr()
-        color.init_rgb(self)
+        env_check.check_resolution(self)
+        env_check.check_fhx(self)
         self.processes_task = processes_task
         self.next_task = ''
         self.stage_data = {}
@@ -199,10 +200,6 @@ class Baas:
                 del self.processes_task[encrypt.md5(self.con)]
             else:
                 self.exit(f"函数不存在:{fn}")
-
-    def config_migrate(self):
-        self.log_title("开始检查配置文件迁移")
-        config.config_migrate(self, config.get_froze_path('web/static/baas.json'))
 
     def config_path(self):
         return config.config_filepath(self.con)

@@ -19,8 +19,12 @@ def git_clone_and_pull():
         subprocess.run(['git', 'clone', repository_url, 'baas'], cwd=directory, check=True)
         print("baas 下载完成...")
     else:
-        git_pull(directory)
-        print("baas 更新完成...")
+        try:
+            git_pull(directory)
+            print("Baas 更新完成...")
+        except Exception as e:
+            print("更新失败", e)
+    git_logs(resource_path("baas"))
 
 
 def command_exists(command):
@@ -81,8 +85,21 @@ def install_git():
 
 def git_pull(directory):
     """Run git pull in a specific directory."""
-    print(f"在目录 {directory} 中执行 'git pull origin main' 命令...")
+    print_title("开始更新", f"在目录 {directory} 中执行 'git pull origin main' 命令...")
     subprocess.run(['git', 'pull', 'origin', 'main'], cwd=directory, check=True)
+
+
+def git_logs(directory):
+    """Get the last 10 git logs in a specific directory."""
+    log_command = ['git', 'log', '--pretty=format:%ad %d %s', '--date=short', '-n', '10']
+    result = subprocess.run(log_command, cwd=directory, check=True, text=True, capture_output=True, encoding='utf-8')
+    print_title("更新日志", f"在目录 {directory} 中执行 'git log' 命令...\n" + result.stdout)
+
+
+def print_title(title, message=None):
+    print(f"========================================== {title} ==========================================")
+    if message is not None:
+        print(message)
 
 
 def start_baas():
@@ -103,8 +120,8 @@ def start_baas_windows():
         return
 
     # 启动 baas.exe
-    print("正在启动 baas.exe...")
-    subprocess.Popen(baas_exe_path, cwd=local_path)
+    print_title("Baas启动")
+    subprocess.Popen([baas_exe_path, 'source=launcher'], cwd=local_path)
 
 
 # 启动 baas.app 程序（macOS）
@@ -129,14 +146,13 @@ def resource_path(relative_path):
 
 def main():
     try:
-        print("Baas启动器")
+        print_title("Baas启动器 v1.0")
         # 检查 Git 是否安装
         if not command_exists('git'):
             install_git()
 
         # 执行 git pull 命令
         git_clone_and_pull()
-
         # 启动Baas
         start_baas()
     except Exception as e:

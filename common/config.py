@@ -76,6 +76,16 @@ def get_ss_path(self):
     return os.path.join(get_runtime_path(), 'ss_{0}.png'.format(self.con))
 
 
+def delete_keys_from_destination(src, dst):
+    if isinstance(dst, dict):
+        keys_to_delete = [key for key in dst if key not in src]
+        for key in keys_to_delete:
+            del dst[key]
+        for key, value in src.items():
+            if isinstance(value, dict) and isinstance(dst.get(key), dict):
+                delete_keys_from_destination(value, dst[key])
+
+
 def config_deep_update(source, destination):
     """
     递归地更新嵌套字典和列表结构。
@@ -87,6 +97,9 @@ def config_deep_update(source, destination):
     Returns:
     dict: 更新后的目标数据。
     """
+
+    delete_keys_from_destination(source, destination)
+
     for key, value in source.items():
         if isinstance(value, dict):
             # 如果当前值是一个字典，进行递归更新。如果目标字典中没有相应的key，
@@ -115,7 +128,7 @@ def config_deep_update(source, destination):
     return destination
 
 
-def config_migrate(self, file_path1):
+def config_migrate(con, file_path1):
     """
     比较两个 JSON 文件的键，如果文件1有而文件2没有的键，用文件1的内容更新文件2。
 
@@ -129,6 +142,6 @@ def config_migrate(self, file_path1):
 
     with open(file_path1, 'r', encoding='utf-8') as f:
         src_data = json.load(f)
-    dst_data = load_ba_config(self.con)
+    dst_data = load_ba_config(con)
     updated_dst_data = config_deep_update(src_data, dst_data)
-    save_ba_config(self.con, updated_dst_data)
+    save_ba_config(con, updated_dst_data)

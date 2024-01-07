@@ -1,20 +1,16 @@
 import time
 
-import cv2
-import numpy as np
-
-from common import ocr, image
-from common.color import judge_rgb_range
+from common import ocr, image, color
 from modules.baas import home
 
 
-def confirm_scan(self, stage, ct, max_count):
+def confirm_scan(self, stage, ct, max_count, cl=None):
     self.logger.warning("开始扫荡第 {0} 关".format(stage))
     ends = (
         'wanted_task-info-window',
         'normal_task_task-info-window'
     )
-    image.detect(self, ends)
+    image.detect(self, ends, cl=cl, ss_rate=1)
     is_max = type(ct) == str and ct == 'max'
     # 等关卡加载
     if is_max or int(ct) >= max_count:
@@ -38,10 +34,12 @@ def confirm_scan(self, stage, ct, max_count):
         'normal_task_task-info-notice'  # 确认扫荡通知
     )
     end = image.detect(self, ends)
-    # 通缉悬赏没票了
     if end == 'wanted_buy-ticket':
         self.click(56, 38, 0, 3)
         return 'continue'
+    elif end == 'normal_task_buy-hard-count':
+        home.click_house_under(self)
+        return
     elif end == 'normal_task_buy-ap-window':
         return 'return'
     if end != 'normal_task_task-info-notice':
@@ -96,30 +94,26 @@ def wait_loading(self):
     检查是否加载中，
     """
     t_start = time.time()
-    while 1:
-        self.latest_img_array = cv2.cvtColor(np.array(self.d.screenshot()), cv2.COLOR_RGB2BGR)
-        if not judge_rgb_range(self.latest_img_array, 937, 648, 200, 255, 200, 255, 200, 255) or not \
-                judge_rgb_range(self.latest_img_array, 919, 636, 200, 255, 200, 255, 200, 255):
-            loading_pos = [[929, 664], [941, 660], [979, 662], [1077, 665], [1199, 665]]
-            rgb_loading = [[200, 255, 200, 255, 200, 255], [200, 255, 200, 255, 200, 255],
-                           [200, 255, 200, 255, 200, 255], [200, 255, 200, 255, 200, 255],
-                           [255, 255, 255, 255, 255, 255]]
-            t = len(loading_pos)
-            for i in range(0, t):
-                if not judge_rgb_range(self.latest_img_array, loading_pos[i][0], loading_pos[i][1], rgb_loading[i][0],
-                                       rgb_loading[i][1], rgb_loading[i][2], rgb_loading[i][3],
-                                       rgb_loading[i][4], rgb_loading[i][5]):
-                    break
-            else:
-                t_load = time.time() - t_start
-                self.logger.info(f"Now Loading : {t_load:.0f} seconds")
-                if t_load > 20:
-                    self.logger.warning("LOADING TOO LONG add screenshot interval to 1")
-                    self.screenshot_interval = 1
-                time.sleep(self.screenshot_interval)
-                continue
-
-        return True
+    color_list = (
+        ((930, 666), (243, 243, 243)),  # n
+        ((961, 666), (243, 243, 243)),  # o
+        ((971, 664), (243, 243, 243)),  # w
+        ((1043, 668), (83, 113, 162)),  # a
+        ((1093, 666), (61, 101, 157)),  # n
+        ((1111, 666), (61, 101, 157)),  # g
+    )
+    s = 0.1
+    while True:
+        ss = self.get_screenshot_array()
+        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 50, ss, True))
+        # 至少符合5个 才判断为加载中
+        if matches < 5:
+            return
+        t_load = time.time() - t_start
+        self.logger.info(f"Now Loading {t_load:.0f} seconds...")
+        time.sleep(s)
+        if s < 1:
+            s += 0.1
 
 
 # 定义内部转换函数处理单个字符串
@@ -144,7 +138,7 @@ def stage_convert(stage_list):
     return [convert_string(s) for s in stage_list]
 
 
-def screen_swipe(self, stage, threshold1, threshold2=999, reset=True, f=(911, 650, 911, 40, 0.55)):
+def screen_swipe(self, stage=1, threshold1=0, threshold2=999, reset=True, f=(911, 650, 911, 40, 0.55)):
     if reset:
         # 先保证回到最开始
         self.swipe(911, 199, 911, 600, 0.1)

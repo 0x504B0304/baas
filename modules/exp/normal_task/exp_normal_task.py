@@ -49,6 +49,7 @@ def to_force_edit_page(self, x):
 
 
 def to_tart_task_page(self):
+    time.sleep(0.5)
     """
     回到任务开始或任务中
     :param self:
@@ -56,8 +57,9 @@ def to_tart_task_page(self):
     """
     pos = {
         'fight_confirm': (770, 500),  # 确认信息
-        'fight_fighting-task-info': (520, 20),  # 任务信息
+        'fight_fighting-task-info': (520, 20),  # 任务信息->关闭
         'fight_force-edit': (1162, 658),  # 部队编辑界面
+        'normal_task_get-box': (520, 20),  # 领取宝箱->关闭
     }
     image.detect(self, ('fight_start-task', 'fight_tasking'), pos)
 
@@ -70,13 +72,13 @@ def start(self):
     # 选择任务模式
     normal_task.change_task(self)
 
+    # 获取开图数据
+    region = self.tc['config']['region']
+    self.stage_data = get_stage_data(self, self.tc['config']['region'])
+    if self.stage_data is None:
+        return home.go_home(self)
     # 开始战斗
-    for region in self.tc['config']['region']:
-        self.stage_data = get_stage_data(self, region)
-        if self.stage_data is None:
-            continue
-        start_fight(self, region)
-
+    start_fight(self, region)
     # 回到首页
     home.go_home(self)
 
@@ -105,18 +107,15 @@ def start_fight(self, region, gk=None):
     # 遍历start需要哪些队伍
     if gk == "side":
         # 选择支线部队开始战斗
-        start_choose_side_team(self, self.stage_data[str(region)]['side'])
+        start_choose_side_team(self)
         image.compare_image(self, 'fight_force-edit')
-        image.compare_image(self, 'fight_force-edit', threshold=10, mis_fu=self.click, mis_argv=(1171, 670),
+        image.compare_image(self, 'fight_force-edit', threshold=0.6, mis_fu=self.click, mis_argv=(1171, 670),
                             rate=1,
                             n=True)
     else:
-        prev_index = 0
-        for n, p in self.stage_data[gk]['start'].items():
-            cu_index = start_choose_team(self, gk, n)
-            if cu_index < prev_index:
-                self.exit("队伍配置错误,请根据开图区域设置主队编号小于副队编号!比如主队为1号队,副队为2号队")
-            prev_index = cu_index
+        starts = get_gk_data(gk, self.stage_data, 'start')
+        for n, p in starts.items():
+            start_choose_team(self, gk, n)
         # 点击开始任务
         start_mission(self)
         # 检查跳过战斗
@@ -137,10 +136,10 @@ def start_fight(self, region, gk=None):
 
 def check_skip_auto_over(self):
     # 检查跳过战斗
-    image.compare_image(self, 'fight_skip-fight', threshold=10, mis_fu=self.click, mis_argv=(1123, 545),
+    image.compare_image(self, 'fight_skip-fight', threshold=0.6, mis_fu=self.click, mis_argv=(1123, 545),
                         rate=2)
     # 检查回合自动结束
-    image.compare_image(self, 'fight_auto-over', threshold=10, mis_fu=self.click, mis_argv=(1082, 599),
+    image.compare_image(self, 'fight_auto-over', threshold=0.6, mis_fu=self.click, mis_argv=(1082, 599),
                         rate=2)
 
 
@@ -254,7 +253,8 @@ def calc_need_fight_stage(self, region):
         self.click(1172, 358)
         # 检测是否还在本区域
         stage_index += 1
-        if stage_index >= 6:
+        mc = 4 if self.tc['task'] == 'exp_hard_task' else 6
+        if stage_index >= mc:
             time.sleep(1)
             if region != ocr.screenshot_get_text(self, (189, 197, 228, 225), self.ocrNum):
                 return None
@@ -299,7 +299,7 @@ def get_force(self):
 
 
 def start_action(self, gk, stage_data):
-    actions = stage_data[gk]['action']
+    actions = get_gk_data(gk, stage_data, 'action')
     for i, act in enumerate(actions):
         # 行动前置等待时间
         if 'before' in act:
@@ -324,14 +324,19 @@ def start_action(self, gk, stage_data):
             self.logger.info("结束回合")
             to_end_over(self)
             to_tart_task_page(self)
-        if 'ec' in act:  # 判断是否存在exchange事件
+        elif act['t'] == 'get-box':
+            self.logger.info("领取宝箱")
+            to_tart_task_page(self)
+        # 判断是否存在exchange事件
+        if 'ec' in act:
             # 等待换队
             self.logger.info("等待队伍更换事件...")
             origin = force_index
             while force_index == origin:
                 force_index = get_force(self)
-        # 等待能控制窗口
-        if 'wait-over' in act:
+                time.sleep(0.5)
+        # 判断是否存在wait over事件
+        if 'wo' in act:
             self.logger.info("等待战斗结束...")
             wait_over(self)
             to_tart_task_page(self)
@@ -339,26 +344,32 @@ def start_action(self, gk, stage_data):
         if 'after' in act:
             self.logger.info("后置等待{0}秒".format(act['after']))
             time.sleep(act['after'])
-    self.logger.warning("行动结束,进入战斗中...")
+
+    self.logger.warning("行动结束,等待进入战斗...")
+    image.compare_image(self, 'fight_tasking', n=True, rate=1)
+
+
+def get_gk_data(gk, stage_data, attr):
+    gk_data = stage_data[gk]
+    if type(gk_data) is str:
+        return stage_data[gk_data][attr]
+    return gk_data[attr]
 
 
 def start_choose_team(self, gk, force):
-    force_index = self.tc['config'][self.stage_data[gk]['attr'][force]]
-    if force_index == -1:
-        self.exit("你没有未配置部队,请根据开图区域设置对应属性的部队编号")
     image.compare_image(self, 'fight_start-task')
     # 到部队编辑页面
-    to_force_edit_page(self, self.stage_data[gk]['start'][force])
+    starts = get_gk_data(gk, self.stage_data, 'start')
+    to_force_edit_page(self, starts[force])
     # 选择对应属性的队伍
-    select_force_fight(self, force_index)
+    select_force_fight(self, force)
     # 回到任务开始界面
     to_tart_task_page(self)
-    return force_index
 
 
-def start_choose_side_team(self, team):
+def start_choose_side_team(self):
     # 选择对应属性的队伍
-    select_force_fight(self, self.tc['config'][team])
+    select_force_fight(self, 1)
 
 
 def select_force_fight(self, index):
@@ -367,9 +378,8 @@ def select_force_fight(self, index):
     @param self:
     @param index: 队伍索引
     """
-    self.logger.info("根据当前配置,选择部队{0}".format(index))
-    if index == -1:
-        self.exit("你没有未配置部队,请根据开图区域设置对应属性的部队编号")
+    index = int(index)
+    self.logger.info("选择部队{0}".format(index))
     fp = force_position[index]
     # 检查是否有选中,直到选中为止
     while not color.check_rgb(self, fp, (45, 70, 99)):
@@ -386,6 +396,9 @@ def start_mission(self):
     """
     开始任务
     """
-    image.compare_image(self, 'fight_start-task', threshold=10, mis_fu=self.click, mis_argv=(1171, 670),
-                        rate=1,
-                        n=True)
+    time.sleep(0.5)
+    pos = {
+        'fight_start-task': (1171, 670),  # 开始任务
+        'fight_confirm': (770, 500),  # 确认信息
+    }
+    image.detect(self, 'fight_tasking', pos)

@@ -1,7 +1,4 @@
-import time
-
-from common import image, stage
-from common.color import detect_rgb_one_time
+from common import image
 from modules.baas import restart
 
 
@@ -39,7 +36,7 @@ def to_menu(self, end, pos, cl=None):
 
 
 def click_house_under(self):
-    self.double_click(1166, 66, False)
+    self.double_click(1268, 58, False)
 
 
 def recursion_click_house(self):

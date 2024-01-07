@@ -6,17 +6,13 @@ import cv2
 import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
-from common import image, config, position, stage, log, color
+
+from common import image
+from common import stage, config, log, color
+from modules.activity import spa_227
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import normal_task
-from common import stage, process, config, log, encrypt, position, color
-from modules.activity import tutor_dept, summer_vacation
-from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
-from modules.exp.hard_task import exp_hard_task
-from modules.exp.normal_task import exp_normal_task
-from modules.reward import momo_talk, work_task, mailbox
-from modules.scan import normal_task, hard_task, main_story
 
 
 class TestBaas(unittest.TestCase):
@@ -33,7 +29,6 @@ class TestBaas(unittest.TestCase):
 
     def setUp(self) -> None:
         self.flag_run = True
-        self.screenshot_interval = 0.3
         self.click_time = 0.0
         self.latest_img_array = None
         self.con = 'single'
@@ -46,8 +41,6 @@ class TestBaas(unittest.TestCase):
         self.ocrEN = CnOcr(det_model_name='en_PP-OCRv3_det', rec_model_name='en_PP-OCRv3')
         self.ocrNum = CnOcr(det_model_name='number-densenet_lite_136-fc', rec_model_name='number-densenet_lite_136-fc')
         self.file_path = "../assets/images"
-        data = json.load(open(config.get_froze_path('../assets/file/rgb_feature/rgb_feature.json')))
-        self.rgb_feature = data["rgb_feature"]
 
     def swipe(self, fx, fy, tx, ty, duration=None):
         self.logger.info("swipe %s %s %s %s duration:%s", fx, fy, tx, ty, duration)
@@ -133,17 +126,30 @@ class TestBaas(unittest.TestCase):
         """
         测试运行关卡-开图
         """
-        task = 'exp_normal_task'
-        # task = 'exp_hard_task'
+        # task = 'exp_normal_task'
+        task = 'exp_hard_task'
         levels = [
-            # '10-1-box',
-            # '10-2', '10-3'
+            # '6-1', '6-1-box', '6-2', '6-2-box', '6-3', '6-3-box',
+            # '10-1',
+            # '10-2-task',
+            # '10-3-task',
+            '13-2-task',
+            # '7-1-box',
+            # '6-2', '6-2-box', '6-3', '6-3-box',
+
+            # '10-1', '10-1-box', '10-2', '10-2-box', '10-3', '10-3-box',
+
+            # '6-1', '6-2', '6-3', '6-4', '6-5',
+            # '7-1', '7-2', '7-3', '7-4', '7-5',
+            # '8-1', '8-2', '8-3', '8-4', '8-5',
+            # '9-1', '9-2', '9-3', '9-4', '9-5',
             # '10-1', '10-2', '10-3', '10-4', '10-5',
             # '11-1', '11-2', '11-3', '11-4', '11-5',
-            '12-1', '12-3', '12-4', '12-5',
+            # '12-1', '12-2', '12-3', '12-4', '12-5',
             # '13-1', '13-2', '13-3', '13-4', '13-5',
             # '14-1', '14-2', '14-3', '14-4', '14-5',
             # '15-1', '15-2', '15-3', '15-4', '15-5',
+            # '16-1', '16-2', '16-3', '16-4', '16-5',
         ]
         # 回到首页
         home.go_home(self)
@@ -192,12 +198,15 @@ class TestBaas(unittest.TestCase):
             # 'home_bus',
             # 'home_bus1',
             # 'home_student',
+            # 'home_black',
 
             # 'wanted_menu',
             # 'wanted_stage-list'
             # 'wanted_buy-ticket'
             # 'wanted_task-info-window'
             # 'special_entrust_menu'
+            # 'exchange_meeting_menu'
+            # 'exchange_meeting_stage-list'
 
             # 'restart_news',
             # 'restart_menu',
@@ -227,6 +236,7 @@ class TestBaas(unittest.TestCase):
             # 'fight_auto-over',
             # 'fight_fighting-task-info',
             # 'fight_confirm',
+            'fight_prize-confirm2',
             # 'fight_force-attack',
             # 'fight_fail',
 
@@ -271,10 +281,13 @@ class TestBaas(unittest.TestCase):
             # 'work_task_receive',
 
             # 'shop_menu',
+            # 'shop_choose-buy',
+            # 'shop_buy-confirm1',
+            # 'shop_buy-confirm2',
+            # 'shop_refresh-confirm',
             # 'shop_buy3',
             # 'shop_buy2',
             # 'shop_buy1',
-            # 'shop_confirm',
 
             # 'schedule_menu',
             # 'schedule_surplus',
@@ -311,7 +324,7 @@ class TestBaas(unittest.TestCase):
             # 'normal_task_attack',
             # 'normal_task_prize-confirm',
             # 'normal_task_no-pass',
-            # 'normal_task_move-force-confirm',
+            # 'nor2mal_task_move-force-confirm',
             # 'normal_task_end-turn',
             # 'normal_task_task-finish',
             # 'normal_task_box',
@@ -319,7 +332,7 @@ class TestBaas(unittest.TestCase):
             # 'normal_task_fight-task-info',
 
             # 'buy_ap_notice',
-            # 'buy_ap_notice2',
+            # 'buy_ap_confirm',
             # 'buy_ap_limited',
             # 'buy_ap_buy20',
             # 'buy_ap_buy19',
@@ -359,6 +372,10 @@ class TestBaas(unittest.TestCase):
             # 'main_story_three-times',
             # 'main_story_get-prize',
             # 'cm_confirm'
+
+            # 'spa_227_menu',
+            # 'spa_227_unlock',
+            # 'spa_227_guide',
         ]
         stage.wait_loading(self)
         for asset in assets:
@@ -370,20 +387,19 @@ class TestBaas(unittest.TestCase):
         stage.wait_loading(self)
         for i in range(2):
             for asset in assets:
-                assert image.compare_image(self, asset, 0, compare_mode='mse')
-                assert image.compare_image(self, asset, 0, compare_mode='ssim')
+                assert image.compare_image(self, asset, 0)
         assert True
 
     def test_all_ss(self):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'main_story'
-        self.to_server_all(main_story.start, (self,))
+        self.ttt = 'spa_227'
+        self.to_server_all(spa_227.start, (self,))
 
     def to_server_all(self, fu, argv):
         servers = ['cn']
-        # servers = ['jp', 'cn', 'intl']
+        # servers = ['jp', 'intl']
         for server in servers:
             self.con = server
             self.load_config()
@@ -398,3 +414,17 @@ class TestBaas(unittest.TestCase):
             print('{0} 切换服务器成功...'.format(server))
             time.sleep(0.5)
             fu(*argv)
+
+    def test_image(self):
+        image_data1 = cv2.imdecode(
+            np.fromfile('../assets/images/cn/arena/skip.png', dtype=np.uint8), -1)
+        image_data2 = cv2.imdecode(
+            np.fromfile('../assets/images/cn/arena/skip2.png', dtype=np.uint8), -1)
+        image.compare_image_data(self, image_data1, image_data2)
+        pass
+
+    def test_loading(self):
+        while True:
+            stage.wait_loading(self)
+            time.sleep(1)
+            print("\t\t\t\ntest_loading...\n")

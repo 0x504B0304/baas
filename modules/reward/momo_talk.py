@@ -105,7 +105,7 @@ def check_message(self):
     :return:
     """
     cu_ss = image.screenshot_cut(self, (769, 181, 807, 620))
-    if not hasattr(self, 'mm_prev') or image.compare_image_data(self, cu_ss, self.mm_prev, 1):
+    if not hasattr(self, 'mm_prev') or image.compare_image_data(self, cu_ss, self.mm_prev):
         self.mm_i += 1
         self.logger.warning(f"当前聊天内容未发生变化...{self.mm_i}")
     self.mm_prev = cu_ss
