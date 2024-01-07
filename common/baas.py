@@ -18,6 +18,7 @@ from modules.exp.hard_task import exp_hard_task
 from modules.exp.normal_task import exp_normal_task
 from modules.reward import momo_talk, work_task, mailbox
 from modules.scan import normal_task, hard_task, main_story
+from modules.task import challenge_hard_task
 
 func_dict = {
     'group': group.start,
@@ -33,6 +34,7 @@ func_dict = {
     'normal_task': normal_task.start,
     'exp_normal_task': exp_normal_task.start,
     'exp_hard_task': exp_hard_task.start,
+    'challenge_hard_task': challenge_hard_task.start,
     'hard_task': hard_task.start,
     'mailbox': mailbox.start,
     'restart': restart.start,

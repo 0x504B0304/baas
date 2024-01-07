@@ -384,6 +384,24 @@
             "mode" : 2
         }
     },
+    "challenge_hard_task" : {
+        "base" : {
+            "enable" : false,
+            "index" : -99,
+            "next" : "2023-11-17 00:00:00",
+            "end" : "",
+            "interval" : 9999999,
+            "link_task" : "work_task",
+            "text" : "困难关卡-挑战"
+        },
+        "scan" : {
+            "stage" : [
+                "6-2",
+                "6-3",
+                "7-1"
+            ]
+        }
+    },
     "spa_227" : {
         "base" : {
             "enable" : false,

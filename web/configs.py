@@ -101,6 +101,14 @@ def menus_list():
             ]
         },
         {
+            'name': 'task',
+            'text': '任务',
+            'child': [
+                # {'name': 'challenge_normal_task', 'text': '普通关卡-挑战'},
+                {'name': 'challenge_hard_task', 'text': '困难关卡-挑战'},
+            ]
+        },
+        {
             'name': 'story',
             'text': '剧情',
             'child': [

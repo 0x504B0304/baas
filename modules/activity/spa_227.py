@@ -159,15 +159,8 @@ def do_exp(self, tab):
             image.compare_image(self, 'fight_force-edit', threshold=0.6, cl=(1171, 670), rate=1, n=True)
         else:
             self.stage_data = stage_data
-            starts = exp_normal_task.get_gk_data(gk, self.stage_data, 'start')
-            for n, p in starts.items():
-                exp_normal_task.start_choose_team(self, gk, n)
-            # 点击开始任务
-            exp_normal_task.start_mission(self)
-            # 检查跳过战斗
-            exp_normal_task.check_skip_auto_over(self)
-            # 开始走格子
-            exp_normal_task.start_action(self, gk, self.stage_data)
+            # 选择队伍并开始行动
+            exp_normal_task.choose_team_and_start_action(self, gk)
     else:
         # 跳过剧情
         skip_story(self)

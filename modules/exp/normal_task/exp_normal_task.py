@@ -74,13 +74,20 @@ def start(self):
 
     # 获取开图数据
     region = self.tc['config']['region']
-    self.stage_data = get_stage_data(self, self.tc['config']['region'])
+    self.stage_data = get_stage_data(self, region)
     if self.stage_data is None:
         return home.go_home(self)
     # 开始战斗
     start_fight(self, region)
     # 回到首页
     home.go_home(self)
+
+
+def start_task(self):
+    pos = {
+        'normal_task_task-info-window': (947, 540)  # 任务信息 -> 开始任务
+    }
+    image.detect(self, 'fight_start-task', pos)
 
 
 def start_fight(self, region, gk=None):
@@ -145,7 +152,7 @@ def check_skip_auto_over(self):
 
 def get_stage_data(self, region):
     # 动态生成完整的模块路径
-    if self.tc['task'] == 'exp_hard_task':
+    if 'hard_task' in self.tc['task']:
         module_path = f'modules.exp.hard_task.stage_data.ht_{region}'
     else:
         module_path = f'modules.exp.normal_task.stage_data.nt_{region}'
@@ -357,7 +364,7 @@ def get_gk_data(gk, stage_data, attr):
 
 
 def start_choose_team(self, gk, force):
-    image.compare_image(self, 'fight_start-task')
+    start_task(self)
     # 到部队编辑页面
     starts = get_gk_data(gk, self.stage_data, 'start')
     to_force_edit_page(self, starts[force])
@@ -365,6 +372,18 @@ def start_choose_team(self, gk, force):
     select_force_fight(self, force)
     # 回到任务开始界面
     to_tart_task_page(self)
+
+
+def choose_team_and_start_action(self, gk):
+    starts = get_gk_data(gk, self.stage_data, 'start')
+    for n, p in starts.items():
+        start_choose_team(self, gk, n)
+    # 点击开始任务
+    start_mission(self)
+    # 检查跳过战斗
+    check_skip_auto_over(self)
+    # 开始走格子
+    start_action(self, gk, self.stage_data)
 
 
 def start_choose_side_team(self):

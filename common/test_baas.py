@@ -9,10 +9,10 @@ from cnocr import CnOcr
 
 from common import image
 from common import stage, config, log, color
-from modules.activity import spa_227
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
 from modules.scan import normal_task
+from modules.task import challenge_hard_task
 
 
 class TestBaas(unittest.TestCase):
@@ -394,8 +394,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'spa_227'
-        self.to_server_all(spa_227.start, (self,))
+        self.ttt = 'challenge_hard_task'
+        self.to_server_all(challenge_hard_task.start, (self,))
 
     def to_server_all(self, fu, argv):
         servers = ['cn']
