@@ -73,6 +73,11 @@ def close_prize_info(self, ap_check=False, mail_check=False, retry=999):
     }
     text_box['jp'] = text_box['intl']
     tb = text_box[self.game_server]
+    # 体力上限
+    if self.game_server != 'cn' and image.compare_image(self, 'arena_ap-limited'):
+        home.click_house_under(self)
+        self.finish_seconds = 180
+        return
     # 点击继续
     if ocr.screenshot_check_text(self, tb[0], (577, 614, 704, 648), 1):
         self.click(640, 635)

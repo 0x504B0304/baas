@@ -25,7 +25,7 @@ def wait_rgb_similar(self, area, rgb, retry=999, threshold=100, rate=0.1, cl=Non
     return compare
 
 
-def check_rgb(self, area, target_rgb, threshold=100, ss_data=None, no_logger=False):
+def check_rgb(self, area, target_rgb=(250, 231, 69), threshold=100, ss_data=None, no_logger=False):
     """
     判断颜色是否相近，用来判断按钮是否可以点击
     """

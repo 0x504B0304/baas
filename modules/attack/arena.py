@@ -34,7 +34,8 @@ def start(self):
     to_arena(self)
 
     # 开始战斗
-    start_fight(self)
+    get_prize(self)
+    # start_fight(self)
 
     # 回到首页
     home.go_home(self)
@@ -42,15 +43,13 @@ def start(self):
 
 def get_prize(self):
     self.logger.warning("开始领取每日奖励")
-    if color.check_rgb_similar(self, (320, 400, 321, 401)):
-        # 领取时间奖励
+    # 领取时间奖励
+    if color.check_rgb(self, (320, 400)):
         self.click(353, 385)
-        # 关闭奖励
         stage.close_prize_info(self)
-    if color.check_rgb_similar(self, (330, 480, 331, 481)):
-        # 领取挑战奖励
+    # 领取挑战奖励
+    if color.check_rgb(self, (330, 480)):
         self.click(348, 465)
-        # 关闭奖励
         stage.close_prize_info(self)
 
 

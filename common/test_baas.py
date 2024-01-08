@@ -7,12 +7,10 @@ import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
 
-from common import image
-from common import stage, config, log, color
+from common import stage, config, log, color, image
+from modules.attack import arena, normal_task
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
-from modules.scan import normal_task
-from modules.task import challenge_hard_task
 
 
 class TestBaas(unittest.TestCase):
@@ -223,6 +221,7 @@ class TestBaas(unittest.TestCase):
             # 'arena_attack',
             # 'arena_menu',
             # 'arena_edit-force',
+            'arena_ap-limited',
 
             # 'fight_edit-attack-force',
             # 'fight_start-task',
@@ -236,7 +235,7 @@ class TestBaas(unittest.TestCase):
             # 'fight_auto-over',
             # 'fight_fighting-task-info',
             # 'fight_confirm',
-            'fight_prize-confirm2',
+            # 'fight_prize-confirm2',
             # 'fight_force-attack',
             # 'fight_fail',
 
@@ -394,14 +393,14 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'challenge_hard_task'
-        self.to_server_all(challenge_hard_task.start, (self,))
+        self.ttt = 'arena'
+        self.to_server_all(arena.start, (self,))
 
     def to_server_all(self, fu, argv):
-        servers = ['cn']
-        # servers = ['jp', 'intl']
+        # servers = ['cn']
+        servers = ['jp', 'intl']
         for server in servers:
-            self.con = server
+            self.con = '1_' + server
             self.load_config()
             if hasattr(self, 'ttt'):
                 self.tc = self.bc[self.ttt]
