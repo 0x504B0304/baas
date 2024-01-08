@@ -31,7 +31,8 @@ def confirm_scan(self, stage, ct, max_count, cl=None):
         'wanted_buy-ticket',  # 通缉悬赏没票了
         'normal_task_buy-hard-count',  # 困难次数不足
         'normal_task_buy-ap-window',  # 购买体力弹窗
-        'normal_task_task-info-notice'  # 确认扫荡通知
+        'normal_task_task-info-notice',  # 确认扫荡通知
+        'exchange_meeting_no-ticket',  # 学园交流会没票了
     )
     end = image.detect(self, ends)
     if end == 'wanted_buy-ticket':
@@ -40,7 +41,7 @@ def confirm_scan(self, stage, ct, max_count, cl=None):
     elif end == 'normal_task_buy-hard-count':
         home.click_house_under(self)
         return
-    elif end == 'normal_task_buy-ap-window':
+    elif end == 'normal_task_buy-ap-window' or end == 'exchange_meeting_no-ticket':
         return 'return'
     if end != 'normal_task_task-info-notice':
         return

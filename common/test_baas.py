@@ -8,7 +8,7 @@ import uiautomator2 as u2
 from cnocr import CnOcr
 
 from common import stage, config, log, color, image
-from modules.attack import arena, normal_task
+from modules.attack import arena, normal_task, exchange_meeting
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
 
@@ -205,6 +205,7 @@ class TestBaas(unittest.TestCase):
             # 'special_entrust_menu'
             # 'exchange_meeting_menu'
             # 'exchange_meeting_stage-list'
+            'exchange_meeting_no-ticket'
 
             # 'restart_news',
             # 'restart_menu',
@@ -221,7 +222,7 @@ class TestBaas(unittest.TestCase):
             # 'arena_attack',
             # 'arena_menu',
             # 'arena_edit-force',
-            'arena_ap-limited',
+            # 'arena_ap-limited',
 
             # 'fight_edit-attack-force',
             # 'fight_start-task',
@@ -393,8 +394,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'arena'
-        self.to_server_all(arena.start, (self,))
+        self.ttt = 'exchange_meeting'
+        self.to_server_all(exchange_meeting.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn']
