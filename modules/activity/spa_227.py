@@ -1,9 +1,10 @@
 import time
 
-from common import image, stage, color
+from common import image, color
+from common import stage
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
-from modules.scan import main_story
+from modules.story import main_story
 
 position = {
     9: (1130, 185), 10: (1130, 300), 11: (1130, 420), 12: (1130, 530)

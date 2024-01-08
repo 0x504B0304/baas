@@ -1,4 +1,4 @@
-from common import stage, color, image
+from common import stage, color
 from modules.baas import home
 
 

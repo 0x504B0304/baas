@@ -81,7 +81,7 @@ def menus_list():
             ]
         },
         {
-            'name': 'scan',
+            'name': 'attack',
             'text': '出击',
             'child': [
                 {'name': 'special_entrust', 'text': '特殊委托'},
@@ -112,6 +112,7 @@ def menus_list():
             'name': 'story',
             'text': '剧情',
             'child': [
+                {'name': 'momo_talk', 'text': 'MomoTalk'},
                 {'name': 'main_story', 'text': '主线剧情'},
             ]
         },
@@ -120,7 +121,6 @@ def menus_list():
             'text': '收获',
             'child': [
                 {'name': 'mailbox', 'text': '领取邮箱'},
-                {'name': 'momo_talk', 'text': 'MomoTalk'},
                 {'name': 'work_task', 'text': '工作任务'},
             ]
         },

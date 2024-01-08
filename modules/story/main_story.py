@@ -3,9 +3,9 @@ import time
 import cv2
 import numpy as np
 
-from common import color, stage, image
+from common import stage, image
 from modules.baas import home
-from modules.reward import momo_talk
+from modules.story import momo_talk
 
 story_position = {
     1: (350, 345), 2: (950, 345)

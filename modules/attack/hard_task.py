@@ -1,4 +1,4 @@
-from modules.scan import normal_task
+from modules.attack import normal_task
 
 hard_position = {
     1: (1120, 250), 2: (1120, 370), 3: (1120, 480),

@@ -1,4 +1,3 @@
-from common import image
 from modules.baas import home
 
 

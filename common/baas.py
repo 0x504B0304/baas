@@ -10,42 +10,51 @@ from cnocr import CnOcr
 from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt
-from modules.activity import tutor_dept, summer_vacation, spa_227
-from modules.attack import exchange_meeting
+from modules.activity import summer_vacation, spa_227
+from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
-from modules.daily import group, shop, cafe, schedule, special_entrust, wanted, arena, make, buy_ap
+from modules.daily import group, cafe, schedule, make
 from modules.exp.hard_task import exp_hard_task
 from modules.exp.normal_task import exp_normal_task
-from modules.reward import momo_talk, work_task, mailbox
-from modules.scan import normal_task, hard_task, main_story
+from modules.reward import work_task, mailbox
+from modules.shop import shop, buy_ap
+from modules.story import momo_talk, main_story
 from modules.task import challenge_hard_task
 
 func_dict = {
-    'group': group.start,
-    'momo_talk': momo_talk.start,
-    'shop': shop.start,
-    'cafe': cafe.start,
-    'schedule': schedule.start,
+    # 活动
+    'spa_227': spa_227.start,
+    'summer_vacation': summer_vacation.start,
+    # 出击
+    'arena': arena.start,
+    'exchange_meeting': exchange_meeting.start,
+    'hard_task': hard_task.start,
+    'normal_task': normal_task.start,
     'special_entrust': special_entrust.start,
     'wanted': wanted.start,
-    'arena': arena.start,
-    'make': make.start,
-    'work_task': work_task.start,
-    'normal_task': normal_task.start,
-    'exp_normal_task': exp_normal_task.start,
-    'exp_hard_task': exp_hard_task.start,
-    'challenge_hard_task': challenge_hard_task.start,
-    'hard_task': hard_task.start,
-    'mailbox': mailbox.start,
-    'restart': restart.start,
+    # baas
     'env_check': env_check.start,
-    'tutor_dept': tutor_dept.start,
-    'buy_ap': buy_ap.start,
-    'main_story': main_story.start,
     'fhx': fhx.start,
-    'summer_vacation': summer_vacation.start,
-    'exchange_meeting': exchange_meeting.start,
-    'spa_227': spa_227.start,
+    'restart': restart.start,
+    # 每日
+    'cafe': cafe.start,
+    'group': group.start,
+    'make': make.start,
+    'schedule': schedule.start,
+    # 开图
+    'exp_hard_task': exp_hard_task.start,
+    'exp_normal_task': exp_normal_task.start,
+    # 收获
+    'mailbox': mailbox.start,
+    'work_task': work_task.start,
+    # 商店
+    'buy_ap': buy_ap.start,
+    'shop': shop.start,
+    # 剧情
+    'main_story': main_story.start,
+    'momo_talk': momo_talk.start,
+    # 任务
+    'challenge_hard_task': challenge_hard_task.start,
 }
 
 

@@ -5,7 +5,7 @@ from collections import defaultdict
 import cv2
 import numpy as np
 
-from common import stage, ocr, image, position, color
+from common import stage, ocr, image
 from modules.baas import home
 
 preset_position = {

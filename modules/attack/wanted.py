@@ -1,6 +1,5 @@
-from common import image
 from modules.baas import home
-from modules.daily import special_entrust
+from modules.attack import special_entrust
 
 x = {
 }

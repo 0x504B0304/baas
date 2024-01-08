@@ -1,8 +1,9 @@
 import time
 
-from common import ocr, color, stage, image
+from common import ocr, color, image
+from common import stage
+from modules.attack import hard_task
 from modules.baas import home
-from modules.scan import hard_task
 
 normal_position = {
     1: (1120, 240), 2: (1120, 340), 3: (1120, 440), 4: (1120, 540), 5: (1120, 616), 6: (1120, 569)

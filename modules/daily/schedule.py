@@ -1,6 +1,6 @@
 import time
 
-from common import ocr, color, image, stage
+from common import color, image, stage
 from modules.baas import home
 
 schedule_position = {

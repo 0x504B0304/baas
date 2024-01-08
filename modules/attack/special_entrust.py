@@ -1,6 +1,4 @@
-import time
-
-from common import ocr, stage, image
+from common import stage, image
 from modules.baas import home
 
 entrust_position = {

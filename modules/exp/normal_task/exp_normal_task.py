@@ -5,8 +5,9 @@ import cv2
 import numpy as np
 
 from common import ocr, color, image, stage
+from modules.attack import normal_task
 from modules.baas import home
-from modules.scan import main_story, normal_task
+from modules.story import main_story
 
 # 普通关卡坐标
 normal_position = {

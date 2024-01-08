@@ -1,9 +1,10 @@
 import time
 
 from common import image
+from modules.attack import normal_task, hard_task
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
-from modules.scan import normal_task, main_story, hard_task
+from modules.story import main_story
 
 
 def start(self):

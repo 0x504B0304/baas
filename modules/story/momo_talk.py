@@ -1,6 +1,6 @@
 import time
 
-from common import stage, ocr, image, color
+from common import stage, image, color
 from modules.baas import home
 
 

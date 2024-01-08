@@ -1,5 +1,3 @@
-import time
-
 from common import image, stage
 from modules.baas import home
 
