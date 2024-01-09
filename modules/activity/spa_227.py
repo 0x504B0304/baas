@@ -108,11 +108,11 @@ def to_activity_page(self):
     @param self:
     """
     pos = {
-        'home_student': (1192, 204),  # 首页活动入口
         'momo_talk_menu': (1205, 42),  # 桃信菜单
         'momo_talk_skip': (1212, 116),  # 桃信跳过
         'momo_talk_confirm-skip': (770, 516),  # 桃信确认跳过
         'normal_task_task-info': (1084, 142),  # 任务信息
+        'spa_227_entrance': (1192, 204),  # 首页活动入口
         'spa_227_guide': (1184, 156),  # 活动玩法指引
     }
     image.detect(self, 'spa_227_menu', pos, ss_rate=2)

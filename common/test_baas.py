@@ -11,6 +11,17 @@ from common import stage, config, log, color, image
 from modules.attack import arena, normal_task, exchange_meeting
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
+from common import stage, process, config, log, encrypt
+from modules.activity import summer_vacation, spa_227
+from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
+from modules.baas import restart, fhx, env_check
+from modules.daily import group, cafe, schedule, make
+from modules.exp.hard_task import exp_hard_task
+from modules.exp.normal_task import exp_normal_task
+from modules.reward import work_task, mailbox
+from modules.shop import shop, buy_ap
+from modules.story import momo_talk, main_story
+from modules.task import challenge_hard_task
 
 
 class TestBaas(unittest.TestCase):
@@ -205,7 +216,7 @@ class TestBaas(unittest.TestCase):
             # 'special_entrust_menu'
             # 'exchange_meeting_menu'
             # 'exchange_meeting_stage-list'
-            'exchange_meeting_no-ticket'
+            # 'exchange_meeting_no-ticket'
 
             # 'restart_news',
             # 'restart_menu',
@@ -373,6 +384,7 @@ class TestBaas(unittest.TestCase):
             # 'main_story_get-prize',
             # 'cm_confirm'
 
+            'spa_227_entrance',
             # 'spa_227_menu',
             # 'spa_227_unlock',
             # 'spa_227_guide',
@@ -394,12 +406,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'exchange_meeting'
-        self.to_server_all(exchange_meeting.start, (self,))
+        self.ttt = 'spa_227'
+        self.to_server_all(spa_227.start, (self,))
 
     def to_server_all(self, fu, argv):
-        # servers = ['cn']
-        servers = ['jp', 'intl']
+        servers = ['cn']
+        # servers = ['jp', 'intl']
         for server in servers:
             self.con = '1_' + server
             self.load_config()
