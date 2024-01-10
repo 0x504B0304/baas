@@ -34,8 +34,9 @@ def start(self):
     to_arena(self)
 
     # 开始战斗
+    start_fight(self)
+    # 领取奖励
     get_prize(self)
-    # start_fight(self)
 
     # 回到首页
     home.go_home(self)
