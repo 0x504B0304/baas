@@ -32,7 +32,7 @@ def to_task_menu(self):
         'fight_task-finish-confirm': (1033, 666),
         'fight_prize-confirm': (776, 655),
     }
-    image.detect(self, 'normal_task_choose-region', possible, ss_rate=2)
+    image.detect(self, 'normal_task_choose-region', possible, rate=2)
     stage.wait_loading(self)
 
 
@@ -409,7 +409,7 @@ def select_force_fight(self, index):
 
 def wait_over(self):
     # 打开任务信息
-    image.detect(self, 'fight_fighting-task-info', cl=(996, 666), ss_rate=1)
+    image.detect(self, 'fight_fighting-task-info', cl=(996, 666), rate=1)
 
 
 def start_mission(self):

@@ -1,5 +1,3 @@
-import time
-
 from common import ocr, color, image
 from common import stage
 from modules.attack import hard_task
@@ -40,16 +38,12 @@ def start(self):
 
 
 def change_task(self):
-    # 困难任务
     if 'hard_task' in self.tc['task']:
-        while not color.check_rgb(self, (1000, 150), (198, 66, 66)):
-            self.click(1062, 154)
-            time.sleep(self.bc['baas']['base']['ss_rate'])
-        return
-    # 普通任务
-    while not color.check_rgb(self, (700, 150), (44, 65, 86)):
-        self.click(803, 156)
-        time.sleep(self.bc['baas']['base']['ss_rate'])
+        # 困难任务
+        color.wait_rgb_similar(self, (1000, 150), (198, 66, 66), cl=(1062, 154))
+    else:
+        # 普通任务
+        color.wait_rgb_similar(self, (700, 150), (44, 65, 86), cl=(803, 156))
 
 
 def start_scan(self):

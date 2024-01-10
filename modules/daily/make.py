@@ -33,7 +33,7 @@ def to_immediately(self):
         'make_choose-node': (1120, 650),  # 选择节点
         'make_start-make2': (1120, 650),  # 开始制造
     }
-    image.detect(self, 'make_immediately', pos, ss_rate=1)
+    image.detect(self, 'make_immediately', pos, rate=1)
 
 
 def to_receive(self):

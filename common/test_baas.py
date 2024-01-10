@@ -407,8 +407,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'make'
-        self.to_server_all(make.start, (self,))
+        self.ttt = 'hard_task'
+        self.to_server_all(hard_task.start, (self,))
 
     def to_server_all(self, fu, argv):
         servers = ['cn']

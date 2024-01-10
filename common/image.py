@@ -118,7 +118,7 @@ def compare_image_data(self, ss_img, res_img, threshold=0.7, name='', n=False):
     return compare
 
 
-def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=999, ss_rate=None):
+def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, retry=999, rate=None):
     """
     图片探索 执行对应事件
     @param self:
@@ -129,11 +129,11 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
     @param pre_func: 前置函数
     @param pre_argv: 前置函数参数
     """
-    if ss_rate is None:
-        ss_rate = self.bc['baas']['base']['ss_rate']
+    if rate is None:
+        rate = self.bc['baas']['base']['ss_rate']
     if cl is not None:
         self.click(cl[0], cl[1])
-        time.sleep(ss_rate)
+        time.sleep(rate)
     i = 1
     while True:
         if i >= retry:
@@ -151,7 +151,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
             elif res[0] == 'end':
                 return res[1]
             elif res[0] == 'click':
-                time.sleep(ss_rate)
+                time.sleep(rate)
                 continue
 
         # region 结束图片可能会出现的位置
@@ -176,7 +176,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
                     if type(obj[0]) is int:
                         # 坐标版本
                         self.click(obj[0], obj[1], False)
-                        time.sleep(ss_rate)
+                        time.sleep(rate)
                     else:
                         # 函数版本 如果对应函数范围直接为True,退出整个逻辑
                         if obj[0](*obj[1]):
@@ -185,7 +185,7 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         # endregion
         if cl is not None:
             self.click(cl[0], cl[1])
-        time.sleep(ss_rate)
+        time.sleep(rate)
 
 
 loaded_images = {}

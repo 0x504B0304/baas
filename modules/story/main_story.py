@@ -66,7 +66,7 @@ def start_admission(self):
         # 锁住了点第二个任务
         cl = (1114, 339)
     # 等待剧情信息加载
-    image.detect(self, 'main_story_plot-info', cl=cl, ss_rate=2)
+    image.detect(self, 'main_story_plot-info', cl=cl, rate=2)
 
     is_fight = image.compare_image(self, 'main_story_plot-fight', 0, 0.6)
 

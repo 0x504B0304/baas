@@ -115,7 +115,7 @@ def to_activity_page(self):
         'spa_227_entrance': (1192, 204),  # 首页活动入口
         'spa_227_guide': (1184, 156),  # 活动玩法指引
     }
-    image.detect(self, 'spa_227_menu', pos, ss_rate=2)
+    image.detect(self, 'spa_227_menu', pos, rate=2)
 
 
 def start_exp(self):

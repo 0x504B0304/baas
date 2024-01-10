@@ -10,7 +10,7 @@ def confirm_scan(self, stage, ct, max_count, cl=None):
         'wanted_task-info-window',
         'normal_task_task-info-window'
     )
-    image.detect(self, ends, cl=cl, ss_rate=1)
+    image.detect(self, ends, cl=cl, rate=1)
     is_max = type(ct) == str and ct == 'max'
     # 等关卡加载
     if is_max or int(ct) >= max_count:
