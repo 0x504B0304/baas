@@ -201,6 +201,7 @@ class TestBaas(unittest.TestCase):
             # 'make_view-all',
             # 'make_choose-node',
             # 'make_confirm-acc',
+            # 'make_first-stage-start',
 
             # 'home_store-error',
             # 'home_cafe-lock',
@@ -384,7 +385,7 @@ class TestBaas(unittest.TestCase):
             # 'main_story_get-prize',
             # 'cm_confirm'
 
-            'spa_227_entrance',
+            # 'spa_227_entrance',
             # 'spa_227_menu',
             # 'spa_227_unlock',
             # 'spa_227_guide',
@@ -406,8 +407,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'spa_227'
-        self.to_server_all(spa_227.start, (self,))
+        self.ttt = 'make'
+        self.to_server_all(make.start, (self,))
 
     def to_server_all(self, fu, argv):
         servers = ['cn']

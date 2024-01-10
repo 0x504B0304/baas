@@ -13,67 +13,80 @@ priority_position = {
 }
 
 
+def to_make(self):
+    """
+    到制造页面
+    @param self:
+    """
+    pos = {
+        'home_student': (701, 645),  # 首页->制造
+    }
+    home.to_menu(self, 'make_menu', pos)
+
+
+def to_immediately(self):
+    """
+    到加速页面
+    @param self:
+    """
+    pos = {
+        'make_choose-node': (1120, 650),  # 选择节点
+        'make_start-make2': (1120, 650),  # 开始制造
+    }
+    image.detect(self, 'make_immediately', pos, ss_rate=1)
+
+
+def to_receive(self):
+    """
+    使用加速券到领取页面
+    @param self:
+    """
+    pos = {
+        'make_immediately': (1128, 278),  # 立即完成(加速)
+        'make_confirm-acc': (771, 478)  # 确认完成(加速)
+    }
+    image.detect(self, 'make_receive', pos)
+
+
+def to_workshop(self):
+    pos = {
+        'make_first-stage-start': (1120, 650)
+    }
+    image.detect(self, 'make_workshop', pos)
+
+
 def start(self):
     if self.game_server != 'cn':
         return self.logger.critical('外服此功能待开发...')
     # 回到首页
     home.go_home(self)
     # 去制造页面
-    image.detect(self, 'make_menu', {'home_student': (701, 645)})
-    # 开始制造
-    init_make(self)
+    to_make(self)
+    # 清空已有制造
+    if empty_make(self):
+        # 开始制造
+        start_make(self)
     # 回到首页
     home.go_home(self)
 
 
-def init_make(self):
+def empty_make(self):
     """
-    初始化制造
+    清空制造
     @param self:
     @return:
     """
-    pos = {
-        'make_receive': (receive_prize, (self,)),  # 立即领取
-        'make_immediately': (make_immediately, (self,)),  # 立即加速
-    }
-    state = image.detect(self, 'make_start-make', pos)
-    if state == 'make_start-make':
-        start_make(self)
-
-
-def start_make(self):
-    for i in range(self.tc['config']['count']):
-        # 点击制造 -> 全部查看
-        image.detect(self, 'make_view-all', cl=(975, 264))
-        # 选择石头
-        if not choose_tone(self):
-            break
-        # 第一阶段启动 -> 等待制造页面加载
-        image.detect(self, (('make_workshop', 0.6),), cl=(1114, 653))
-
-        # 选择物品
-        choose_item(self)
-
-        # 点击选择节点 -> 开始制造
-        self.click(1121, 650, False)
-        image.detect(self, 'make_start-make2')
-
-        # 点击开始制造 -> 菜单
-        image.detect(self, 'make_menu', cl=(1116, 652))
-        # 立即加速
-        make_immediately(self)
-
-
-def use_acc(self):
-    """
-    使用加速券
-    @param self:
-    """
-    # 点击使用加速 -> 弹出立即完成
-    self.click(1128, 278, False)
-    image.detect(self, 'make_confirm-acc')
-    # 点击确认
-    self.click(771, 478, False)
+    ends = (
+        'make_receive',
+        'make_immediately',
+        'make_start-make'
+    )
+    end = image.detect(self, ends, None)
+    if end == 'make_receive':
+        receive_prize(self)
+    elif end == 'make_immediately':
+        return make_immediately(self)
+    return True
 
 
 def receive_prize(self):
@@ -82,7 +95,7 @@ def receive_prize(self):
     @param self:
     """
     # 点击领取
-    self.click(1122, 275)
+    image.compare_image(self, 'make_receive', cl=(1122, 275), rate=1, n=True)
     # 关闭奖励
     stage.close_prize_info(self)
 
@@ -93,11 +106,29 @@ def make_immediately(self):
     @param self:
     @return:
     """
-    if 'use_acc_ticket' in self.tc['config'] and not self.tc['config']['use_acc_ticket']:
-        self.logger.error("当前配置为不使用加速券...")
-        return True
-    use_acc(self)
+    if not self.tc['config']['use_acc_ticket']:
+        self.logger.error("当前配置为：不使用加速券...")
+        return False
+    to_receive(self)
     receive_prize(self)
+
+
+def start_make(self):
+    for i in range(self.tc['config']['count']):
+        # 点击制造 -> 全部查看
+        image.detect(self, 'make_view-all', cl=(975, 264))
+        # 选择石头
+        if not choose_tone(self):
+            break
+        # 第一阶段启动 -> 等待制造页面加载
+        to_workshop(self)
+
+        # 选择物品
+        choose_item(self)
+        # 到达加速页面
+        to_immediately(self)
+        # 立即加速
+        make_immediately(self)
 
 
 def choose_item(self):
@@ -153,9 +184,9 @@ def choose_tone(self):
     self.click(908, 199, False)
     time.sleep(1)
     # 检查是否满足
-    if color.check_rgb_similar(self, (995, 631, 996, 632), (61, 219, 250)):
+    if color.check_rgb(self, (995, 631)):
         return True
     # 点击拱心石碎片
     self.click(769, 200, False, 10)
     time.sleep(1)
-    return color.check_rgb_similar(self, (995, 631, 996, 632), (61, 219, 250))
+    return color.check_rgb(self, (995, 631))
