@@ -3,8 +3,6 @@ import time
 
 import numpy as np
 
-from common import image
-
 
 def color_distance(rgb1, rgb2):
     r1, g1, b1 = rgb1
@@ -43,18 +41,4 @@ def check_rgb(self, area, target_rgb=(250, 231, 69), threshold=100, ss_data=None
         self.logger.info("check_rgb area:%s target_rgb:%s get_rgb:%s color_dist:%.2F result:%s", area, target_rgb,
                          get_rgb,
                          dist, result)
-    return result
-
-
-def check_rgb_similar(self, area=(1090, 683, 1091, 684), rgb2=(75, 238, 249), threshold=20):
-    """
-    判断颜色是否相近，用来判断按钮是否可以点击
-    """
-    self.latest_img_array = self.get_screenshot_array()
-    img = image.screenshot_cut(self, area, need_loading=False, ss=self.latest_img_array)
-    rgb1 = img[0][0][0], img[0][0][1], img[0][0][2]
-    dist = color_distance(rgb1=rgb1, rgb2=rgb2)
-    result = dist <= threshold
-    self.logger.info("check_rgb_similar area:%s target_rgb:%s get_rgb:%s color_dist: %s result:%s", area, rgb2, rgb1,
-                     dist, result)
     return result

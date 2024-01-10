@@ -10,7 +10,7 @@ def start(self):
     }
     home.to_menu(self, 'mailbox_menu', pos)
 
-    if color.check_rgb_similar(self):
+    if color.check_rgb(self, (1090, 683)):
         self.logger.warning("开始领取奖励")
         # 点击一键领取
         self.click(1136, 669)

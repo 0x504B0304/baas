@@ -302,7 +302,7 @@ class TestBaas(unittest.TestCase):
             # 'shop_buy1',
 
             # 'schedule_menu',
-            # 'schedule_surplus',
+            'schedule_surplus',
             # 'schedule_course-info',
             # 'schedule_limited',
             # 'schedule_course-pop',
@@ -400,15 +400,17 @@ class TestBaas(unittest.TestCase):
         stage.wait_loading(self)
         for i in range(2):
             for asset in assets:
-                assert image.compare_image(self, asset, 0)
+                while 1:
+                    assert image.compare_image(self, asset, 0)
+                    time.sleep(1)
         assert True
 
     def test_all_ss(self):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'hard_task'
-        self.to_server_all(hard_task.start, (self,))
+        self.ttt = 'schedule'
+        self.to_server_all(schedule.start, (self,))
 
     def to_server_all(self, fu, argv):
         servers = ['cn']

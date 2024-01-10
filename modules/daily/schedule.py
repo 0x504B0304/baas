@@ -39,7 +39,7 @@ def start(self):
     to_schedule(self)
 
     # 检查余票
-    if image.compare_image(self, 'schedule_surplus', 0, 0.9):
+    if image.compare_image(self, 'schedule_surplus', 0, 0.9) or image.compare_image(self, 'schedule_surplus2', 0, 0.9):
         self.logger.warning("当前持有日程券为0")
         return home.go_home(self)
     # 选择课程
@@ -91,8 +91,7 @@ def learn_course(self, schedule, courses):
     self.logger.warning("开始检查课程...")
     for c in courses:
         # 检查课程是否可用
-        area = (curse_position[c][0], curse_position[c][1], curse_position[c][0] + 1, curse_position[c][1] + 1)
-        if not color.check_rgb_similar(self, area, (255, 255, 255)):
+        if not color.check_rgb(self, curse_position[c], (255, 255, 255), 20):
             self.logger.error("课程状态不可用")
             continue
         # 点击课程
