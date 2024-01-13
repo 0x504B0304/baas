@@ -123,6 +123,7 @@ def begin_relationship(self):
 
 def skip_plot(self):
     pos = {
+        'main_story_join-chapter': (640, 515),  # 进入章节
         'fight_pass-confirm': (1170, 666),  # 剧情通关
         'momo_talk_begin-relationship': (920, 568),
         'momo_talk_menu': (1205, 42),

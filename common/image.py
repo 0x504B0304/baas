@@ -86,7 +86,7 @@ def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, m
     height1, width1 = ss_img.shape[:2]
     height2, width2 = res_img.shape[:2]
     if width1 != width2 or height1 != height2:
-        self.exit(f"Image dimensions do not match (get {width1}x{height1} => target{width2}x{height2}) name:{name}")
+        self.exit(f"Image dimensions do not match (get {width1}x{height1} => target {width2}x{height2}) name:{name}")
     # 对比图片
     compare = compare_image_data(self, ss_img, res_img, threshold, name, n)
     if not compare and retry > 0:

@@ -2963,24 +2963,10 @@
         "config" : {
             "name" : "剧情设置"
         },
-        "config.story" : {
-            "desc" : "第几章剧情",
-            "items" : [
-                {
-                    "name" : "第1章",
-                    "value" : 1
-                },
-                {
-                    "name" : "第2章",
-                    "value" : 2
-                },
-                {
-                    "name" : "第3章",
-                    "value" : 3
-                }
-            ],
-            "name" : "剧情",
-            "type" : "sel"
+        "config.stage" : {
+            "desc" : "一行一个配置。格式是: 篇章-章节</br><span style='color:red'>暂不支持最终章</span></br>例如:第1篇第1章,第3篇第2章填写如下 <br/>1-1</br>3-2</br>",
+            "name" : "剧情关卡",
+            "type" : "arr"
         }
     },
     "spa_227" : {

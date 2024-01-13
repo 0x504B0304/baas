@@ -75,7 +75,7 @@ def close_prize_info(self, ap_check=False, mail_check=False, retry=999):
     text_box['jp'] = text_box['intl']
     tb = text_box[self.game_server]
     # 体力上限
-    if self.game_server != 'cn' and image.compare_image(self, 'arena_ap-limited'):
+    if self.game_server != 'cn' and image.compare_image(self, 'arena_ap-limited', 0):
         home.click_house_under(self)
         self.finish_seconds = 180
         return
@@ -85,7 +85,7 @@ def close_prize_info(self, ap_check=False, mail_check=False, retry=999):
         time.sleep(0.5)
         return
     # 因超出持有上限
-    if ap_check and ocr.screenshot_check_text(self, tb[1], (532, 282, 724, 314), 1):
+    if ap_check and self.game_server == 'cn' and ocr.screenshot_check_text(self, tb[1], (532, 282, 724, 314), 1):
         self.click(650, 501)
         return
     # 以上道具的库存已满

@@ -1,4 +1,5 @@
 import json
+import sys
 import time
 import unittest
 
@@ -7,21 +8,12 @@ import numpy as np
 import uiautomator2 as u2
 from cnocr import CnOcr
 
-from common import stage, config, log, color, image
-from modules.attack import arena, normal_task, exchange_meeting
+from common import color, image, encrypt
+from common import stage, config, log
+from modules.attack import normal_task
 from modules.baas import home
 from modules.exp.normal_task import exp_normal_task
-from common import stage, process, config, log, encrypt
-from modules.activity import summer_vacation, spa_227
-from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
-from modules.baas import restart, fhx, env_check
-from modules.daily import group, cafe, schedule, make
-from modules.exp.hard_task import exp_hard_task
-from modules.exp.normal_task import exp_normal_task
-from modules.reward import work_task, mailbox
-from modules.shop import shop, buy_ap
-from modules.story import momo_talk, main_story
-from modules.task import challenge_hard_task
+from modules.story import main_story
 
 
 class TestBaas(unittest.TestCase):
@@ -40,7 +32,7 @@ class TestBaas(unittest.TestCase):
         self.flag_run = True
         self.click_time = 0.0
         self.latest_img_array = None
-        self.con = 'single'
+        self.con = '1_cn'
         self.test = True
         self.load_config()
 
@@ -249,7 +241,7 @@ class TestBaas(unittest.TestCase):
             # 'fight_fighting-task-info',
             # 'fight_confirm',
             # 'fight_prize-confirm2',
-            # 'fight_force-attack',
+            'fight_force-attack',
             # 'fight_fail',
 
             #
@@ -302,7 +294,7 @@ class TestBaas(unittest.TestCase):
             # 'shop_buy1',
 
             # 'schedule_menu',
-            'schedule_surplus',
+            # 'schedule_surplus',
             # 'schedule_course-info',
             # 'schedule_limited',
             # 'schedule_course-pop',
@@ -368,6 +360,7 @@ class TestBaas(unittest.TestCase):
             # 'buy_ap_buy1',
 
             # 'main_story_menu',
+            # 'main_story_go-main-story',
             # 'main_story_story',
             # 'main_story_choose-plot',
             # 'main_story_clearance',
@@ -376,6 +369,7 @@ class TestBaas(unittest.TestCase):
             # 'main_story_skip-menu',
             # 'main_story_first-lock',
             # 'main_story_plot-fight',
+            # 'main_story_join-chapter',
             # 'main_story_plot-attack',
             # 'main_story_fight-parse',
             # 'main_story_fight-confirm',
@@ -400,21 +394,19 @@ class TestBaas(unittest.TestCase):
         stage.wait_loading(self)
         for i in range(2):
             for asset in assets:
-                while 1:
-                    assert image.compare_image(self, asset, 0)
-                    time.sleep(1)
+                assert image.compare_image(self, asset, 0)
         assert True
 
     def test_all_ss(self):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'schedule'
-        self.to_server_all(schedule.start, (self,))
+        self.ttt = 'main_story'
+        self.to_server_all(main_story.start, (self,))
 
     def to_server_all(self, fu, argv):
+        # servers = ['cn', 'jp', 'intl']
         servers = ['cn']
-        # servers = ['jp', 'intl']
         for server in servers:
             self.con = '1_' + server
             self.load_config()
@@ -443,3 +435,13 @@ class TestBaas(unittest.TestCase):
             stage.wait_loading(self)
             time.sleep(1)
             print("\t\t\t\ntest_loading...\n")
+
+    def exit(self, msg):
+        """
+        退出程序
+        @param msg: 失败消息
+        """
+        self.logger.critical(msg)
+        if hasattr(self, 'processes_task') and encrypt.md5(self.con) in self.processes_task:
+            del self.processes_task[encrypt.md5(self.con)]
+        sys.exit(1)
