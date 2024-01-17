@@ -27,11 +27,12 @@ def to_cafe(self):
     home.to_menu(self, 'cafe_menu', pos, cl=(923, 186))
 
 
-def start(self):
-    # 回到首页
-    home.go_home(self)
-    # 进入咖啡厅
-    to_cafe(self)
+def start(self, seconds=False):
+    if not seconds:
+        # 回到首页
+        home.go_home(self)
+        # 进入咖啡厅
+        to_cafe(self)
     # 领取收益
     get_cafe_money(self)
     # 邀请妹子
@@ -43,6 +44,13 @@ def start(self):
         empty_furniture_click_girl(self)
     else:
         drag_gift_click_girl(self)
+    # 日服二号厅
+    if self.game_server == 'jp' and not seconds:
+        self.click(123, 100)
+        time.sleep(2)
+        self.click(255, 160)
+        stage.wait_loading(self)
+        start(self, True)
     # 回到首页
     home.go_home(self)
 

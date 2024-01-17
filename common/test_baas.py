@@ -12,6 +12,7 @@ from common import color, image, encrypt
 from common import stage, config, log
 from modules.attack import normal_task
 from modules.baas import home
+from modules.daily import cafe
 from modules.exp.normal_task import exp_normal_task
 from modules.story import main_story
 
@@ -401,12 +402,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'main_story'
-        self.to_server_all(main_story.start, (self,))
+        self.ttt = 'cafe'
+        self.to_server_all(cafe.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['cn']
+        servers = ['jp']
         for server in servers:
             self.con = '1_' + server
             self.load_config()
