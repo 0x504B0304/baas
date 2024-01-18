@@ -416,8 +416,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'arena'
-        self.to_server_all(arena.start, (self,))
+        self.ttt = 'buy_ap'
+        self.to_server_all(buy_ap.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']

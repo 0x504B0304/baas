@@ -26,6 +26,7 @@ def confirm_scan(self, stage, ct, max_count, cl=None):
         # 扫荡指定次数
         self.click(1034, 299, False, int(ct) - 1, 0.6)
     # 点击开始扫荡
+    time.sleep(1)
     self.click(938, 403, False)
     ends = (
         'wanted_buy-ticket',  # 通缉悬赏没票了

@@ -55,7 +55,7 @@ def start_scan(self):
             open_task_info_window(self, hard_task.hard_position[tk['stage']])
         else:
             # 不是国服需要重置关卡顺序
-            stage.screen_swipe(self, tk['stage'], 7, reset=self.game_server != 'cn')
+            stage.screen_swipe(self, tk['stage'], 7)
             # 点击入场
             open_task_info_window(self, normal_position[tk['stage']])
         # 确认扫荡
