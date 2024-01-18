@@ -384,15 +384,15 @@
             "mode" : 2
         }
     },
-    "spa_227" : {
+    "new_year" : {
         "base" : {
-            "enable" : false,
+            "enable" : true,
             "index" : 300,
             "next" : "2023-11-17 00:00:00",
-            "end" : "2024-01-18 08:00:00",
+            "end" : "2024-02-01 14:00:00",
             "interval" : 3600,
             "link_task" : "",
-            "text" : "活动-227号温泉乡"
+            "text" : "活动-新春狂想曲"
         },
         "exp" : {
             "enable" : true

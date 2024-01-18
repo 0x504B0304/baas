@@ -18,7 +18,7 @@ from modules.reward import work_task
 from modules.shop import shop
 from modules.story import main_story, momo_talk
 from common import stage, process, config, log, encrypt
-from modules.activity import summer_vacation, spa_227
+from modules.activity import summer_vacation, spa_227, new_year
 from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, cafe, schedule, make
@@ -398,8 +398,13 @@ class TestBaas(unittest.TestCase):
             # 'spa_227_menu',
             # 'spa_227_unlock',
             # 'spa_227_guide',
+
+            'new_year_entrance',
+            # 'new_year_menu',
+            # 'new_year_guide',
         ]
         stage.wait_loading(self)
+        print("开始截图...")
         for asset in assets:
             base, file = asset.rsplit('_', 1)
             d = "{0}/{1}/{2}/".format(self.file_path, self.game_server, base)
@@ -416,8 +421,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'buy_ap'
-        self.to_server_all(buy_ap.start, (self,))
+        self.ttt = 'new_year'
+        self.to_server_all(new_year.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']

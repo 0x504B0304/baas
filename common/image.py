@@ -82,6 +82,8 @@ def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, m
     if self.bc['baas']['base']['debug']:
         save_img_to_disk(ss_img, name)
     res_img = get_img_data(self, name)
+    if type(res_img) == bool:
+        return False
     # 检查图片宽度是否一样
     height1, width1 = ss_img.shape[:2]
     height2, width2 = res_img.shape[:2]
@@ -91,7 +93,8 @@ def compare_image(self, name, retry=999, threshold=0.7, nl=False, mis_fu=None, m
     compare = compare_image_data(self, ss_img, res_img, threshold, name, n)
     if not compare and retry > 0:
         if 100 < retry < 989 and retry % 10 == 0:
-            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
+            self.logger.warning(
+                '卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
         if mis_fu is not None:
             mis_fu(*mis_argv)
         if cl is not None:
@@ -141,7 +144,8 @@ def detect(self, end, possibles=None, cl=None, pre_func=None, pre_argv=None, ret
         self.logger.info("开始第 {0} 次图片检索 end:{1}".format(i, end))
         i += 1
         if i > 10 and i % 10 == 0:
-            self.logger.warning('卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
+            self.logger.warning(
+                '卡识别了? 游戏图像分辨率:最高; 渲染模式:兼容; 后期处理:开; 抗锯齿:开; 国际服:繁中语言; MuMu:关闭后台保活')
         stage.wait_loading(self)
         self.latest_img_array = self.get_screenshot_array()  # 每次公用一张截图
         if pre_func is not None:
@@ -213,7 +217,7 @@ def get_img_data(self, key):
     file_path = os.path.join(assets_dir, module_name, f'{file_name}.png')
     # 检查文件是否存在
     if not os.path.isfile(file_path):
-        raise FileNotFoundError(f"图片文件 {file_path} 不存在")
+        return False
     # 加载图片文件
     image_data = cv2.imdecode(np.fromfile(file_path, dtype=np.uint8), -1)
     loaded_images[ck] = image_data

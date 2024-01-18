@@ -10,7 +10,7 @@ from cnocr import CnOcr
 from uiautomator2 import Device
 
 from common import stage, process, config, log, encrypt
-from modules.activity import summer_vacation, spa_227
+from modules.activity import summer_vacation, spa_227, new_year
 from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, cafe, schedule, make
@@ -25,6 +25,7 @@ func_dict = {
     # 活动
     'spa_227': spa_227.start,
     'summer_vacation': summer_vacation.start,
+    'new_year': new_year.start,
     # 出击
     'arena': arena.start,
     'exchange_meeting': exchange_meeting.start,
