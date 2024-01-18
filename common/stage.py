@@ -108,10 +108,19 @@ def wait_loading(self):
         ((1093, 666), (61, 101, 157)),  # n
         ((1111, 666), (61, 101, 157)),  # g
     )
+    if self.game_server == 'cn':
+        color_list = (
+            ((967, 672), (243, 243, 243)),  # 正
+            ((998, 652), (243, 243, 243)),  # 在
+            ((1028, 670), (4, 71, 133)),  # 加->力
+            ((1043, 662), (4, 71, 133)),  # 加->口
+            ((1062, 671), (243, 243, 243)),  # 载
+            ((1102, 665), (243, 243, 243)),  # 中
+        )
     s = 0.1
     while True:
         ss = self.get_screenshot_array()
-        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 50, ss, True))
+        matches = sum(1 for c in color_list if color.check_rgb(self, c[0], c[1], 70, ss, True))
         # 至少符合5个 才判断为加载中
         if matches < 5:
             return

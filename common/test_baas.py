@@ -10,14 +10,24 @@ from cnocr import CnOcr
 
 from common import color, image, encrypt
 from common import stage, config, log
-from modules.attack import normal_task
+from modules.attack import normal_task, arena
 from modules.baas import home
 from modules.daily import cafe, schedule, group, make
 from modules.exp.normal_task import exp_normal_task
 from modules.reward import work_task
 from modules.shop import shop
 from modules.story import main_story, momo_talk
-
+from common import stage, process, config, log, encrypt
+from modules.activity import summer_vacation, spa_227
+from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
+from modules.baas import restart, fhx, env_check
+from modules.daily import group, cafe, schedule, make
+from modules.exp.hard_task import exp_hard_task
+from modules.exp.normal_task import exp_normal_task
+from modules.reward import work_task, mailbox
+from modules.shop import shop, buy_ap
+from modules.story import momo_talk, main_story
+from modules.task import challenge_hard_task
 
 class TestBaas(unittest.TestCase):
 
@@ -406,8 +416,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'work_task'
-        self.to_server_all(work_task.start, (self,))
+        self.ttt = 'arena'
+        self.to_server_all(arena.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']

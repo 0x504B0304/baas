@@ -2,9 +2,9 @@ from common import stage, image
 from modules.baas import home
 
 meet_position = {
-    'cnd': (1000, 200),
-    'ghn': (1000, 300),
-    'qxn': (1000, 400)
+    'cn': {'cnd': (1000, 270), 'ghn': (1000, 415), 'qxn': (1000, 560)},
+    'jp': {'cnd': (1000, 200), 'ghn': (1000, 300), 'qxn': (1000, 400)},
+    'intl': {'cnd': (1000, 200), 'ghn': (1000, 300), 'qxn': (1000, 400)},
 }
 lv_position = {
     1: (1116, 185), 2: (1116, 285), 3: (1116, 385), 4: (1116, 485),
@@ -22,8 +22,6 @@ def to_exchange_meeting(self):
 
 
 def start(self):
-    if self.game_server == 'cn':
-        return
     # 回到首页
     home.go_home(self)
     # 选择委托
@@ -41,8 +39,6 @@ def choose_meet(self):
         # 等待加载
         to_exchange_meeting(self)
         # 点击委托 等待加载 关卡列表
-        image.compare_image(self, 'wanted_stage-list', cl=meet_position[fn], rate=1)
+        image.compare_image(self, 'wanted_stage-list', cl=meet_position[self.game_server][fn], rate=1)
         # 点击关卡 确认扫荡
-        rst = stage.confirm_scan(self, tk['stage'], tk['count'], 99, cl=lv_position[tk['stage']])
-        if rst == 'return':
-            break
+        stage.confirm_scan(self, tk['stage'], tk['count'], 99, cl=lv_position[tk['stage']])
