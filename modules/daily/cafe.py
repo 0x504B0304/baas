@@ -22,7 +22,8 @@ def to_cafe(self):
     pos = {
         'home_student': (89, 653),  # 首页 -> 咖啡厅
         'cafe_students-arrived': (922, 189),  # 学生到访
-        'cafe_inc-fav': (641, 537, 50)  # 好感提升
+        'cafe_inc-fav': (641, 537, 50),  # 好感提升
+        'cafe_need-storage': (886, 170),  # 关闭收纳
     }
     home.to_menu(self, 'cafe_menu', pos, cl=(923, 186))
 
@@ -70,7 +71,9 @@ def match(self, img):
 def to_gift(self):
     pos = {
         'cafe_menu': (164, 640),
-        'cafe_inc-fav': (641, 537, 0.6)  # 好感提升
+        'cafe_inc-fav': (641, 537, 0.6),  # 好感提升
+        'cafe_need-storage': (886, 170),  # 关闭收纳
+
     }
     image.detect(self, 'cafe_give-gift', pos)
 

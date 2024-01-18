@@ -12,7 +12,7 @@ from common import color, image, encrypt
 from common import stage, config, log
 from modules.attack import normal_task
 from modules.baas import home
-from modules.daily import cafe
+from modules.daily import cafe, schedule, group, make
 from modules.exp.normal_task import exp_normal_task
 from modules.story import main_story
 
@@ -188,12 +188,13 @@ class TestBaas(unittest.TestCase):
             # 'make_menu',
             # 'make_receive',
             # 'make_start-make',
+            # 'make_confirm-start',
             # 'make_immediately',
             # 'make_workshop',
             # 'make_start',
-            # 'make_view-all',
+            # 'make_list',
             # 'make_choose-node',
-            # 'make_confirm-acc',
+            'make_confirm-acc',
             # 'make_first-stage-start',
 
             # 'home_store-error',
@@ -242,7 +243,7 @@ class TestBaas(unittest.TestCase):
             # 'fight_fighting-task-info',
             # 'fight_confirm',
             # 'fight_prize-confirm2',
-            'fight_force-attack',
+            # 'fight_force-attack',
             # 'fight_fail',
 
             #
@@ -257,6 +258,7 @@ class TestBaas(unittest.TestCase):
             # 'cafe_inv-fav-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
+            # 'cafe_need-storage',
 
             # 'tutor_dept_entry',
             # 'tutor_dept_title',
@@ -402,14 +404,14 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'cafe'
-        self.to_server_all(cafe.start, (self,))
+        self.ttt = 'make'
+        self.to_server_all(make.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['jp']
+        servers = ['cn']
         for server in servers:
-            self.con = '1_' + server
+            self.con = '01_ff'
             self.load_config()
             if hasattr(self, 'ttt'):
                 self.tc = self.bc[self.ttt]

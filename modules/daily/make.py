@@ -32,6 +32,7 @@ def to_immediately(self):
     pos = {
         'make_choose-node': (1120, 650),  # 选择节点
         'make_start-make2': (1120, 650),  # 开始制造
+        'make_confirm-start': (769, 500),  # 确认开始
     }
     image.detect(self, 'make_immediately', pos, rate=1)
 
@@ -116,7 +117,7 @@ def make_immediately(self):
 def start_make(self):
     for i in range(self.tc['config']['count']):
         # 点击制造 -> 全部查看
-        image.detect(self, 'make_view-all', cl=(975, 264))
+        image.detect(self, 'make_list', cl=(975, 264))
         # 选择石头
         if not choose_tone(self):
             break
@@ -181,12 +182,12 @@ def choose_tone(self):
     """
     # 点击拱心石
     time.sleep(1)
-    self.click(908, 199, False)
+    self.click(769, 200, False)
     time.sleep(1)
     # 检查是否满足
     if color.check_rgb(self, (995, 631)):
         return True
     # 点击拱心石碎片
-    self.click(769, 200, False, 10)
+    self.click(908, 199, False, 10)
     time.sleep(1)
     return color.check_rgb(self, (995, 631))
