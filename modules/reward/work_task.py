@@ -1,4 +1,4 @@
-from common import stage, color, image
+from common import stage, color
 from modules.baas import home
 
 x = {
@@ -7,11 +7,7 @@ x = {
     'reward': (369, 134, 605, 182),  # 领取奖励弹窗
 }
 
-check_btn = {
-    'cn': [{'x': (1075, 680), 'cl': (1140, 641)}],
-    'intl': [{'x': (1075, 680), 'cl': (1140, 641)}, {'x': (945, 680), 'cl': (968, 666)}],
-    'jp': [{'x': (1075, 680), 'cl': (1140, 641)}, {'x': (945, 680), 'cl': (968, 666)}],
-}
+check_btn = [{'x': (1075, 680), 'cl': (1140, 641)}, {'x': (945, 680), 'cl': (968, 666)}]
 
 
 def to_work_task(self):
@@ -26,11 +22,11 @@ def start(self):
     home.go_home(self)
     # 导工作任务页面
     to_work_task(self)
-    for btn in check_btn[self.game_server]:
+    for btn in check_btn:
         while True:
             if color.check_rgb(self, btn['x'], (250, 236, 74)):
                 # 领取奖励
-                image.compare_image(self, 'work_task_receive', cl=btn['cl'], n=True)
+                self.click(*btn['cl'], False)
                 # 关闭获得奖励
                 stage.close_prize_info(self, True)
                 # 点击空白处防止体力超出

@@ -14,7 +14,9 @@ from modules.attack import normal_task
 from modules.baas import home
 from modules.daily import cafe, schedule, group, make
 from modules.exp.normal_task import exp_normal_task
-from modules.story import main_story
+from modules.reward import work_task
+from modules.shop import shop
+from modules.story import main_story, momo_talk
 
 
 class TestBaas(unittest.TestCase):
@@ -194,7 +196,7 @@ class TestBaas(unittest.TestCase):
             # 'make_start',
             # 'make_list',
             # 'make_choose-node',
-            'make_confirm-acc',
+            # 'make_confirm-acc',
             # 'make_first-stage-start',
 
             # 'home_store-error',
@@ -404,8 +406,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'make'
-        self.to_server_all(make.start, (self,))
+        self.ttt = 'work_task'
+        self.to_server_all(work_task.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']

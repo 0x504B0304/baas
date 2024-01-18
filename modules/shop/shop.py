@@ -4,7 +4,7 @@ from common import stage, image, color
 from modules.baas import home
 
 shop_position = {
-    'cn': {'general': (150, 150), 'arena': (150, 380)},
+    'cn': {'general': (150, 150), 'arena': (150, 453)},
     'jp': {'general': (150, 150), 'arena': (150, 533)},
     'intl': {'general': (150, 150), 'arena': (150, 533)},
 }
@@ -95,10 +95,7 @@ def choose_goods(self, goods, shop):
         # 一阶段滑动
         if 9 <= g <= 16 and not swipe1:
             swipe1 = True
-            if self.game_server == 'cn' or shop == "arena":
-                stage.screen_swipe(self, reset=False, f=(933, 605, 933, 0, 0.1))
-            else:
-                stage.screen_swipe(self, reset=False, f=(933, 605, 933, 50, 0.6))
+            stage.screen_swipe(self, reset=False, f=(933, 605, 933, 50, 0.6))
         # 二阶段滑动
         elif g >= 17 and not swipe2:
             swipe2 = True
@@ -129,12 +126,7 @@ def calc_surplus_count(self):
     """
     计算剩余购买次数,这里必须用图片匹配才能精准,用文字识别小数字必出bug
     """
-    refresh_p = {
-        'cn': (945, 659),
-        'jp': (1168, 660),
-        'intl': (1168, 660),
-    }
-    self.click(*refresh_p[self.game_server], False)
+    self.click(1168, 660, False)
     # 等待确认购买加载
     if not image.compare_image(self, 'shop_refresh-confirm', 5):
         # 未能加载还剩0次
