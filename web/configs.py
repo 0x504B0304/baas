@@ -130,7 +130,8 @@ def menus_list():
             'child': [
                 # {'name': 'tutor_dept', 'text': '补习部签到'},
                 # {'name': 'summer_vacation', 'text': '日奈会长'},
-                {'name': 'spa_227', 'text': '227号温泉乡'},
+                # {'name': 'spa_227', 'text': '227号温泉乡'},
+                {'name': 'new_year', 'text': '新春狂想曲'},
             ]
         }
     ]

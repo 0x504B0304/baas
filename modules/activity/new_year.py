@@ -3,11 +3,10 @@ import time
 from common import image, color
 from common import stage
 from modules.baas import home
-from modules.exp.normal_task import exp_normal_task
 from modules.story import main_story
 
 position = {
-    9: (1130, 185), 10: (1130, 300), 11: (1130, 420), 12: (1130, 530)
+    9: (1130, 300), 10: (1130, 413), 11: (1130, 530), 12: (1130, 640)
 }
 
 
@@ -94,6 +93,7 @@ def do_exp(self, tab):
     to_tab(self, 'challenge')
     to_activity_page(self)
     to_tab(self, tab)
+    stage.screen_swipe(self, threshold2=0, reset=False, f=(926, 150, 926, 720, 0.1))
     state, stage_index = calc_need_fight_stage(self)
     if state is None:
         self.logger.critical("本区域没有需要开图的任务关卡...")

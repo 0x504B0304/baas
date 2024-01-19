@@ -223,7 +223,7 @@ class TestBaas(unittest.TestCase):
             # 'special_entrust_menu'
             # 'exchange_meeting_menu'
             # 'exchange_meeting_stage-list'
-            # 'exchange_meeting_no-ticket'
+            'exchange_meeting_no-ticket'
 
             # 'restart_news',
             # 'restart_menu',
@@ -399,7 +399,7 @@ class TestBaas(unittest.TestCase):
             # 'spa_227_unlock',
             # 'spa_227_guide',
 
-            'new_year_entrance',
+            # 'new_year_entrance',
             # 'new_year_menu',
             # 'new_year_guide',
         ]

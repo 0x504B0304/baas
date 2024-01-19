@@ -10,7 +10,7 @@ from PySide6.QtWidgets import QPushButton, QLabel, QSpacerItem, QSizePolicy
 from common import config
 from web import configs
 
-version = 'v2.1.1.1'
+version = 'v2.2.0'
 
 
 # 使用一个子线程打开浏览器
@@ -37,7 +37,7 @@ def start():
     msg_box.setWindowTitle('三连确认')
     # msg_box.setText('温泉活动v2.1.1已更新\n拒绝白嫖，一键三连。\n视频点赞+投币+收藏+分享\n累计超过1000\n助力up更新下个版本')
     msg_box.setText(
-        f'{version}已更新\n拒绝白嫖，一键三连\nGithub项目Star超过300\n或者\n视频点赞+投币+收藏+分享\n累计超过1000\n助力up更新下个版本(精神层面)\nstar教程在群公告中\n')
+        f'1月18日{version}新春活动已更新\n更新内容见开源地址\n拒绝白嫖，一键三连\nGithub项目Star超过300\n或者\n视频点赞+投币+收藏+分享\n累计超过1000\n助力up更新下个版本\nstar教程在群公告中\n')
 
     # 设置自定义文本按钮
     button_yes = QPushButton("现在就去")
@@ -117,7 +117,7 @@ def add_btn(layout):
     # 添加间隔
     hbox.addSpacing(10)  # 调整这个值来设置按钮之间的间隔大小
     # 创建第三个按钮并添加至水平布局
-    btn = get_btn('v2.1.1视频')
+    btn = get_btn('v2.2.0视频')
     btn.clicked.connect(open_bilibili)
     btn.setFixedSize(88, 28)
     hbox.addWidget(btn)
