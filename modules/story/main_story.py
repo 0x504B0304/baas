@@ -32,7 +32,10 @@ def to_main_story(self):
         'main_story_go-main-story': (58, 108),  # 最终装->主线剧情
         'main_story_choose-plot': (56, 38)  # 选择章节->返回
     }
-    ends = ('main_story_menu1', 'main_story_menu2')
+    ends = (
+        ('main_story_menu1', 0.85),
+        ('main_story_menu2', 0.8),
+    )
     home.to_menu(self, ends, pos)
 
 
@@ -174,9 +177,6 @@ def start_story(self):
 
 
 def select_part_and_chapter(self, part, chapter):
-    if self.game_server == 'cn':
-        select_story_cn(self, int(part), int(chapter))
-        return
     if part != 'final':
         stage.screen_swipe(self, reset=False, f=(50, 375, 1000, 375, 0.1))
         stage.screen_swipe(self, int(part), 3, reset=False, f=(820, 360, 50, 360, 0.1))

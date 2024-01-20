@@ -223,7 +223,7 @@ class TestBaas(unittest.TestCase):
             # 'special_entrust_menu'
             # 'exchange_meeting_menu'
             # 'exchange_meeting_stage-list'
-            'exchange_meeting_no-ticket'
+            # 'exchange_meeting_no-ticket'
 
             # 'restart_news',
             # 'restart_menu',
@@ -375,6 +375,7 @@ class TestBaas(unittest.TestCase):
             # 'buy_ap_buy1',
 
             # 'main_story_menu',
+            # 'main_story_menu1',
             # 'main_story_go-main-story',
             # 'main_story_story',
             # 'main_story_choose-plot',
@@ -421,14 +422,14 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'new_year'
-        self.to_server_all(new_year.start, (self,))
+        self.ttt = 'main_story'
+        self.to_server_all(main_story.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
         servers = ['cn']
         for server in servers:
-            self.con = '01_ff'
+            self.con = '1_cn'
             self.load_config()
             if hasattr(self, 'ttt'):
                 self.tc = self.bc[self.ttt]
