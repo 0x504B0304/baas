@@ -184,7 +184,7 @@ class Baas:
         wait = self.task_schedule(None)['waiting'][0]
         next_time = datetime.strptime(wait['next'], "%Y-%m-%d %H:%M:%S")
         if next_time >= datetime.now() + timedelta(seconds=600):
-            self.logger.warning("当前已开启 无任务时 关闭游戏开关，节约电脑资源")
+            self.logger.warning("当前已开启 无任务时 关闭游戏开关，节约电脑资源. 如需关闭到:Baas->Baas设置->禁用 关闭游戏设置")
             restart.only_stop(self)
             return True
         return False
