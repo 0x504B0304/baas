@@ -11,10 +11,17 @@ from modules.baas import home
 preset_position = {
     1: (808, 263), 2: (808, 393), 3: (808, 533), 4: (812, 393), 5: (812, 523)
 }
+# 好感排序
 fav_sort_position = {
     'cn': [(703, 149), (640, 270), (640, 343)],
     'intl': [(703, 149), (532, 319), (638, 392)],
     'jp': [(703, 149), (532, 319), (638, 392)],
+}
+# 精选排序
+selected_sort_position = {
+    'cn': [(703, 149), (533, 320), (640, 343)],
+    'intl': [(703, 149), (750, 320), (638, 392)],
+    'jp': [(703, 149), (750, 320), (640, 395)],
 }
 
 
@@ -32,8 +39,8 @@ def start(self, seconds=False):
     if not seconds:
         # 回到首页
         home.go_home(self)
-        # 进入咖啡厅
-        to_cafe(self)
+    # 进入咖啡厅
+    to_cafe(self)
     # 领取收益
     get_cafe_money(self)
     # 邀请妹子
@@ -210,11 +217,25 @@ def to_invitation_ticket(self):
 
 
 def do_invite_girl(self):
-    possible = {
-        'cafe_invitation-ticket': (787, 221),
-        'cafe_inv-confirm': (706, 497),
-    }
-    return image.detect(self, 'cafe_menu', possible)
+    y = 140
+    while True:
+        # 达到菜单页
+        if image.compare_image(self, 'cafe_menu', 0):
+            break
+        # 如果在邀请页面邀请学生
+        if image.compare_image(self, 'cafe_invitation-ticket', 0):
+            if y >= 540:
+                y = 140
+            y = y + 80
+            self.click(790, y, False)
+        else:
+            # 出现确认按钮
+            if image.compare_image(self, 'cafe_inv-confirm', 0):
+                self.click(706, 497, False)
+            else:
+                # 没有确认按钮则后退
+                self.click(1268, 58, False)
+        time.sleep(1)
 
 
 def invite_girl(self):
@@ -228,6 +249,7 @@ def invite_girl(self):
     to_invitation_ticket(self)
     set_fav_sort(self)
     do_invite_girl(self)
+    time.sleep(2)
 
 
 def set_fav_sort(self):
@@ -235,13 +257,22 @@ def set_fav_sort(self):
     设置好感度排序
     :param self:
     """
-    if not image.compare_image(self, 'cafe_inv-fav-level', 0):
-        for p in fav_sort_position[self.game_server]:
-            self.click(*p, False)
-            time.sleep(0.5)
-    # 检查好感度升序排序
-    n = self.tc['invite']['type'] == 'desc'
-    image.compare_image(self, 'cafe_inv-fav-sort', mis_fu=self.click, mis_argv=(814, 151, False), rate=0.5, n=n)
+    tp = self.tc['invite']['type']
+    if tp == 'fav_desc' or tp == 'fav_asc':
+        # 好感度升序排序
+        if not image.compare_image(self, 'cafe_inv-fav-level', 0):
+            for p in fav_sort_position[self.game_server]:
+                self.click(*p, False)
+                time.sleep(1)
+        n = tp == 'fav_desc'
+        image.compare_image(self, 'cafe_inv-fav-sort', mis_fu=self.click, mis_argv=(814, 151, False), rate=0.5, n=n)
+    else:
+        # 精选排序
+        if not image.compare_image(self, 'cafe_inv-sel-level', 0):
+            for p in selected_sort_position[self.game_server]:
+                self.click(*p, False)
+                time.sleep(1)
+        image.compare_image(self, 'cafe_inv-fav-sort', mis_fu=self.click, mis_argv=(814, 151, False), rate=0.5, n=True)
 
 
 def get_cafe_money(self):

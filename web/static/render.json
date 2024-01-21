@@ -613,11 +613,15 @@
             "items" : [
                 {
                     "name" : "好感度最低",
-                    "value" : "asc"
+                    "value" : "fav_asc"
                 },
                 {
                     "name" : "好感度最高",
-                    "value" : "desc"
+                    "value" : "fav_desc"
+                },
+                {
+                    "name" : "精选",
+                    "value" : "selected"
                 }
             ],
             "type" : "sel"

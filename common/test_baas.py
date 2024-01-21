@@ -215,7 +215,7 @@ class TestBaas(unittest.TestCase):
             # 'home_bus1',
             # 'home_student',
             # 'home_black',
-            'home_new-players',
+            # 'home_new-players',
 
             # 'wanted_menu',
             # 'wanted_stage-list'
@@ -269,6 +269,8 @@ class TestBaas(unittest.TestCase):
             # 'cafe_inc-fav',
             # 'cafe_give-gift',
             # 'cafe_inv-fav-level',
+            # 'cafe_inv-fav-sort',
+            # 'cafe_inv-sel-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
             # 'cafe_need-storage',
@@ -423,20 +425,20 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'momo_talk'
-        self.to_server_all(momo_talk.start, (self,))
+        self.ttt = 'cafe'
+        self.to_server_all(cafe.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['cn']
+        servers = ['1_intl']
         for server in servers:
-            self.con = '1_cn'
+            self.con = server
             self.load_config()
             if hasattr(self, 'ttt'):
                 self.tc = self.bc[self.ttt]
                 self.tc['task'] = self.ttt
             pkg = self.bc['baas']['base']['package']
-            if server == 'intl':
+            if server == '1_intl':
                 self.d.app_start(pkg, 'com.nexon.bluearchive.MxUnityPlayerActivity')
             else:
                 self.d.app_start(pkg)
