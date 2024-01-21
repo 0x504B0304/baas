@@ -215,6 +215,7 @@ class TestBaas(unittest.TestCase):
             # 'home_bus1',
             # 'home_student',
             # 'home_black',
+            'home_new-players',
 
             # 'wanted_menu',
             # 'wanted_stage-list'

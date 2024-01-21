@@ -68,7 +68,8 @@ def to_activity_page(self):
         'normal_task_task-info': (1084, 142),  # 任务信息
         'new_year_entrance': (1192, 204),  # 首页活动入口
         'new_year_guide': (1184, 156),  # 活动玩法指引
-        'spa_227_menu': (1234, 26)  # 上个活动 返回首页
+        'spa_227_menu': (1234, 26),  # 上个活动 返回首页
+        'home_new-players': (1234, 26)  # 新手指引 返回首页
     }
     image.detect(self, 'new_year_menu', pos, rate=2)
 
