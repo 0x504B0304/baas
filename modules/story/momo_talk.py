@@ -56,9 +56,9 @@ def set_unread_sort(self):
     :param self:
     """
     sd = {
-        'cn': [(509, 175, False), (449, 293, False), (451, 370, False)],
+        'cn': [(512, 177, False), (560, 294, False), (450, 420, False)],
         'intl': [(509, 175, False), (560, 294, False), (445, 422, False)],
-        'jp': [(509, 175, False), (554, 296, False), (449, 442, False)]
+        'jp': [(509, 175, False), (554, 296, False), (450, 442, False)]
     }
     if not image.compare_image(self, 'momo_talk_sort-field', 0):
         position = sd[self.game_server]

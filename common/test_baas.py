@@ -422,8 +422,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'new_year'
-        self.to_server_all(new_year.start, (self,))
+        self.ttt = 'momo_talk'
+        self.to_server_all(momo_talk.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
