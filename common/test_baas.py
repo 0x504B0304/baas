@@ -270,7 +270,7 @@ class TestBaas(unittest.TestCase):
             # 'cafe_give-gift',
             # 'cafe_inv-fav-level',
             # 'cafe_inv-fav-sort',
-            # 'cafe_inv-sel-level',
+            'cafe_inv-sel-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
             # 'cafe_need-storage',
@@ -430,7 +430,7 @@ class TestBaas(unittest.TestCase):
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['1_intl']
+        servers = ['1_cn']
         for server in servers:
             self.con = server
             self.load_config()
