@@ -425,12 +425,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'cafe'
-        self.to_server_all(cafe.start, (self,))
+        self.ttt = 'main_story'
+        self.to_server_all(main_story.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['1_cn']
+        servers = ['1_jp']
         for server in servers:
             self.con = server
             self.load_config()
