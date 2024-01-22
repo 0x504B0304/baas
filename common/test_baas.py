@@ -430,7 +430,7 @@ class TestBaas(unittest.TestCase):
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']
-        servers = ['1_jp']
+        servers = ['1_cn']
         for server in servers:
             self.con = server
             self.load_config()
