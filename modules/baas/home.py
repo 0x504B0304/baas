@@ -25,14 +25,14 @@ def go_home(self):
     restart.start(self)
 
 
-def to_menu(self, end, pos, cl=None):
+def to_menu(self, end, pos, cl=None, rate=None):
     possible = {
         'home_news': (1142, 104),  # 公告
         'home_news-intl': (1226, 54),  # 国际服公告
         'home_store-error': (641, 501),  # 商店错误弹窗
     }
     possible.update(pos)
-    image.detect(self, end, possible, cl=cl)
+    image.detect(self, end, possible, cl=cl, rate=rate)
 
 
 def click_house_under(self):

@@ -36,7 +36,7 @@ def to_main_story(self):
         ('main_story_menu1', 0.85),
         ('main_story_menu2', 0.8),
     )
-    home.to_menu(self, ends, pos)
+    home.to_menu(self, ends, pos, rate=1)
 
 
 def to_choose_story(self):
