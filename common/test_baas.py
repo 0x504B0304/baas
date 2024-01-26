@@ -270,7 +270,7 @@ class TestBaas(unittest.TestCase):
             # 'cafe_give-gift',
             # 'cafe_inv-fav-level',
             # 'cafe_inv-fav-sort',
-            'cafe_inv-sel-level',
+            # 'cafe_inv-sel-level',
             # 'cafe_inv-fav-sort',
             # 'cafe_inv-confirm',
             # 'cafe_need-storage',
@@ -279,6 +279,7 @@ class TestBaas(unittest.TestCase):
             # 'tutor_dept_title',
 
             # 'group_menu',
+            # 'group_guide',
             # 'group_sign-up-confirm',
 
             # 'mailbox_menu',
@@ -425,8 +426,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'main_story'
-        self.to_server_all(main_story.start, (self,))
+        self.ttt = 'group'
+        self.to_server_all(group.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['cn', 'jp', 'intl']

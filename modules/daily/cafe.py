@@ -48,10 +48,10 @@ def start(self, seconds=False):
     # 初始化窗口
     init_window(self)
     # 和妹子互动
-    if self.tc['interact']['interact_type'] == 'clear_furniture':
-        empty_furniture_click_girl(self)
-    else:
-        drag_gift_click_girl(self)
+    # if self.tc['interact']['interact_type'] == 'clear_furniture':
+    #     empty_furniture_click_girl(self)
+    # else:
+    drag_gift_click_girl(self)
     # 日服二号厅
     if self.game_server == 'jp' and not seconds:
         self.click(123, 100)

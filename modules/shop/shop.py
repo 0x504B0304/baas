@@ -20,7 +20,7 @@ goods_position = {
 
 def to_shop(self):
     pos = {
-        'home_student': (815, 645),  # 首页->商店
+        'home_student': (793, 645),  # 首页->商店
     }
     home.to_menu(self, 'shop_menu', pos)
 
