@@ -140,14 +140,15 @@ class TestBaas(unittest.TestCase):
         """
         测试运行关卡-开图
         """
-        task = 'exp_normal_task'
+        task = 'exp_hard_task'
         # task = 'exp_hard_task'
         levels = [
             # '6-1', '6-1-box', '6-2', '6-2-box', '6-3', '6-3-box',
             # '10-1',
             # '10-2-task',
             # '10-3-task',
-            '17-5',
+            # '16-1',
+            '17-3',
             # '7-1-box',
             # '6-2', '6-2-box', '6-3', '6-3-box',
 
