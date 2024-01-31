@@ -342,7 +342,7 @@ def start_action(self, gk, stage_data):
             origin = force_index
             while force_index == origin:
                 force_index = get_force(self)
-                time.sleep(0.5)
+                time.sleep(1)
         # 判断是否存在wait over事件
         if 'wo' in act:
             self.logger.info("等待战斗结束...")

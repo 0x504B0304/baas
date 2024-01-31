@@ -45,7 +45,7 @@ class TestBaas(unittest.TestCase):
         self.flag_run = True
         self.click_time = 0.0
         self.latest_img_array = None
-        self.con = '1_cn'
+        self.con = '1_jp'
         self.test = True
         self.load_config()
 
@@ -140,14 +140,14 @@ class TestBaas(unittest.TestCase):
         """
         测试运行关卡-开图
         """
-        # task = 'exp_normal_task'
-        task = 'exp_hard_task'
+        task = 'exp_normal_task'
+        # task = 'exp_hard_task'
         levels = [
             # '6-1', '6-1-box', '6-2', '6-2-box', '6-3', '6-3-box',
             # '10-1',
             # '10-2-task',
             # '10-3-task',
-            '13-2-task',
+            '17-5',
             # '7-1-box',
             # '6-2', '6-2-box', '6-3', '6-3-box',
 
@@ -430,8 +430,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(group.start, (self,))
 
     def to_server_all(self, fu, argv):
-        # servers = ['cn', 'jp', 'intl']
-        servers = ['1_cn']
+        # servers = ['1_cn', '1_jp', '1_intl']
+        servers = ['1_jp']
         for server in servers:
             self.con = server
             self.load_config()
