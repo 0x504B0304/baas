@@ -282,6 +282,7 @@ def get_cafe_money(self):
         return
     pos = {
         'cafe_reward-text': (1152, 664),
+        'cafe_students-arrived': (922, 189),  # 学生到访
     }
     rst = image.detect(self, ('cafe_0.0', 'cafe_get-reward'), pos)
     if rst == 'cafe_0.0':
