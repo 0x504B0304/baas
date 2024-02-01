@@ -236,6 +236,7 @@ class TestBaas(unittest.TestCase):
 
             # 'arena_id',
             # 'arena_cd',
+
             # 'arena_0-5',
             # 'arena_war-force',
             # 'arena_skip',
@@ -427,12 +428,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'group'
-        self.to_server_all(group.start, (self,))
+        self.ttt = 'arena'
+        self.to_server_all(arena.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['1_cn', '1_jp', '1_intl']
-        servers = ['1_jp']
+        servers = ['1_intl']
         for server in servers:
             self.con = server
             self.load_config()

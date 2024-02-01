@@ -163,8 +163,8 @@ def links():
             'name': 'Baas视频',
             'items': [
                 {
-                    'name': '【蔚蓝档案】Baas2.3.0发布 普通/困难17图 全自动开图',
-                    'link': ''
+                    'name': '【蔚蓝档案】Baas2.3.0发布 17图全自动开图!',
+                    'link': 'https://www.bilibili.com/video/BV1Dx4y1Z7nW'
                 }
             ]
         },
