@@ -163,12 +163,8 @@ def links():
             'name': 'Baas视频',
             'items': [
                 {
-                    'name': '【蔚蓝档案】Baas2.2.0发布 送BA月卡啦! 困难挑战 新春活动开图 学园交流会等等!',
-                    'link': 'https://www.bilibili.com/video/BV1bQ4y1w77a'
-                },
-                {
-                    'name': '【蔚蓝档案】温泉活动全自动开图&扫荡，Baas2.1.1发布啦🎉🎉🎉',
-                    'link': 'https://www.bilibili.com/video/BV1NG41167dp/'
+                    'name': '【蔚蓝档案】Baas2.3.0发布 普通/困难17图 全自动开图',
+                    'link': ''
                 }
             ]
         },
@@ -183,18 +179,21 @@ def links():
                     'name': '更新日志',
                     'link': 'https://github.com/baas-pro/baas'
                 },
-                {
-                    'name': '提交Bug',
-                    'link': 'https://github.com/baas-pro/baas/issues'
-                },
             ]
         },
         {
-            'name': '教程',
+            'name': '帮助/教程',
             'items': [
                 {
                     'name': '多开教程',
                     'link': 'https://www.bilibili.com/video/BV1ke411z7si/'
+                },
+                {
+                    'name': '已知BUG',
+                    'link': 'https://github.com/baas-pro/baas/issues'
+                }, {
+                    'name': '提交Bug',
+                    'link': 'https://github.com/baas-pro/baas/issues/new/choose'
                 },
             ]
         },

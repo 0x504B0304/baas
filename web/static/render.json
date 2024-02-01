@@ -1473,7 +1473,7 @@
             },
             "name" : "区域",
             "type" : "sel",
-            "desc" : "<style>table td{width:233px;}</style><table> <tr> <td colspan='3'>每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td> </tr> <tr> <td colspan='3' style='color:red;font-weight: bold;'>主力队必须1号队，副队队必须2号队，副副对必须3号队</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘</td> <td colspan='2'>16图 1队:贯穿 2队:神秘</td> </tr> </table> "
+            "desc" : "<style>table td{width:233px;}</style><table> <tr> <td colspan='3'>每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td> </tr> <tr> <td colspan='3' style='color:red;font-weight: bold;'>主力队必须1号队，副队队必须2号队，副副对必须3号队</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘</td> <td>16图 1队:贯穿 2队:神秘</td><td>17图 1队:爆发 2队:贯穿</td> </tr> </table> "
         },
         "config.mode" : {
             "items" : [
@@ -1611,7 +1611,7 @@
             },
             "name" : "区域",
             "type" : "sel",
-            "desc" : "<style>table td{width:233px;}</style><table> <tr><td colspan=\"3\">每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td></tr><tr> <td colspan=\"3\" style=\"color:red;font-weight: bold;\">主力队必须1号队，副队队必须2号队，副副对必须3号队️</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘 3队:贯穿</td><td  colspan=\"2\">16图 1队:贯穿 2队:神秘 3队:贯穿</td> </tr> </table>"
+            "desc" : "<style>table td{width:233px;}</style><table> <tr><td colspan=\"3\">每个区域章节要求的阵容不同，根据情况选择多个区域开图或补⭐</td></tr><tr> <td colspan=\"3\" style=\"color:red;font-weight: bold;\">主力队必须1号队，副队队必须2号队，副副对必须3号队️</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘 3队:贯穿</td><td>16图 1队:贯穿 2队:神秘 3队:贯穿</td> <td>17图 1队:爆发 2队:贯穿 3队:爆发</td></tr> </table>"
         },
         "config.mode" : {
             "items" : [
@@ -1742,7 +1742,7 @@
             "name" : "关卡设置"
         },
         "scan.stage" : {
-            "desc" : "<style>table td{width:233px;}</style><table> <tr><td colspan=\"3\">每个区域章节要求的阵容不同，根据自身练度配置队伍</td></tr><tr> <td colspan=\"3\" style=\"color:red;font-weight: bold;\">主力队必须1号队，副队队必须2号队，副副对必须3号队️</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘 3队:贯穿</td><td  colspan=\"2\">16图 1队:贯穿 2队:神秘 3队:贯穿</td> </tr> </table></br>一行一个配置。格式是: 区域-关卡</br>例如:10-1,11-2填写如下 <br/>10-1</br>11-2",
+            "desc" : "<style>table td{width:233px;}</style><table> <tr><td colspan=\"3\">每个区域章节要求的阵容不同，根据自身练度配置队伍</td></tr><tr> <td colspan=\"3\" style=\"color:red;font-weight: bold;\">主力队必须1号队，副队队必须2号队，副副对必须3号队️</td> </tr> <tr> <td>6图 1队:贯穿 2队:贯穿</td> <td>7图 1队:爆发 2队:爆发</td> <td>8图 1队:贯穿 2队:贯穿</td> </tr> <tr> <td>9图 1队:爆发 2队:贯穿</td> <td>10图 1队:爆发 2队:神秘</td> <td>11图 1队:贯穿 2队:神秘</td> </tr> <tr> <td>12图 1队:神秘 2队:爆发</td> <td>13图 1队:贯穿 2队:贯穿</td> <td>14图 1队:爆发 2队:神秘</td> </tr> <tr> <td>15图 1队:神秘 2队:神秘 3队:贯穿</td><td>16图 1队:贯穿 2队:神秘 3队:贯穿</td><td>17图 1队:爆发 2队:贯穿 3队:爆发</td> </tr> </table></br>一行一个配置。格式是: 区域-关卡</br>例如:10-1,11-2填写如下 <br/>10-1</br>11-2",
             "name" : "挑战关卡",
             "type" : "arr"
         }
