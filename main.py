@@ -23,7 +23,7 @@ def run_flask():
     f.register_blueprint(configs)
     ac = config.get_app_config()
     try:
-        f.run(debug=False, port=ac['port'])
+        f.run(debug=False, port=ac['port'], host='0.0.0.0')
     except UnicodeDecodeError as e:
         # Handle decoding errors specifically
         is_exit = True
