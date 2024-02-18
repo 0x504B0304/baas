@@ -9,7 +9,7 @@ import requests
 from flask import Flask
 
 import launcher
-from common import process, app, config
+from common import process, config, app
 from web.baas import baas
 from web.configs import configs
 
@@ -34,13 +34,13 @@ def run_flask():
         sys.exit(-1)
     except Exception as e:
         is_exit = True
-        # Handle other exceptions
         print("服务启动失败: ", str(e))
         sys.exit(-1)
 
 
 def check_flask_startup():
     global is_exit
+    time.sleep(1)
     ac = config.get_app_config()
     url = f"http://127.0.0.1:{ac['port']}/ping"
     for i in range(3):
@@ -49,7 +49,8 @@ def check_flask_startup():
         try:
             response = requests.get(url, timeout=2)
             if response.status_code == 200:
-                launcher.print_title("启动成功", "请点击打开Baas进入配置页面...")
+                launcher.print_title("启动成功", "")
+                app.open_baas()
                 break
             if i == 2:
                 launcher.print_title("启动失败",
@@ -89,12 +90,9 @@ if __name__ == '__main__':
         log = logging.getLogger('werkzeug')
         log.setLevel(logging.ERROR)
 
-        flask_thread = threading.Thread(target=run_flask)
-        flask_thread.daemon = True
-        flask_thread.start()
-        time.sleep(2)
         check_thread = threading.Thread(target=check_flask_startup)
         check_thread.daemon = True
         check_thread.start()
 
-        app.start()
+        run_flask()
+
