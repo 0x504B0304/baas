@@ -17,7 +17,7 @@ stage_data = {
             # 第四回合
             {'t': 'exchange', 'wo': True},
             {'t': 'click', 'p': (825, 545), 'wo': True},
-            {'t': 'click', 'p': (445, 435), 'wo': True},
+            {'t': 'click', 'p': (445, 435)},
         ]
     },
     '17-1-box': '17-1',
