@@ -384,26 +384,6 @@
             "mode" : 2
         }
     },
-    "new_year" : {
-        "base" : {
-            "enable" : true,
-            "index" : 300,
-            "next" : "2023-11-17 00:00:00",
-            "end" : "2024-02-01 14:00:00",
-            "interval" : 3600,
-            "link_task" : "",
-            "text" : "活动-新春狂想曲"
-        },
-        "exp" : {
-            "enable" : true
-        },
-        "scan" : {
-            "enable" : true,
-            "stage" : [
-                "12-max"
-            ]
-        }
-    },
     "challenge_hard_task" : {
         "base" : {
             "enable" : false,
@@ -419,6 +399,32 @@
                 "6-2",
                 "6-3",
                 "7-1"
+            ]
+        }
+    },
+    "cherry_blossoms" : {
+        "base" : {
+            "enable" : true,
+            "index" : 300,
+            "next" : "2023-11-17 00:00:00",
+            "end" : "2024-02-29 14:00:00",
+            "interval" : 3600,
+            "link_task" : "",
+            "text" : "活动-庆典大骚动"
+        },
+        "story_exp" : {
+            "enable" : true
+        },
+        "task_exp" : {
+            "enable" : true
+        },
+        "challenge_exp" : {
+            "enable" : true
+        },
+        "scan" : {
+            "enable" : true,
+            "stage" : [
+                "6-1"
             ]
         }
     }

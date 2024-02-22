@@ -2973,7 +2973,7 @@
             "type" : "arr"
         }
     },
-    "new_year" : {
+    "cherry_blossoms" : {
         "base" : {
             "name" : "功能设置"
         },
@@ -3082,11 +3082,27 @@
             "type" : "sel"
         },
         "base.text" : "skip",
-        "exp" : {
-            "name" : "开图设置"
+        "story_exp" : {
+            "name" : "故事开图"
         },
-        "exp.enable" : {
-            "desc" : "强制选择1,2,3队 爆发贯穿各配两个学生即可 用脚打",
+        "story_exp.enable" : {
+            "desc" : "强制选择1,2,3队",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "task_exp" : {
+            "name" : "任务开图"
+        },
+        "task_exp.enable" : {
+            "desc" : "强制选择1,2,3队",
+            "name" : "启用该功能",
+            "type" : "bool"
+        },
+        "challenge_exp" : {
+            "name" : "挑战开图"
+        },
+        "challenge_exp.enable" : {
+            "desc" : "强制选择1,2,3队",
             "name" : "启用该功能",
             "type" : "bool"
         },
@@ -3099,7 +3115,7 @@
             "type" : "bool"
         },
         "scan.stage" : {
-            "desc" : "一行一个配置。格式是: 关卡-次数</br><span style='color:red'>仅支持9-12关扫荡</span></br>例如:第10关打1次,第11关打2次,第12关最大次数填写如下 <br/>10-1</br>11-2</br>12-max",
+            "desc" : "一行一个配置。格式是: 关卡-次数</br><span style='color:red'>仅支持3-6关扫荡</span></br>例如:第4关打1次,第5关打2次,第6关最大次数填写如下 <br/>4-1</br>5-2</br>6-max",
             "name" : "扫荡关卡",
             "type" : "arr"
         }

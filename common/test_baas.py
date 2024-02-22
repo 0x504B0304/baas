@@ -18,7 +18,7 @@ from modules.reward import work_task
 from modules.shop import shop
 from modules.story import main_story, momo_talk
 from common import stage, process, config, log, encrypt
-from modules.activity import summer_vacation, spa_227, new_year
+from modules.activity import summer_vacation, spa_227, new_year, cherry_blossoms
 from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, cafe, schedule, make
@@ -214,7 +214,7 @@ class TestBaas(unittest.TestCase):
             # 'home_cafe-lock',
             # 'home_bus',
             # 'home_bus1',
-            'home_student',
+            # 'home_student',
             # 'home_setting',
             # 'home_black',
             # 'home_new-players',
@@ -410,6 +410,10 @@ class TestBaas(unittest.TestCase):
             # 'new_year_entrance',
             # 'new_year_menu',
             # 'new_year_guide',
+
+            # 'new_year_entrance',
+            'cherry_blossoms_menu',
+            # 'new_year_guide',
         ]
         stage.wait_loading(self)
         print("开始截图...")
@@ -431,12 +435,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'group'
-        self.to_server_all(group.start, (self,))
+        self.ttt = 'cherry_blossoms'
+        self.to_server_all(cherry_blossoms.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['1_cn', '1_jp', '1_intl']
-        servers = ['1_jp']
+        servers = ['1_cn']
         for server in servers:
             self.con = server
             self.load_config()
