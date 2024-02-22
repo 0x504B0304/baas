@@ -2,13 +2,6 @@ from common import image
 from modules.baas import restart
 
 
-def is_home(self):
-    """
-    是否为首页
-    """
-    return image.compare_image(self, 'home_student', 0)
-
-
 def go_home(self):
     """
     回到首页
@@ -47,7 +40,8 @@ def recursion_click_house(self):
         'home_news-intl': (1226, 54),  # 国际服公告
         'home_store-error': (6421, 501),  # 商店错误弹窗
     }
-    rst = image.detect(self, 'home_student', pos, cl=(1233, 11), retry=100)
+    ends = ('home_setting', 'home_student')
+    rst = image.detect(self, ends, pos, cl=(1233, 11), retry=100)
     if rst is None:
         self.logger.info("多次返回首页失败! 开始重启")
         return False

@@ -214,7 +214,8 @@ class TestBaas(unittest.TestCase):
             # 'home_cafe-lock',
             # 'home_bus',
             # 'home_bus1',
-            # 'home_student',
+            'home_student',
+            # 'home_setting',
             # 'home_black',
             # 'home_new-players',
 
@@ -413,11 +414,13 @@ class TestBaas(unittest.TestCase):
         stage.wait_loading(self)
         print("开始截图...")
         for asset in assets:
+            print(asset)
             base, file = asset.rsplit('_', 1)
             d = "{0}/{1}/{2}/".format(self.file_path, self.game_server, base)
             f = "../assets/images/{0}/{1}/{2}.png".format(self.game_server, base, file)
             image.screenshot_cut_old(self, asset, d, f)
         time.sleep(1)
+        print("开始校验")
         stage.wait_loading(self)
         for i in range(2):
             for asset in assets:
@@ -428,12 +431,12 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'arena'
-        self.to_server_all(arena.start, (self,))
+        self.ttt = 'group'
+        self.to_server_all(group.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['1_cn', '1_jp', '1_intl']
-        servers = ['1_intl']
+        servers = ['1_jp']
         for server in servers:
             self.con = server
             self.load_config()
