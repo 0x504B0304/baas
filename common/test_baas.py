@@ -18,7 +18,7 @@ from modules.reward import work_task
 from modules.shop import shop
 from modules.story import main_story, momo_talk
 from common import stage, process, config, log, encrypt
-from modules.activity import summer_vacation, spa_227, new_year, cherry_blossoms
+from modules.activity import summer_vacation, spa_227, new_year, cherry_blossoms, nun_magician
 from modules.attack import exchange_meeting, special_entrust, wanted, arena, normal_task, hard_task
 from modules.baas import restart, fhx, env_check
 from modules.daily import group, cafe, schedule, make
@@ -45,7 +45,7 @@ class TestBaas(unittest.TestCase):
         self.flag_run = True
         self.click_time = 0.0
         self.latest_img_array = None
-        self.con = '1_jp'
+        self.con = '1_cn'
         self.test = True
         self.load_config()
 
@@ -412,8 +412,10 @@ class TestBaas(unittest.TestCase):
             # 'new_year_guide',
 
             # 'new_year_entrance',
-            'cherry_blossoms_menu',
+            # 'cherry_blossoms_menu',
             # 'new_year_guide',
+
+            'nun_magician_menu'
         ]
         stage.wait_loading(self)
         print("开始截图...")
@@ -435,8 +437,8 @@ class TestBaas(unittest.TestCase):
         self.to_server_all(self.test_ss, ())
 
     def test_all_single_task(self):
-        self.ttt = 'cherry_blossoms'
-        self.to_server_all(cherry_blossoms.start, (self,))
+        self.ttt = 'nun_magician'
+        self.to_server_all(nun_magician.start, (self,))
 
     def to_server_all(self, fu, argv):
         # servers = ['1_cn', '1_jp', '1_intl']

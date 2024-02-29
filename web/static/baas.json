@@ -402,15 +402,15 @@
             ]
         }
     },
-    "cherry_blossoms" : {
+    "nun_magician" : {
         "base" : {
             "enable" : true,
             "index" : 300,
             "next" : "2023-11-17 00:00:00",
-            "end" : "2024-02-29 14:00:00",
+            "end" : "2024-03-14 14:00:00",
             "interval" : 3600,
             "link_task" : "",
-            "text" : "活动-庆典大骚动"
+            "text" : "活动-修女与魔法师"
         },
         "story_exp" : {
             "enable" : true

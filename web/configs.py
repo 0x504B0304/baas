@@ -132,7 +132,8 @@ def menus_list():
                 # {'name': 'summer_vacation', 'text': '日奈会长'},
                 # {'name': 'spa_227', 'text': '227号温泉乡'},
                 # {'name': 'new_year', 'text': '新春狂想曲'},
-                {'name': 'cherry_blossoms', 'text': '庆典大骚动'},
+                # {'name': 'cherry_blossoms', 'text': '庆典大骚动'},
+                {'name': 'nun_magician', 'text': '修女与魔法师'},
             ]
         }
     ]
@@ -164,6 +165,9 @@ def links():
             'name': 'Baas视频',
             'items': [
                 {
+                    'name': '【蔚蓝档案】Baas2.4.0发布 国服大骚动活动&日服更新!',
+                    'link': 'https://www.bilibili.com/video/BV1xH4y1J7Vx/'
+                }, {
                     'name': '【蔚蓝档案】Baas2.3.0发布 17图全自动开图!',
                     'link': 'https://www.bilibili.com/video/BV1Dx4y1Z7nW'
                 }
@@ -199,7 +203,7 @@ def links():
             ]
         },
         {
-            'name': '2/22 日服更新已修复,国服最新活动开图和扫荡已更新，更新详情见更新日志，麻烦左边开源仓库点个star然后B站关注一下呀，谢谢啦~',
+            'name': '2/29 国服活动 修女与魔法师 开图和扫荡已更新，更新详情见更新日志，麻烦左边开源仓库点个star然后B站关注一下呀，谢谢啦~',
             'items': []
         }
     ]

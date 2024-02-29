@@ -11,7 +11,7 @@ from flask import Flask
 import launcher
 from common import process, config, app
 from web.baas import baas
-from web.configs import configs
+from web.configs import configs, check_config
 
 is_exit = False
 
@@ -40,6 +40,7 @@ def run_flask():
 
 def check_flask_startup():
     global is_exit
+    check_config()
     time.sleep(1)
     ac = config.get_app_config()
     url = f"http://127.0.0.1:{ac['port']}/ping"

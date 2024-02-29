@@ -1,12 +1,10 @@
 import webbrowser
 from common import config
-from web import configs
 
-version = 'v2.3.0'
+version = 'v2.4.1'
 
 
 def open_baas():
-    configs.check_config()
     ac = config.get_app_config()
     webbrowser.open_new('http://localhost:{0}?v={1}'.format(ac['port'], version))
 
